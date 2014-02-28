@@ -1,0 +1,3 @@
+[submodule "workbench/psimone/platform-core"]
+	path = workbench/psimone/platform-core
+	url = git@bitbucket.org:psimone/pangea-core.git
