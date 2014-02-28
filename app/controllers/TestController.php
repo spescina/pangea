@@ -7,29 +7,24 @@ class TestController extends Controller implements ModuleInterface {
 
     use \Psimone\PlatformCore\Classes\ModuleTrait;
 
-    public function __construct(RepositoryInterface $model)
+    public function delete($id)
     {
-        $this->model = $model;
+        $this->doDelete($id);
     }
 
-    public function getDelete($id)
+    public function form($id = null)
     {
-        $this->delete($id);
+        $this->showForm($id);
     }
 
-    public function getEdit($id = null)
+    public function listing()
     {
-        $this->edit($id);
+        return $this->doListing();
     }
 
-    public function getListing()
+    public function store($id = null)
     {
-        $this->listing();
-    }
-
-    public function postEdit($id = null)
-    {
-        $this->store($id);
+        $this->doStore($id);
     }
 
 }
