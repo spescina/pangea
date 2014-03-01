@@ -10,16 +10,3 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
-Route::get('{model}/{action?}/{id?}', function($model, $action = 'listing', $id = null) {
-
-    $className = ucfirst($model);
-
-    $controllerName = $className . 'Controller';
-
-    $model = App::bind($className, new $className( new Psimone\PlatformCore\Classes\FluentRepository));
-
-    $controller = new $controllerName($model);
-
-    return $controller->$action();
-});
