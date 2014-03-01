@@ -3,6 +3,7 @@
 use Psimone\PlatformCore\Modules\ModuleInterface;
 use Psimone\PlatformCore\Models\BaseModel;
 use Psimone\PlatformCore\Modules\BaseController;
+use Psimone\PlatformCore\Facades\Table;
 
 class TestController extends BaseController implements ModuleInterface {
 
@@ -18,6 +19,12 @@ class TestController extends BaseController implements ModuleInterface {
 
 	public function listing()
 	{
+		Table::setColumns(array(
+			'field' => array(),
+			'field1' => array(),
+			'field2' => array()
+		));
+
 		return $this->doListing();
 	}
 
