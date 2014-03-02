@@ -19,11 +19,11 @@ class TestController extends BaseController implements ModuleInterface {
 
 	public function listing()
 	{
-		Table::setColumns(array(
+		/*Table::setColumns(array(
 			'field' => array(),
 			'field1' => array(),
 			'field2' => array()
-		));
+		));*/
 
 		return $this->doListing();
 	}
