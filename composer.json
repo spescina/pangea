@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-		"barryvdh/laravel-debugbar": "1.*"
+		"barryvdh/laravel-debugbar": "1.*",
+		"barryvdh/laravel-ide-helper": "1.*"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "3.7.*"
@@ -26,6 +27,8 @@
 			"php artisan optimize"
 		],
 		"post-update-cmd": [
+			"php artisan ide-helper:generate",
+			"php artisan debugbar:publish",
 			"php artisan clear-compiled",
 			"php artisan optimize"
 		],
