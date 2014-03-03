@@ -1,11 +1,11 @@
 <?php namespace Psimone\PlatformCore\Modules;
 
 use Psimone\PlatformCore\Modules\ModuleInterface;
-use Psimone\PlatformCore\Models\BaseModel;
 use Psimone\PlatformCore\Modules\BaseController;
 use Psimone\PlatformCore\Facades\Table;
 
-class TestController extends BaseController implements ModuleInterface {
+class TestController extends BaseController implements ModuleInterface
+{
 
 	public function delete($id)
 	{
@@ -19,11 +19,11 @@ class TestController extends BaseController implements ModuleInterface {
 
 	public function listing()
 	{
-		/*Table::setColumns(array(
-			'field' => array(),
+		Table::columns(array(
 			'field1' => array(),
-			'field2' => array()
-		));*/
+			'field2' => array(),
+			'field3' => array()
+		));
 
 		return $this->doListing();
 	}
@@ -32,5 +32,4 @@ class TestController extends BaseController implements ModuleInterface {
 	{
 		$this->doStore($id);
 	}
-
 }
