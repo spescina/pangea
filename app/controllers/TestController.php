@@ -19,7 +19,7 @@ class TestController extends BaseController implements ModuleInterface
 
 	public function listing()
 	{
-		Table::setColumns(array(
+		Table::columns(array(
 			'field1' => array(),
 			'field2' => array(),
 			'field3' => array()
