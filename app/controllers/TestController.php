@@ -21,7 +21,7 @@ class TestController extends BaseController implements ModuleInterface
 			'field3' => array('type' => 'textarea')
 		));
 		
-		$this->showForm($id);
+		return $this->showForm($id);
 	}
 
 	public function listing()
