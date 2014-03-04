@@ -2,6 +2,7 @@
 
 use Psimone\PlatformCore\Modules\ModuleInterface;
 use Psimone\PlatformCore\Modules\BaseController;
+use Psimone\PlatformCore\Facades\Form;
 use Psimone\PlatformCore\Facades\Table;
 
 class TestController extends BaseController implements ModuleInterface
@@ -14,6 +15,12 @@ class TestController extends BaseController implements ModuleInterface
 
 	public function form($id = null)
 	{
+		Form::fields(array(
+			'field1' => array('type' => 'text'),
+			'field2' => array('type' => 'textarea'),
+			'field3' => array('type' => 'textarea')
+		));
+		
 		$this->showForm($id);
 	}
 
