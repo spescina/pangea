@@ -32,7 +32,7 @@ class TestController extends BaseController implements Module
 
 	public function listing()
 	{
-		Table::columns(array(
+		Table::fields(array(
 			'field1' => array(),
 			'field2' => array(),
 			'field3' => array()
