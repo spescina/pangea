@@ -16,5 +16,7 @@ return array(
 		'field3' => 'Field 3',
 	),
 	'help' => array(),
-	'panels' => array()
+	'panels' => array(
+		'test' => 'Test Panel'
+	)
 );

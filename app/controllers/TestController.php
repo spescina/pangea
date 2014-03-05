@@ -21,6 +21,8 @@ class TestController extends BaseController implements Module
 			'field3' => array('type' => 'textarea')
 		));
 		
+		Form::panel('test');
+		
 		return $this->showForm($id);
 	}
 
