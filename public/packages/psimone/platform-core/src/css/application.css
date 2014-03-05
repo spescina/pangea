@@ -1,8 +1,20 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/simo\/Development\/web\.dev\/www\/pangea\/workbench\/psimone\/platform-core\/public\/src\/css\/scss\/application\.scss}line{font-family:\000031}}
 body > .container > .row {
   margin-top: 70px; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/simo\/Development\/web\.dev\/www\/pangea\/workbench\/psimone\/platform-core\/public\/src\/css\/scss\/application\.scss}line{font-family:\000033}}
 .nav-tabs {
   margin-bottom: 20px; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/simo\/Development\/web\.dev\/www\/pangea\/workbench\/psimone\/platform-core\/public\/src\/css\/scss\/application\.scss}line{font-family:\000037}}
 .pagination {
   margin: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/simo\/Development\/web\.dev\/www\/pangea\/workbench\/psimone\/platform-core\/public\/src\/css\/scss\/application\.scss}line{font-family:\0000311}}
+textarea.form-control {
+  height: 150px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/simo\/Development\/web\.dev\/www\/pangea\/workbench\/psimone\/platform-core\/public\/src\/css\/scss\/application\.scss}line{font-family:\0000313}}
+.note-editor .note-editable {
+  overflow: hidden;
+  height: 150px; }

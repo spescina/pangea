@@ -5,7 +5,7 @@ return array(
 		'title' => 'Test management',
 		'subtitle' => 'Sed nec est non nisi accumsan auctor. Aenean quam metus, aliquet id fringilla vitae, sodales id orci.'
 	),
-	'listing' => array(
+	'table' => array(
 		'field1' => 'Field 1',
 		'field2' => 'Field 2',
 		'field3' => 'Field 3',

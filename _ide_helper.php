@@ -2511,9 +2511,6 @@ class Config extends Illuminate\Support\Facades\Config{
 
 }
 
-class Controller extends Illuminate\Routing\Controller{
-}
-
 class Cookie extends Illuminate\Support\Facades\Cookie{
 	/**
 	 * Create a new cookie instance.
@@ -7156,23 +7153,217 @@ class Input extends Illuminate\Support\Facades\Input{
 
 }
 
-class Lang extends Psimone\PlatformCore\Facades\Language{
+class Lang extends Illuminate\Support\Facades\Lang{
 	/**
-	 * 
+	 * Create a new translator instance.
 	 *
+	 * @param \Illuminate\Translation\LoaderInterface  $loader
+	 * @param string  $locale
+	 * @return void
 	 * @static 
 	 */
-	 public static function get($key, $replace = array(), $locale = null){
-		 Psimone\PlatformCore\Language::get($key, $replace, $locale);
+	 public static function __construct($loader, $locale){
+		 Illuminate\Translation\Translator::__construct($loader, $locale);
 	 }
 
 	/**
-	 * 
+	 * Determine if a translation exists.
 	 *
+	 * @param string  $key
+	 * @param string  $locale
+	 * @return bool
 	 * @static 
 	 */
 	 public static function has($key, $locale = null){
-		 Psimone\PlatformCore\Language::has($key, $locale);
+		return Illuminate\Translation\Translator::has($key, $locale);
+	 }
+
+	/**
+	 * Get the translation for the given key.
+	 *
+	 * @param string  $key
+	 * @param array   $replace
+	 * @param string  $locale
+	 * @return string
+	 * @static 
+	 */
+	 public static function get($key, $replace = array(), $locale = null){
+		return Illuminate\Translation\Translator::get($key, $replace, $locale);
+	 }
+
+	/**
+	 * Get a translation according to an integer value.
+	 *
+	 * @param string  $key
+	 * @param int     $number
+	 * @param array   $replace
+	 * @param string  $locale
+	 * @return string
+	 * @static 
+	 */
+	 public static function choice($key, $number, $replace = array(), $locale = null){
+		return Illuminate\Translation\Translator::choice($key, $number, $replace, $locale);
+	 }
+
+	/**
+	 * Get the translation for a given key.
+	 *
+	 * @param string  $id
+	 * @param array   $parameters
+	 * @param string  $domain
+	 * @param string  $locale
+	 * @return string
+	 * @static 
+	 */
+	 public static function trans($id, $parameters = array(), $domain = 'messages', $locale = null){
+		return Illuminate\Translation\Translator::trans($id, $parameters, $domain, $locale);
+	 }
+
+	/**
+	 * Get a translation according to an integer value.
+	 *
+	 * @param string  $id
+	 * @param int     $number
+	 * @param array   $parameters
+	 * @param string  $domain
+	 * @param string  $locale
+	 * @return string
+	 * @static 
+	 */
+	 public static function transChoice($id, $number, $parameters = array(), $domain = 'messages', $locale = null){
+		return Illuminate\Translation\Translator::transChoice($id, $number, $parameters, $domain, $locale);
+	 }
+
+	/**
+	 * Load the specified language group.
+	 *
+	 * @param string  $namespace
+	 * @param string  $group
+	 * @param string  $locale
+	 * @return void
+	 * @static 
+	 */
+	 public static function load($namespace, $group, $locale){
+		 Illuminate\Translation\Translator::load($namespace, $group, $locale);
+	 }
+
+	/**
+	 * Add a new namespace to the loader.
+	 *
+	 * @param string  $namespace
+	 * @param string  $hint
+	 * @return void
+	 * @static 
+	 */
+	 public static function addNamespace($namespace, $hint){
+		 Illuminate\Translation\Translator::addNamespace($namespace, $hint);
+	 }
+
+	/**
+	 * Parse a key into namespace, group, and item.
+	 *
+	 * @param string  $key
+	 * @return array
+	 * @static 
+	 */
+	 public static function parseKey($key){
+		return Illuminate\Translation\Translator::parseKey($key);
+	 }
+
+	/**
+	 * Get the message selector instance.
+	 *
+	 * @return \Symfony\Component\Translation\MessageSelector
+	 * @static 
+	 */
+	 public static function getSelector(){
+		return Illuminate\Translation\Translator::getSelector();
+	 }
+
+	/**
+	 * Set the message selector instance.
+	 *
+	 * @param \Symfony\Component\Translation\MessageSelector  $selector
+	 * @return void
+	 * @static 
+	 */
+	 public static function setSelector($selector){
+		 Illuminate\Translation\Translator::setSelector($selector);
+	 }
+
+	/**
+	 * Get the language line loader implementation.
+	 *
+	 * @return \Illuminate\Translation\LoaderInterface
+	 * @static 
+	 */
+	 public static function getLoader(){
+		return Illuminate\Translation\Translator::getLoader();
+	 }
+
+	/**
+	 * Get the default locale being used.
+	 *
+	 * @return string
+	 * @static 
+	 */
+	 public static function locale(){
+		return Illuminate\Translation\Translator::locale();
+	 }
+
+	/**
+	 * Get the default locale being used.
+	 *
+	 * @return string
+	 * @static 
+	 */
+	 public static function getLocale(){
+		return Illuminate\Translation\Translator::getLocale();
+	 }
+
+	/**
+	 * Set the default locale.
+	 *
+	 * @param string  $locale
+	 * @return void
+	 * @static 
+	 */
+	 public static function setLocale($locale){
+		 Illuminate\Translation\Translator::setLocale($locale);
+	 }
+
+	/**
+	 * Set the fallback locale being used.
+	 *
+	 * @return string
+	 * @static 
+	 */
+	 public static function getFallback(){
+		return Illuminate\Translation\Translator::getFallback();
+	 }
+
+	/**
+	 * Set the fallback locale being used.
+	 *
+	 * @param string  $fallback
+	 * @return void
+	 * @static 
+	 */
+	 public static function setFallback($fallback){
+		 Illuminate\Translation\Translator::setFallback($fallback);
+	 }
+
+	/**
+	 * Set the parsed value of a key.
+	 *
+	 * @param string  $key
+	 * @param array   $parsed
+	 * @return void
+	 * @static 
+	 */
+	 public static function setParsedKey($key, $parsed){
+		//Method inherited from Illuminate\Support\NamespacedItemResolver
+		 Illuminate\Translation\Translator::setParsedKey($key, $parsed);
 	 }
 
 }
@@ -12131,80 +12322,14 @@ class Debugbar extends Barryvdh\Debugbar\Facade{
 
 }
 
-class TableBlock extends Psimone\PlatformCore\Facades\Table{
-	/**
-	 * 
-	 *
-	 * @static 
-	 */
-	 public static function getView(){
-		//Method inherited from Psimone\PlatformCore\Html\BaseComponent
-		 Psimone\PlatformCore\Html\Table::getView();
-	 }
-
-	/**
-	 * 
-	 *
-	 * @static 
-	 */
-	 public static function addVar($key, $value){
-		//Method inherited from Psimone\PlatformCore\Html\BaseComponent
-		 Psimone\PlatformCore\Html\Table::addVar($key, $value);
-	 }
-
-	/**
-	 * 
-	 *
-	 * @static 
-	 */
-	 public static function show(){
-		//Method inherited from Psimone\PlatformCore\Html\BaseComponent
-		 Psimone\PlatformCore\Html\Table::show();
-	 }
-
-}
-
-class FormBlock extends Psimone\PlatformCore\Facades\Form{
-	/**
-	 * 
-	 *
-	 * @static 
-	 */
-	 public static function getView(){
-		//Method inherited from Psimone\PlatformCore\Html\BaseComponent
-		 Psimone\PlatformCore\Html\Form::getView();
-	 }
-
-	/**
-	 * 
-	 *
-	 * @static 
-	 */
-	 public static function addVar($key, $value){
-		//Method inherited from Psimone\PlatformCore\Html\BaseComponent
-		 Psimone\PlatformCore\Html\Form::addVar($key, $value);
-	 }
-
-	/**
-	 * 
-	 *
-	 * @static 
-	 */
-	 public static function show(){
-		//Method inherited from Psimone\PlatformCore\Html\BaseComponent
-		 Psimone\PlatformCore\Html\Form::show();
-	 }
-
-}
-
-class NavigationBlock extends Psimone\PlatformCore\Facades\Navigation{
+class PBreadcrumbs extends Psimone\PlatformCore\Facades\Breadcrumbs{
 	/**
 	 * 
 	 *
 	 * @static 
 	 */
 	 public static function load(){
-		 Psimone\PlatformCore\Html\Navigation::load();
+		 Psimone\PlatformCore\Components\Breadcrumbs::load();
 	 }
 
 	/**
@@ -12212,9 +12337,8 @@ class NavigationBlock extends Psimone\PlatformCore\Facades\Navigation{
 	 *
 	 * @static 
 	 */
-	 public static function getView(){
-		//Method inherited from Psimone\PlatformCore\Html\BaseComponent
-		 Psimone\PlatformCore\Html\Navigation::getView();
+	 public static function item($slug){
+		 Psimone\PlatformCore\Components\Breadcrumbs::item($slug);
 	 }
 
 	/**
@@ -12222,9 +12346,8 @@ class NavigationBlock extends Psimone\PlatformCore\Facades\Navigation{
 	 *
 	 * @static 
 	 */
-	 public static function addVar($key, $value){
-		//Method inherited from Psimone\PlatformCore\Html\BaseComponent
-		 Psimone\PlatformCore\Html\Navigation::addVar($key, $value);
+	 public static function items(){
+		 Psimone\PlatformCore\Components\Breadcrumbs::items();
 	 }
 
 	/**
@@ -12233,20 +12356,226 @@ class NavigationBlock extends Psimone\PlatformCore\Facades\Navigation{
 	 * @static 
 	 */
 	 public static function show(){
-		//Method inherited from Psimone\PlatformCore\Html\BaseComponent
-		 Psimone\PlatformCore\Html\Navigation::show();
+		 Psimone\PlatformCore\Components\Breadcrumbs::show();
 	 }
 
 }
 
-class Application extends Psimone\PlatformCore\Facades\Application{
+class PForm extends Psimone\PlatformCore\Facades\Form{
 	/**
 	 * 
 	 *
 	 * @static 
 	 */
-	 public static function setupAssets(){
-		 Psimone\PlatformCore\Application::setupAssets();
+	 public static function __construct(){
+		 Psimone\PlatformCore\Components\Form::__construct();
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function fields($fields){
+		 Psimone\PlatformCore\Components\Form::fields($fields);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function record(){
+		 Psimone\PlatformCore\Components\Form::record();
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function isEmpty(){
+		 Psimone\PlatformCore\Components\Form::isEmpty();
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function load($id){
+		 Psimone\PlatformCore\Components\Form::load($id);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function panel($slug, $active = false){
+		 Psimone\PlatformCore\Components\Form::panel($slug, $active);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function activePanel($slug){
+		 Psimone\PlatformCore\Components\Form::activePanel($slug);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function panels(){
+		 Psimone\PlatformCore\Components\Form::panels();
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function show(){
+		 Psimone\PlatformCore\Components\Form::show();
+	 }
+
+}
+
+class PNavigation extends Psimone\PlatformCore\Facades\Navigation{
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function load(){
+		 Psimone\PlatformCore\Components\Navigation::load();
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function item($slug, $url){
+		 Psimone\PlatformCore\Components\Navigation::item($slug, $url);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function items(){
+		 Psimone\PlatformCore\Components\Navigation::items();
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function show(){
+		 Psimone\PlatformCore\Components\Navigation::show();
+	 }
+
+}
+
+class PTable extends Psimone\PlatformCore\Facades\Table{
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function fields($fields){
+		 Psimone\PlatformCore\Components\Table::fields($fields);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function isEmpty(){
+		 Psimone\PlatformCore\Components\Table::isEmpty();
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function head(){
+		 Psimone\PlatformCore\Components\Table::head();
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function body(){
+		 Psimone\PlatformCore\Components\Table::body();
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function actions(){
+		 Psimone\PlatformCore\Components\Table::actions();
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function load(){
+		 Psimone\PlatformCore\Components\Table::load();
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function show(){
+		 Psimone\PlatformCore\Components\Table::show();
+	 }
+
+}
+
+class Language extends Psimone\PlatformCore\Facades\Language{
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function get($key, $replace = array(), $locale = null){
+		 Psimone\PlatformCore\i18n\Language::get($key, $replace, $locale);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function has($key, $locale = null){
+		 Psimone\PlatformCore\i18n\Language::has($key, $locale);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function namespaced($key, $custom = false){
+		 Psimone\PlatformCore\i18n\Language::namespaced($key, $custom);
 	 }
 
 }

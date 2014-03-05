@@ -7,3 +7,7 @@ body > .container > .row { margin-top: 70px; }
 .pagination {
     margin: 0;
 }
+
+textarea.form-control { height: 150px; } 
+
+.note-editor .note-editable { overflow: hidden; height: 150px; }
