@@ -49,7 +49,6 @@ $(function(){
     
     $("textarea.rich").summernote({
         toolbar: [
-            ['style', ['style']],
             ['style', ['bold', 'italic', 'underline', 'clear']],
             ['fontsize', ['fontsize']],
             ['color', ['color']],
