@@ -17,11 +17,15 @@ class TestController extends BaseController implements Module
 	{
 		Form::fields(array(
 			'field1' => array('type' => 'text'),
-			'field2' => array('type' => 'textarea'),
-			'field3' => array('type' => 'textarea')
+			'field2' => array('type' => 'textarea')
 		));
 		
 		Form::panel('test');
+		Form::activePanel('test');
+		
+		Form::fields(array(
+			'field3' => array('type' => 'rich', 'fieldWidth' => 9)
+		));
 		
 		return $this->showForm($id);
 	}
