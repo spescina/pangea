@@ -16,14 +16,34 @@ class TestController extends BaseController implements Module
 	{
 		Form::fields(array(
 		    'field1' => array('type' => 'text'),
-		    'field2' => array('type' => 'textarea')
+		    'field2' => array('type' => 'password'),
+		    'field3' => array('type' => 'date'),
+		    'field4' => array('type' => 'datetime'),
+		    'field5' => array('type' => 'time'),
 		));
 
-		Form::panel('test');
-		Form::activePanel('test');
+		Form::panel('textarea');
+		Form::activePanel('textarea');
 
 		Form::fields(array(
-		    'field3' => array('type' => 'rich', 'fieldWidth' => 9)
+		    'field6' => array('type' => 'textarea', 'fieldWidth' => 9),
+		    'field7' => array('type' => 'rich', 'fieldWidth' => 9)
+		));
+
+		Form::panel('dropdowns');
+		Form::activePanel('dropdowns');
+
+		Form::fields(array(
+		    'field8' => array('type' => 'dropdown', 'entries' => array(
+			1 => 'A',
+			2 => 'B',
+			3 => 'C',
+		    )),
+		    'field9' => array('type' => 'multidropdown', 'entries' => array(
+			1 => 'A',
+			2 => 'B',
+			3 => 'C',
+		    ))
 		));
 
 		return $this->showForm($id);
@@ -42,10 +62,7 @@ class TestController extends BaseController implements Module
 
 	public function store($id = null)
 	{
-		Form::rules(array(
-		    'field1' => array('required'),
-		    'field2' => array('integer')
-		));
+		Form::rules(array());
 
 		return $this->doStore($id);
 	}
