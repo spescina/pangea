@@ -4,6 +4,7 @@ use Psimone\PlatformCore\Interfaces\Module;
 use Psimone\PlatformCore\Controllers\BaseController;
 use Psimone\PlatformCore\Facades\Form;
 use Psimone\PlatformCore\Facades\Table;
+use Psimone\PlatformCore\Models\Test;
 
 class TestController extends BaseController implements Module
 {
@@ -15,31 +16,29 @@ class TestController extends BaseController implements Module
 	public function form($id = null)
 	{
 		Form::fields(array(
-		    'field1' => array('type' => 'text'),
-		    'field2' => array('type' => 'password'),
-		    'field3' => array('type' => 'date'),
-		    'field4' => array('type' => 'datetime'),
-		    'field5' => array('type' => 'time'),
+		    'text' => array('type' => 'text'),
+		    'password' => array('type' => 'password'),
+		    'date' => array('type' => 'date'),
+		    'datetime' => array('type' => 'datetime'),
+		    'time' => array('type' => 'time'),
 		));
 
 		Form::panel('textarea');
 		Form::activePanel('textarea');
 
 		Form::fields(array(
-		    'field6' => array('type' => 'textarea', 'fieldWidth' => 9),
-		    'field7' => array('type' => 'rich', 'fieldWidth' => 9)
+		    'textarea' => array('type' => 'textarea', 'fieldWidth' => 9),
+		    'rich' => array('type' => 'rich', 'fieldWidth' => 9)
 		));
 
 		Form::panel('dropdowns');
 		Form::activePanel('dropdowns');
 
+		$tests = Test::all();
+
 		Form::fields(array(
-		    'field8' => array('type' => 'dropdown', 'entries' => array(
-			1 => 'A',
-			2 => 'B',
-			3 => 'C',
-		    )),
-		    'field9' => array('type' => 'multidropdown', 'entries' => array(
+		    'dropdown' => array('type' => 'dropdown', 'entries' => Form::modelToDropdown($tests, 'text')),
+		    'multidropdown' => array('type' => 'multidropdown', 'entries' => array(
 			1 => 'A',
 			2 => 'B',
 			3 => 'C',
@@ -52,9 +51,9 @@ class TestController extends BaseController implements Module
 	public function listing()
 	{
 		Table::fields(array(
-		    'field1' => array(),
-		    'field2' => array(),
-		    'field3' => array()
+		    'text' => array(),
+		    'date' => array(),
+		    'time' => array()
 		));
 
 		return $this->doListing();
