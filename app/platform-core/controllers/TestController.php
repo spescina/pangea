@@ -45,6 +45,18 @@ class TestController extends BaseController implements Module
 		    ))
 		));
 
+		Form::panel('checkradio');
+		Form::activePanel('checkradio');
+
+		Form::fields(array(
+		    'checkbox' => array('type' => 'checkbox'),
+		    'radiobutton' => array('type' => 'radiobutton', 'entries' => array(
+			'a' => 1,
+			'b' => 2,
+			'c' => 3
+		    ))
+		));
+
 		return $this->showForm($id);
 	}
 
