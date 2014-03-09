@@ -6,4 +6,6 @@ class Test extends BaseModel {
 
 	protected $table = 'tests';
 
+	protected $order = array('text', 'desc');
+
 }
