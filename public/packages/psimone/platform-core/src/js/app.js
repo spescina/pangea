@@ -9,9 +9,9 @@ $(function(){
         trigger: 'hover'
     });
     
-    $(".alert").alert();
+    $('.alert').alert();
     
-    $(".modalDelete").on('click', null, function(e){
+    $('.modalDelete').on('click', null, function(e){
         e.preventDefault();
         
         $('#deleteModal')
@@ -19,7 +19,7 @@ $(function(){
             .modal('show');
     });
     
-    $("#deleteConfirm").bind('click', function(){
+    $('#deleteConfirm').bind('click', function(){
         window.location.href = $('#deleteModal').data('href');
     });
     
@@ -34,7 +34,7 @@ $(function(){
     $('.date.datetime').datetimepicker({});
     
     
-    $(".lightbox").fancybox({
+    $('.lightbox').fancybox({
         maxHeight: 800,
         maxWidth: 600,
         minHeight: 480,
@@ -47,7 +47,7 @@ $(function(){
         closeBtn: false
     });
     
-    $("textarea.rich").summernote({
+    $('textarea.rich').summernote({
         toolbar: [
             ['style', ['bold', 'italic', 'underline', 'clear']],
             ['fontsize', ['fontsize']],
@@ -56,5 +56,10 @@ $(function(){
             ['height', ['height']],
             ['insert', ['link']]
         ]
+    });
+    
+    $('.btn.search').bind('click', function(e){
+        e.preventDefault();
+        $('.table tr.filters').toggleClass('hidden');
     });
 });

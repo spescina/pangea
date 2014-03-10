@@ -11,3 +11,7 @@ body > .container > .row { margin-top: 70px; }
 textarea.form-control { height: 150px; } 
 
 .note-editor .note-editable { overflow: hidden; height: 150px; }
+
+.table > tbody > tr.filters {
+     > td { background-color: #f5f5f5; }
+}

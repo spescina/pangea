@@ -18,3 +18,7 @@ textarea.form-control {
 .note-editor .note-editable {
   overflow: hidden;
   height: 150px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/simo\/Development\/web\.dev\/www\/pangea\/workbench\/psimone\/platform-core\/public\/src\/css\/scss\/application\.scss}line{font-family:\0000316}}
+.table > tbody > tr.filters > td {
+  background-color: #f5f5f5; }

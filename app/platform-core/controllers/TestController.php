@@ -67,7 +67,7 @@ class TestController extends BaseController implements Module
 	{
 		Table::fields(array(
 		    'text' => array(),
-		    'date' => array(),
+		    'date' => array('filterable' => false),
 		    'time' => array()
 		));
 
