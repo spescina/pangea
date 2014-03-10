@@ -19,7 +19,7 @@ return array(
 	'time' => 'Time',
 	'textarea' => 'Textarea',
 	'rich' => 'Rich',
-	'dropdown' => 'Dropdown',
+	'reference_id' => 'Dropdown',
 	'multidropdown' => 'Multidropdown',
 	'checkbox' => 'Checkbox',
 	'radiobutton' => 'Radiobutton',

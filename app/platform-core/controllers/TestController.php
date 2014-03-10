@@ -4,7 +4,7 @@ use Psimone\PlatformCore\Interfaces\Module;
 use Psimone\PlatformCore\Controllers\BaseController;
 use Psimone\PlatformCore\Facades\Form;
 use Psimone\PlatformCore\Facades\Table;
-use Psimone\PlatformCore\Models\Test;
+use Psimone\PlatformCore\Models\Reference;
 
 class TestController extends BaseController implements Module
 {
@@ -34,10 +34,13 @@ class TestController extends BaseController implements Module
 		Form::panel('dropdowns');
 		Form::activePanel('dropdowns');
 
-		$tests = Test::all();
+		$reference = new Reference;
 
 		Form::fields(array(
-		    'dropdown' => array('type' => 'dropdown', 'entries' => Form::modelToDropdown($tests, 'text')),
+		    'reference_id' => array(
+			'type' => 'dropdown',
+			'entries' => Form::modelToDropdown($reference->entries(), 'field')
+		    ),
 		    'multidropdown' => array('type' => 'multidropdown', 'entries' => array(
 			1 => 'A',
 			2 => 'B',
