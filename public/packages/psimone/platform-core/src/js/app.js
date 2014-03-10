@@ -60,6 +60,7 @@ $(function(){
     
     $('.btn.search').bind('click', function(e){
         e.preventDefault();
+        $(this).toggleClass('active');
         $('.table tr.filters').toggleClass('hidden');
     });
 });

@@ -66,7 +66,7 @@ class TestController extends BaseController implements Module
 	public function listing()
 	{
 		Table::fields(array(
-		    'text' => array('columnWidth' => 4),
+		    'text' => array('columnWidth' => 3),
 		    'date' => array('columnWidth' => 2, 'filterable' => false),
 		    'time' => array('columnWidth' => 2)
 		));

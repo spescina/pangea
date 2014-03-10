@@ -19,6 +19,20 @@ textarea.form-control {
   overflow: hidden;
   height: 150px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/simo\/Development\/web\.dev\/www\/pangea\/workbench\/psimone\/platform-core\/public\/src\/css\/scss\/application\.scss}line{font-family:\0000316}}
-.table > tbody > tr.filters > td {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/simo\/Development\/web\.dev\/www\/pangea\/workbench\/psimone\/platform-core\/public\/src\/css\/scss\/application\.scss}line{font-family:\0000317}}
+.table tr td:last-child, .table tr th:last-child {
+  text-align: right; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/simo\/Development\/web\.dev\/www\/pangea\/workbench\/psimone\/platform-core\/public\/src\/css\/scss\/application\.scss}line{font-family:\0000321}}
+.table tr.filters td {
+  padding: 5px;
+  margin: 0;
   background-color: #f5f5f5; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/simo\/Development\/web\.dev\/www\/pangea\/workbench\/psimone\/platform-core\/public\/src\/css\/scss\/application\.scss}line{font-family:\0000327}}
+.table tr.filters .input-group {
+  display: block; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/simo\/Development\/web\.dev\/www\/pangea\/workbench\/psimone\/platform-core\/public\/src\/css\/scss\/application\.scss}line{font-family:\0000329}}
+.table tr.filters .input-xs {
+  border: none;
+  background-color: transparent;
+  display: block;
+  width: 100%; }
