@@ -60,6 +60,13 @@ class TestController extends BaseController implements Module
 		    ))
 		));
 
+		Form::panel('media');
+		Form::activePanel('media');
+
+		Form::fields(array(
+		    'media' => array('type' => 'media')
+		));
+
 		return $this->showForm($id);
 	}
 

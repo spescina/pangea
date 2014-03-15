@@ -23,6 +23,7 @@ return array(
 	'multidropdown' => 'Multidropdown',
 	'checkbox' => 'Checkbox',
 	'radiobutton' => 'Radiobutton',
+	'media' => 'Media',
 	'_labels_' => array(
 	    'radiobutton' => array(
 		'a' => 'A',
@@ -35,6 +36,7 @@ return array(
     'panels' => array(
 	'textarea' => 'Textarea',
 	'dropdowns' => 'Dropdown',
-	'checkradio' => 'Checkbox & Radio'
+	'checkradio' => 'Checkbox & Radio',
+	'media' => 'Media'
     )
 );
