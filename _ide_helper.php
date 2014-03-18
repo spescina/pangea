@@ -2511,6 +2511,9 @@ class Config extends Illuminate\Support\Facades\Config{
 
 }
 
+class Controller extends Illuminate\Routing\Controller{
+}
+
 class Cookie extends Illuminate\Support\Facades\Cookie{
 	/**
 	 * Create a new cookie instance.
@@ -12322,6 +12325,73 @@ class Debugbar extends Barryvdh\Debugbar\Facade{
 
 }
 
+class Platform extends Psimone\PlatformCore\Facades\Platform{
+	/**
+	 * Returns the module package folder
+	 *
+	 * @return string
+	 * @static 
+	 */
+	 public static function getPackageName(){
+		return Psimone\PlatformCore\Components\Platform::getPackageName();
+	 }
+
+	/**
+	 * Returns the module vendor folder
+	 *
+	 * @return string
+	 * @static 
+	 */
+	 public static function getPackageVendor(){
+		return Psimone\PlatformCore\Components\Platform::getPackageVendor();
+	 }
+
+	/**
+	 * Returns the current loaded module
+	 *
+	 * @return string
+	 * @static 
+	 */
+	 public static function getModule(){
+		return Psimone\PlatformCore\Components\Platform::getModule();
+	 }
+
+	/**
+	 * Sets the current loaded module
+	 *
+	 * @param string $module
+	 * @static 
+	 */
+	 public static function setModule($module){
+		 Psimone\PlatformCore\Components\Platform::setModule($module);
+	 }
+
+	/**
+	 * Registers the current Model and the current Controllers to the IoC.
+	 * 
+	 * Required for theirs facades
+	 *
+	 * @static 
+	 */
+	 public static function registerModuleFacades(){
+		 Psimone\PlatformCore\Components\Platform::registerModuleFacades();
+	 }
+
+	/**
+	 * Boot the application
+	 *
+	 * @param string $module
+	 * @param string $action
+	 * @param int $id
+	 * @return Illuminate\Http\Response
+	 * @static 
+	 */
+	 public static function runModule($module, $action, $id){
+		return Psimone\PlatformCore\Components\Platform::runModule($module, $action, $id);
+	 }
+
+}
+
 class PBreadcrumbs extends Psimone\PlatformCore\Facades\Breadcrumbs{
 	/**
 	 * 
@@ -12329,7 +12399,7 @@ class PBreadcrumbs extends Psimone\PlatformCore\Facades\Breadcrumbs{
 	 * @static 
 	 */
 	 public static function load(){
-		 Psimone\PlatformCore\Components\Breadcrumbs::load();
+		 Psimone\PlatformCore\Components\Breadcrumbs\Breadcrumbs::load();
 	 }
 
 	/**
@@ -12338,7 +12408,7 @@ class PBreadcrumbs extends Psimone\PlatformCore\Facades\Breadcrumbs{
 	 * @static 
 	 */
 	 public static function item($slug){
-		 Psimone\PlatformCore\Components\Breadcrumbs::item($slug);
+		 Psimone\PlatformCore\Components\Breadcrumbs\Breadcrumbs::item($slug);
 	 }
 
 	/**
@@ -12347,7 +12417,7 @@ class PBreadcrumbs extends Psimone\PlatformCore\Facades\Breadcrumbs{
 	 * @static 
 	 */
 	 public static function items(){
-		 Psimone\PlatformCore\Components\Breadcrumbs::items();
+		 Psimone\PlatformCore\Components\Breadcrumbs\Breadcrumbs::items();
 	 }
 
 	/**
@@ -12356,7 +12426,7 @@ class PBreadcrumbs extends Psimone\PlatformCore\Facades\Breadcrumbs{
 	 * @static 
 	 */
 	 public static function show(){
-		 Psimone\PlatformCore\Components\Breadcrumbs::show();
+		 Psimone\PlatformCore\Components\Breadcrumbs\Breadcrumbs::show();
 	 }
 
 }
@@ -12368,7 +12438,7 @@ class PForm extends Psimone\PlatformCore\Facades\Form{
 	 * @static 
 	 */
 	 public static function __construct(){
-		 Psimone\PlatformCore\Components\Form::__construct();
+		 Psimone\PlatformCore\Components\Form\Form::__construct();
 	 }
 
 	/**
@@ -12377,7 +12447,7 @@ class PForm extends Psimone\PlatformCore\Facades\Form{
 	 * @static 
 	 */
 	 public static function fields($fields){
-		 Psimone\PlatformCore\Components\Form::fields($fields);
+		 Psimone\PlatformCore\Components\Form\Form::fields($fields);
 	 }
 
 	/**
@@ -12386,7 +12456,7 @@ class PForm extends Psimone\PlatformCore\Facades\Form{
 	 * @static 
 	 */
 	 public static function record(){
-		 Psimone\PlatformCore\Components\Form::record();
+		 Psimone\PlatformCore\Components\Form\Form::record();
 	 }
 
 	/**
@@ -12395,7 +12465,7 @@ class PForm extends Psimone\PlatformCore\Facades\Form{
 	 * @static 
 	 */
 	 public static function isEmpty(){
-		 Psimone\PlatformCore\Components\Form::isEmpty();
+		 Psimone\PlatformCore\Components\Form\Form::isEmpty();
 	 }
 
 	/**
@@ -12404,7 +12474,7 @@ class PForm extends Psimone\PlatformCore\Facades\Form{
 	 * @static 
 	 */
 	 public static function load($id){
-		 Psimone\PlatformCore\Components\Form::load($id);
+		 Psimone\PlatformCore\Components\Form\Form::load($id);
 	 }
 
 	/**
@@ -12413,7 +12483,7 @@ class PForm extends Psimone\PlatformCore\Facades\Form{
 	 * @static 
 	 */
 	 public static function panel($slug, $active = false){
-		 Psimone\PlatformCore\Components\Form::panel($slug, $active);
+		 Psimone\PlatformCore\Components\Form\Form::panel($slug, $active);
 	 }
 
 	/**
@@ -12422,7 +12492,7 @@ class PForm extends Psimone\PlatformCore\Facades\Form{
 	 * @static 
 	 */
 	 public static function activePanel($slug){
-		 Psimone\PlatformCore\Components\Form::activePanel($slug);
+		 Psimone\PlatformCore\Components\Form\Form::activePanel($slug);
 	 }
 
 	/**
@@ -12431,7 +12501,70 @@ class PForm extends Psimone\PlatformCore\Facades\Form{
 	 * @static 
 	 */
 	 public static function panels(){
-		 Psimone\PlatformCore\Components\Form::panels();
+		 Psimone\PlatformCore\Components\Form\Form::panels();
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function action(){
+		 Psimone\PlatformCore\Components\Form\Form::action();
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function back(){
+		 Psimone\PlatformCore\Components\Form\Form::back();
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function localize($section){
+		 Psimone\PlatformCore\Components\Form\Form::localize($section);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function rules($rules = null){
+		 Psimone\PlatformCore\Components\Form\Form::rules($rules);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function modelToDropdown($model, $labelField, $valueField = 'id', $nullable = true){
+		 Psimone\PlatformCore\Components\Form\Form::modelToDropdown($model, $labelField, $valueField, $nullable);
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function data(){
+		 Psimone\PlatformCore\Components\Form\Form::data();
+	 }
+
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function allFields(){
+		 Psimone\PlatformCore\Components\Form\Form::allFields();
 	 }
 
 	/**
@@ -12440,7 +12573,61 @@ class PForm extends Psimone\PlatformCore\Facades\Form{
 	 * @static 
 	 */
 	 public static function show(){
-		 Psimone\PlatformCore\Components\Form::show();
+		 Psimone\PlatformCore\Components\Form\Form::show();
+	 }
+
+}
+
+class PMedialibrary extends Psimone\PlatformCore\Facades\Medialibrary{
+	/**
+	 * 
+	 *
+	 * @static 
+	 */
+	 public static function __construct(){
+		 Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::__construct();
+	 }
+
+	/**
+	 * Return objects in the given path
+	 *
+	 * @param string $path
+	 * @return boolean
+	 * @static 
+	 */
+	 public static function browsePath($path){
+		return Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::browsePath($path);
+	 }
+
+	/**
+	 * Return the local config var in json notation
+	 * embeddable as a javascript config object
+	 *
+	 * @return json
+	 * @static 
+	 */
+	 public static function configToJSON(){
+		return Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::configToJSON();
+	 }
+
+	/**
+	 * Set the config array of the component in the local var
+	 *
+	 * @return array
+	 * @static 
+	 */
+	 public static function config(){
+		return Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::config();
+	 }
+
+	/**
+	 * Return the local item list
+	 *
+	 * @return array
+	 * @static 
+	 */
+	 public static function getItems(){
+		return Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::getItems();
 	 }
 
 }
@@ -12452,7 +12639,7 @@ class PNavigation extends Psimone\PlatformCore\Facades\Navigation{
 	 * @static 
 	 */
 	 public static function load(){
-		 Psimone\PlatformCore\Components\Navigation::load();
+		 Psimone\PlatformCore\Components\Navigation\Navigation::load();
 	 }
 
 	/**
@@ -12461,7 +12648,7 @@ class PNavigation extends Psimone\PlatformCore\Facades\Navigation{
 	 * @static 
 	 */
 	 public static function item($slug, $url){
-		 Psimone\PlatformCore\Components\Navigation::item($slug, $url);
+		 Psimone\PlatformCore\Components\Navigation\Navigation::item($slug, $url);
 	 }
 
 	/**
@@ -12470,7 +12657,7 @@ class PNavigation extends Psimone\PlatformCore\Facades\Navigation{
 	 * @static 
 	 */
 	 public static function items(){
-		 Psimone\PlatformCore\Components\Navigation::items();
+		 Psimone\PlatformCore\Components\Navigation\Navigation::items();
 	 }
 
 	/**
@@ -12479,19 +12666,19 @@ class PNavigation extends Psimone\PlatformCore\Facades\Navigation{
 	 * @static 
 	 */
 	 public static function show(){
-		 Psimone\PlatformCore\Components\Navigation::show();
+		 Psimone\PlatformCore\Components\Navigation\Navigation::show();
 	 }
 
 }
 
-class PTable extends Psimone\PlatformCore\Facades\Table{
+class PPage extends Psimone\PlatformCore\Facades\Page{
 	/**
 	 * 
 	 *
 	 * @static 
 	 */
-	 public static function fields($fields){
-		 Psimone\PlatformCore\Components\Table::fields($fields);
+	 public static function __construct(){
+		 Psimone\PlatformCore\Components\Page\Page::__construct();
 	 }
 
 	/**
@@ -12499,8 +12686,8 @@ class PTable extends Psimone\PlatformCore\Facades\Table{
 	 *
 	 * @static 
 	 */
-	 public static function isEmpty(){
-		 Psimone\PlatformCore\Components\Table::isEmpty();
+	 public static function hasErrors(){
+		 Psimone\PlatformCore\Components\Page\Page::hasErrors();
 	 }
 
 	/**
@@ -12508,8 +12695,8 @@ class PTable extends Psimone\PlatformCore\Facades\Table{
 	 *
 	 * @static 
 	 */
-	 public static function head(){
-		 Psimone\PlatformCore\Components\Table::head();
+	 public static function hasMessages(){
+		 Psimone\PlatformCore\Components\Page\Page::hasMessages();
 	 }
 
 	/**
@@ -12517,8 +12704,8 @@ class PTable extends Psimone\PlatformCore\Facades\Table{
 	 *
 	 * @static 
 	 */
-	 public static function body(){
-		 Psimone\PlatformCore\Components\Table::body();
+	 public static function errors(){
+		 Psimone\PlatformCore\Components\Page\Page::errors();
 	 }
 
 	/**
@@ -12526,8 +12713,8 @@ class PTable extends Psimone\PlatformCore\Facades\Table{
 	 *
 	 * @static 
 	 */
-	 public static function actions(){
-		 Psimone\PlatformCore\Components\Table::actions();
+	 public static function messages(){
+		 Psimone\PlatformCore\Components\Page\Page::messages();
 	 }
 
 	/**
@@ -12535,8 +12722,8 @@ class PTable extends Psimone\PlatformCore\Facades\Table{
 	 *
 	 * @static 
 	 */
-	 public static function load(){
-		 Psimone\PlatformCore\Components\Table::load();
+	 public static function toolbar(){
+		 Psimone\PlatformCore\Components\Page\Page::toolbar();
 	 }
 
 	/**
@@ -12544,20 +12731,8 @@ class PTable extends Psimone\PlatformCore\Facades\Table{
 	 *
 	 * @static 
 	 */
-	 public static function show(){
-		 Psimone\PlatformCore\Components\Table::show();
-	 }
-
-}
-
-class Language extends Psimone\PlatformCore\Facades\Language{
-	/**
-	 * 
-	 *
-	 * @static 
-	 */
-	 public static function get($key, $replace = array(), $locale = null){
-		 Psimone\PlatformCore\i18n\Language::get($key, $replace, $locale);
+	 public static function localize($section){
+		 Psimone\PlatformCore\Components\Page\Page::localize($section);
 	 }
 
 	/**
@@ -12565,17 +12740,8 @@ class Language extends Psimone\PlatformCore\Facades\Language{
 	 *
 	 * @static 
 	 */
-	 public static function has($key, $locale = null){
-		 Psimone\PlatformCore\i18n\Language::has($key, $locale);
-	 }
-
-	/**
-	 * 
-	 *
-	 * @static 
-	 */
-	 public static function namespaced($key, $custom = false){
-		 Psimone\PlatformCore\i18n\Language::namespaced($key, $custom);
+	 public static function localize_ui($element, $section = 'ui'){
+		 Psimone\PlatformCore\Components\Page\Page::localize_ui($element, $section);
 	 }
 
 }

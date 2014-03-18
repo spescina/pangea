@@ -62,37 +62,14 @@ $(function() {
          */
         var render = function(data)
         {
-            var item,
-                html = $('<ul />');
+            var tpl,
+                html;
 
-            for (var i = 0, l = data.length; i < l; i++)
-            {
-                item = renderEach(data[i]);
-
-                html.append(item);
-            }
+            tpl = $("#catalog").html();
+            
+            html = Handlebars.compile(tpl);
 
             $(config.container).empty().append(html);
-        };
-        
-        /**
-         * Build the view of each item in the data list
-         * 
-         * @param {object} data
-         * @returns {string} the item html view
-         */
-        var renderEach = function(data)
-        {
-            var item = $('<li />').data('path', data.path);
-
-            if (data.folder)
-            {
-                item.data('folder', 1);
-            }
-
-            item.text(data.name);
-
-            return item;
         };
 
         /**
