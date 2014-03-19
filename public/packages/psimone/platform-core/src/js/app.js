@@ -24,7 +24,7 @@ $(function(){
     });
     
     
-    $.fn.datetimepicker.defaults.language = Pangea.config.locale;
+    $.fn.datetimepicker.defaults.language = PlatformCore.config.locale;
     $('.date.date-only').datetimepicker({
         pickTime: false
     });

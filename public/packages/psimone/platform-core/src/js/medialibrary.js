@@ -26,7 +26,9 @@ $(function() {
                  */
                 var setup = function()
                 {
-                        bindOpenFolder();
+                        bindDoubleClick();
+
+                        bindClick()
 
                         browse();
                 };
@@ -103,6 +105,21 @@ $(function() {
                 };
 
                 /**
+                 * Dispatch the select event (click) for the items
+                 *
+                 * @param {object} obj
+                 */
+                var select = function(obj)
+                {
+                        var $item = $(obj);
+
+                        if (!$item.data('folder'))
+                        {
+                                selectFile(obj);
+                        }
+                };
+
+                /**
                  * Handle the open event on the folder items
                  * Call to the browse service with the choosen path
                  *
@@ -118,10 +135,20 @@ $(function() {
                 /**
                  * Bind the doubleClick handler to the items
                  */
-                var bindOpenFolder = function()
+                var bindDoubleClick = function()
                 {
                         $(config.container).on('dblclick', '.resource', function() {
                                 open(this);
+                        });
+                };
+
+                /**
+                 * Bind the click handler to the items
+                 */
+                var bindClick = function()
+                {
+                        $(config.container).on('click', '.resource', function() {
+                                select(this);
                         });
                 };
 
@@ -201,6 +228,13 @@ $(function() {
                 {
                         return segments.join('/');
                 };
+
+                var selectFile = function(path)
+                {
+                        var item = $(config.container).find('.resource[data-path="' + path + '"]');
+
+                        item.addClass('selected');
+                }
 
                 /**
                  * Return of the public API

@@ -1,3 +1,9 @@
+#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span { background-image: url('../img/vendor/fancybox_sprite.png'); }
+#fancybox-loading div { background-image: url('../img/vendor/fancybox_loading.gif'); }
+.fancybox-nav { background-image: url('../img/vendor/blank.gif'); }
+.fancybox-overlay { background-image: url('../img/vendor/fancybox_overlay.png'); }
+
+
 body > .container > .row { margin-top: 70px; }
 
 .nav-tabs {
@@ -33,4 +39,15 @@ textarea.form-control { height: 150px; }
             width: 100%;
         }
     }
+}
+
+#medialibrary {
+        .resource {
+                cursor: pointer;
+
+                &.selected {
+                        border-color: #666;
+                        border-style: dashed;
+                }
+        }
 }

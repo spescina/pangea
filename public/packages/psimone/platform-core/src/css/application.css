@@ -1,38 +1,47 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/simo\/Development\/web\.dev\/www\/pangea\/workbench\/psimone\/platform-core\/public\/src\/css\/scss\/application\.scss}line{font-family:\000031}}
+#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+  background-image: url("../img/vendor/fancybox_sprite.png"); }
+
+#fancybox-loading div {
+  background-image: url("../img/vendor/fancybox_loading.gif"); }
+
+.fancybox-nav {
+  background-image: url("../img/vendor/blank.gif"); }
+
+.fancybox-overlay {
+  background-image: url("../img/vendor/fancybox_overlay.png"); }
+
 body > .container > .row {
   margin-top: 70px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/simo\/Development\/web\.dev\/www\/pangea\/workbench\/psimone\/platform-core\/public\/src\/css\/scss\/application\.scss}line{font-family:\000033}}
 .nav-tabs {
   margin-bottom: 20px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/simo\/Development\/web\.dev\/www\/pangea\/workbench\/psimone\/platform-core\/public\/src\/css\/scss\/application\.scss}line{font-family:\000037}}
 .pagination {
   margin: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/simo\/Development\/web\.dev\/www\/pangea\/workbench\/psimone\/platform-core\/public\/src\/css\/scss\/application\.scss}line{font-family:\0000311}}
 textarea.form-control {
   height: 150px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/simo\/Development\/web\.dev\/www\/pangea\/workbench\/psimone\/platform-core\/public\/src\/css\/scss\/application\.scss}line{font-family:\0000313}}
 .note-editor .note-editable {
   overflow: hidden;
   height: 150px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/simo\/Development\/web\.dev\/www\/pangea\/workbench\/psimone\/platform-core\/public\/src\/css\/scss\/application\.scss}line{font-family:\0000317}}
 .table tr td:last-child, .table tr th:last-child {
   text-align: right; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/simo\/Development\/web\.dev\/www\/pangea\/workbench\/psimone\/platform-core\/public\/src\/css\/scss\/application\.scss}line{font-family:\0000321}}
 .table tr.filters td {
   padding: 5px;
   margin: 0;
   background-color: #f5f5f5; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/simo\/Development\/web\.dev\/www\/pangea\/workbench\/psimone\/platform-core\/public\/src\/css\/scss\/application\.scss}line{font-family:\0000327}}
 .table tr.filters .input-group {
   display: block; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/simo\/Development\/web\.dev\/www\/pangea\/workbench\/psimone\/platform-core\/public\/src\/css\/scss\/application\.scss}line{font-family:\0000329}}
 .table tr.filters .input-xs {
   border: none;
   background-color: transparent;
   display: block;
   width: 100%; }
+
+#medialibrary .resource {
+  cursor: pointer; }
+  #medialibrary .resource.selected {
+    border-color: #666;
+    border-style: dashed; }
