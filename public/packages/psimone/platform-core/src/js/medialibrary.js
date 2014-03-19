@@ -1,126 +1,217 @@
 $(function() {
 
-    PlatformCore.medialibrary = (function() {
+        PlatformCore.medialibrary = (function() {
 
-        var config = {
-            container: '#medialibrary',
-            service: '/medialibrary/browse',
-            basepath: PlatformCore.config.medialibrary.basepath
-        };
+                var config = {
+                        container: '#medialibrary',
+                        service: '/medialibrary/browse',
+                        basepath: PlatformCore.config.medialibrary.basepath,
+                        templatePath: 'packages/psimone/platform-core/tpl'
+                };
 
-        /**
-         * Init of the component
-         * 
-         * @param {object} settings
-         */
-        var init = function(settings)
-        {
-            $.extend(config, settings);
+                /**
+                 * Init of the component
+                 *
+                 * @param {object} settings
+                 */
+                var init = function(settings)
+                {
+                        $.extend(config, settings);
 
-            setup();
-        };
+                        setup();
+                };
 
-        /**
-         * Setup of the component
-         */
-        var setup = function()
-        {
-            bindOpenFolder();
+                /**
+                 * Setup of the component
+                 */
+                var setup = function()
+                {
+                        bindOpenFolder();
 
-            browse();
-        };
+                        browse();
+                };
 
-        /**
-         * Call to the browse service
-         * 
-         * @param {string} path
-         */
-        var browse = function(path)
-        {
-            var target;
+                /**
+                 * Call to the browse service
+                 *
+                 * @param {string} path
+                 */
+                var browse = function(path)
+                {
+                        var target;
 
-            if (typeof path === 'undefined')
-            {
-                target = config.basepath;
-            }
-            else
-            {
-                target = path;
-            }
+                        if (typeof path === 'undefined')
+                        {
+                                target = config.basepath;
+                        }
+                        else
+                        {
+                                target = path;
+                        }
 
-            $.post(config.service, {
-                path: target
-            }).done(function(data) {
-                render(data);
-            });
-        };
+                        $.post(config.service, {
+                                path: target
+                        }).done(function(data) {
+                                render({
+                                        "resources": data
+                                }, target);
+                        });
+                };
 
-        /**
-         * Render the service data
-         * 
-         * @param {object} data
-         */
-        var render = function(data)
-        {
-            var tpl,
-                html;
+                /**
+                 * Render the service data
+                 *
+                 * @param {object} data
+                 * @param {string} path
+                 */
+                var render = function(data, path)
+                {
+                        if (!isRoot(path))
+                        {
+                                data.resources.unshift({
+                                        path: parentFolder(path),
+                                        folder: true,
+                                        name: 'back',
+                                        extension: ''
+                                });
+                        }
 
-            tpl = $("#catalog").html();
-            
-            html = Handlebars.compile(tpl);
+                        loadTemplate('catalog.html').done(function(source) {
+                                var template = Handlebars.compile(source);
 
-            $(config.container).empty().append(html);
-        };
+                                var html = template(data);
 
-        /**
-         * Dispatch the open event (doubleClick) for the items
-         * 
-         * @param {object} obj
-         */
-        var open = function(obj)
-        {
-            var $item = $(obj);
+                                $(config.container).empty().append(html);
 
-            if ($item.data('folder') === 1)
-            {
-                openFolder(obj);
-            }
-        };
+                                Holder.run();
+                        });
+                };
 
-        /**
-         * Handle the open event on the folder items
-         * Call to the browse service with the choosen path
-         * 
-         * @param {object} obj
-         */
-        var openFolder = function(obj)
-        {
-            var path = $(obj).data('path');
+                /**
+                 * Dispatch the open event (doubleClick) for the items
+                 *
+                 * @param {object} obj
+                 */
+                var open = function(obj)
+                {
+                        var $item = $(obj);
 
-            browse(path);
-        };
+                        if ($item.data('folder'))
+                        {
+                                openFolder(obj);
+                        }
+                };
 
-        /**
-         * Bind the doubleClick handler to the items
-         */
-        var bindOpenFolder = function()
-        {
-            $(config.container).on('dblclick', 'li', function() {
-                open(this);
-            });
-        };
+                /**
+                 * Handle the open event on the folder items
+                 * Call to the browse service with the choosen path
+                 *
+                 * @param {object} obj
+                 */
+                var openFolder = function(obj)
+                {
+                        var path = $(obj).data('path');
+
+                        browse(path);
+                };
+
+                /**
+                 * Bind the doubleClick handler to the items
+                 */
+                var bindOpenFolder = function()
+                {
+                        $(config.container).on('dblclick', '.resource', function() {
+                                open(this);
+                        });
+                };
+
+                /**
+                 * Load a hanldlebars template file
+                 *
+                 * @param {string} tpl
+                 * @returns {jQueryObject}
+                 */
+                var loadTemplate = function(tpl)
+                {
+                        var dfd = new jQuery.Deferred();
+
+                        $.ajax({
+                                url: '/' + config.templatePath + '/' + tpl,
+                                cache: true,
+                                success: function(data) {
+                                        dfd.resolve(data);
+                                }
+                        });
+
+                        return dfd.promise();
+                };
+
+                /**
+                 * Check if the given path is the library root
+                 *
+                 * @param {string} path
+                 */
+                var isRoot = function(path)
+                {
+                        if (path === config.basepath)
+                        {
+                                return true;
+                        }
+
+                        return false;
+                };
+
+                /**
+                 * Return the parent folder
+                 *
+                 * @param {string} path
+                 */
+                var parentFolder = function(path)
+                {
+                        if (isRoot(path))
+                        {
+                                return config.basepath;
+                        }
+
+                        var segments = pathToArray(path);
+
+                        segments.pop();
+
+                        return arrayToPath(segments);
+                };
+
+                /**
+                 * Convert given path in an array of segments
+                 *
+                 * @param {string} path
+                 * @returns {array}
+                 */
+                var pathToArray = function(path)
+                {
+                        return path.split('/');
+                };
+
+                /**
+                 * Convert given array of segments in a path
+                 *
+                 * @param {array} segments
+                 * @returns {string}
+                 */
+                var arrayToPath = function(segments)
+                {
+                        return segments.join('/');
+                };
+
+                /**
+                 * Return of the public API
+                 */
+                return {
+                        init: init
+                };
+
+        })();
 
 
-        /**
-         * Return of the public API
-         */
-        return {
-            init: init
-        };
-
-    })();
-
-
-    PlatformCore.medialibrary.init();
+        PlatformCore.medialibrary.init();
 
 });
