@@ -40,8 +40,23 @@ textarea.form-control {
   display: block;
   width: 100%; }
 
-#medialibrary .resource {
-  cursor: pointer; }
-  #medialibrary .resource.selected {
-    border-color: #666;
-    border-style: dashed; }
+#medialibrary {
+  margin-top: 20px; }
+  #medialibrary .resource {
+    background: #f1f1f1;
+    cursor: pointer; }
+    #medialibrary .resource.selected {
+      border-color: #999; }
+    #medialibrary .resource .caption {
+      padding: 5px; }
+    #medialibrary .resource p {
+      font-size: 11px;
+      margin: 0;
+      text-align: right; }
+    #medialibrary .resource img {
+      background: #fff;
+      border: 1px solid #eee;
+      width: 100%;
+      height: auto;
+      max-width: 122px;
+      max-height: 122px; }

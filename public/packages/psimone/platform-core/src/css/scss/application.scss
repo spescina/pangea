@@ -42,12 +42,33 @@ textarea.form-control { height: 150px; }
 }
 
 #medialibrary {
+        margin-top: 20px;
+
         .resource {
+                background: #f1f1f1;
                 cursor: pointer;
 
                 &.selected {
-                        border-color: #666;
-                        border-style: dashed;
+                        border-color: #999;
+                }
+
+                .caption {
+                        padding: 5px;
+                }
+
+                p {
+                        font-size: 11px;
+                        margin: 0;
+                        text-align: right;
+                }
+
+                img {
+                        background: #fff;
+                        border: 1px solid #eee;
+                        width: 100%;
+                        height: auto;
+                        max-width: 122px;
+                        max-height: 122px;
                 }
         }
 }

@@ -1,15 +1,26 @@
+# ------------------------------------------------------------------------------
+# | TIMTHUMB                                                    |
+# ------------------------------------------------------------------------------
 <IfModule mod_rewrite.c>
-    <IfModule mod_negotiation.c>
-        Options -MultiViews
-    </IfModule>
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^static/([0-9]+)/([0-9]+)/(.*)            /timthumb/timthumb.php?w=$1&h=$2&src=$3      [L]
+</IfModule>
 
-    RewriteEngine On
+# ------------------------------------------------------------------------------
+# | LARAVEL                                                     |
+# ------------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+<IfModule mod_negotiation.c>
+Options -MultiViews
+</IfModule>
 
-    # Redirect Trailing Slashes...
-    RewriteRule ^(.*)/$ /$1 [L,R=301]
+RewriteEngine On
 
-    # Handle Front Controller...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+# Redirect Trailing Slashes...
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+# Handle Front Controller...
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
 </IfModule>

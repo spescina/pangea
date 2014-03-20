@@ -68,16 +68,6 @@ $(function() {
                  */
                 var render = function(data, path)
                 {
-                        if (!isRoot(path))
-                        {
-                                data.resources.unshift({
-                                        path: parentFolder(path),
-                                        folder: true,
-                                        name: 'back',
-                                        extension: ''
-                                });
-                        }
-
                         loadTemplate('catalog.html').done(function(source) {
                                 var template = Handlebars.compile(source);
 
@@ -174,66 +164,17 @@ $(function() {
                 };
 
                 /**
-                 * Check if the given path is the library root
+                 * Handle the select event of the folder items
                  *
-                 * @param {string} path
+                 * @param {object} obj
                  */
-                var isRoot = function(path)
+                var selectFile = function(obj)
                 {
-                        if (path === config.basepath)
-                        {
-                                return true;
-                        }
+                        var path = $(obj).data('path');
 
-                        return false;
-                };
-
-                /**
-                 * Return the parent folder
-                 *
-                 * @param {string} path
-                 */
-                var parentFolder = function(path)
-                {
-                        if (isRoot(path))
-                        {
-                                return config.basepath;
-                        }
-
-                        var segments = pathToArray(path);
-
-                        segments.pop();
-
-                        return arrayToPath(segments);
-                };
-
-                /**
-                 * Convert given path in an array of segments
-                 *
-                 * @param {string} path
-                 * @returns {array}
-                 */
-                var pathToArray = function(path)
-                {
-                        return path.split('/');
-                };
-
-                /**
-                 * Convert given array of segments in a path
-                 *
-                 * @param {array} segments
-                 * @returns {string}
-                 */
-                var arrayToPath = function(segments)
-                {
-                        return segments.join('/');
-                };
-
-                var selectFile = function(path)
-                {
                         var item = $(config.container).find('.resource[data-path="' + path + '"]');
 
-                        item.addClass('selected');
+                        item.toggleClass('selected');
                 }
 
                 /**
