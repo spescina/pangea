@@ -3,10 +3,15 @@ $(function() {
         PlatformCore.medialibrary = (function() {
 
                 var config = {
-                        container: '#medialibrary',
+                        field: PlatformCore.config.medialibrary.field,
                         service: '/medialibrary/browse',
-                        basepath: PlatformCore.config.medialibrary.basepath,
-                        templatePath: 'packages/psimone/platform-core/tpl'
+                        basepath: PlatformCore.config.medialibrary.config.basepath,
+                        templatePath: 'packages/psimone/platform-core/tpl',
+                        selectors: {
+                                container: '#medialibrary',
+                                item: '.resource',
+                                selectedClass: 'selected'
+                        }
                 };
 
                 /**
@@ -28,9 +33,11 @@ $(function() {
                 {
                         bindDoubleClick();
 
-                        bindClick()
+                        bindClick();
 
-                        browse();
+                        bindButtons();
+
+                        browse().done(selectValue);
                 };
 
                 /**
@@ -40,6 +47,8 @@ $(function() {
                  */
                 var browse = function(path)
                 {
+                        var dfd = new jQuery.Deferred();
+                        
                         var target;
 
                         if (typeof path === 'undefined')
@@ -53,11 +62,15 @@ $(function() {
 
                         $.post(config.service, {
                                 path: target
-                        }).done(function(data) {
-                                render({
-                                        "resources": data
-                                }, target);
+                        }).done(function(data)
+                        {
+                                render({ "resources": data }, target).done(function()
+                                {
+                                        dfd.resolve(data);
+                                });
                         });
+                        
+                        return dfd.promise();
                 };
 
                 /**
@@ -68,15 +81,22 @@ $(function() {
                  */
                 var render = function(data, path)
                 {
-                        loadTemplate('catalog.html').done(function(source) {
+                        var dfd = new jQuery.Deferred();
+                        
+                        loadTemplate('catalog.html').done(function(source)
+                        {                                
                                 var template = Handlebars.compile(source);
 
                                 var html = template(data);
 
-                                $(config.container).empty().append(html);
+                                container().empty().append(html);
 
                                 Holder.run();
+                                
+                                dfd.resolve();
                         });
+                        
+                        return dfd.promise();
                 };
 
                 /**
@@ -84,7 +104,7 @@ $(function() {
                  *
                  * @param {object} obj
                  */
-                var open = function(obj)
+                var handleDoubleClick = function(obj)
                 {
                         var $item = $(obj);
 
@@ -99,7 +119,7 @@ $(function() {
                  *
                  * @param {object} obj
                  */
-                var select = function(obj)
+                var handleClick = function(obj)
                 {
                         var $item = $(obj);
 
@@ -127,8 +147,9 @@ $(function() {
                  */
                 var bindDoubleClick = function()
                 {
-                        $(config.container).on('dblclick', '.resource', function() {
-                                open(this);
+                        container().on('dblclick', '.resource', function()
+                        {
+                                handleDoubleClick(this);
                         });
                 };
 
@@ -137,8 +158,9 @@ $(function() {
                  */
                 var bindClick = function()
                 {
-                        $(config.container).on('click', '.resource', function() {
-                                select(this);
+                        container().on('click', '.resource', function()
+                        {
+                                handleClick(this);
                         });
                 };
 
@@ -155,7 +177,8 @@ $(function() {
                         $.ajax({
                                 url: '/' + config.templatePath + '/' + tpl,
                                 cache: true,
-                                success: function(data) {
+                                success: function(data)
+                                {
                                         dfd.resolve(data);
                                 }
                         });
@@ -171,11 +194,113 @@ $(function() {
                 var selectFile = function(obj)
                 {
                         var path = $(obj).data('path');
+                        
+                        selected().removeClass(config.selectors.selectedClass);
 
-                        var item = $(config.container).find('.resource[data-path="' + path + '"]');
+                        var item = container().find('.resource[data-path="' + path + '"]');
 
                         item.toggleClass('selected');
-                }
+                };
+
+                /**
+                 * Buttons binding
+                 */
+                var bindButtons = function()
+                {
+                        $('#btn-upload').on('click', upload);
+
+                        $('#btn-create-folder').on('click', createFolder);
+
+                        $('#btn-delete-folder').on('click', deleteFolder);
+
+                        $('#btn-select').on('click', function(e)
+                        {
+                                e.preventDefault();
+
+                                pick();
+                        });
+
+                        $('#btn-cancel').on('click', function(e)
+                        {
+                                e.preventDefault();
+
+                                close();
+                        });
+                };
+
+                /**
+                 * Close medialibrary panel
+                 */
+                var close = function()
+                {
+                        parent.$.fancybox.close();
+                };
+
+                /**
+                 * Upload
+                 *
+                 * @param {event} e
+                 */
+                var upload = function(e)
+                {
+                };
+
+                /**
+                 * Create a new folder
+                 *
+                 * @param {event} e
+                 */
+                var createFolder = function(e)
+                {
+                };
+
+                /**
+                 * Delete a folder
+                 *
+                 * @param {event} e
+                 */
+                var deleteFolder = function(e)
+                {
+                };
+
+                /**
+                 * Pick a file
+                 */
+                var pick = function()
+                {
+                        var selectedPath = selected().data('path');
+
+                        parent.$('input[name="' + config.field + '"]').val(selectedPath);
+
+                        close();
+                };
+                
+                var container = function()
+                {
+                        return $(config.selectors.container);
+                };
+                
+                var items = function()
+                {
+                        return container().find(config.selectors.item);
+                };
+                
+                var selected = function()
+                {
+                        return items().filter('.' + config.selectors.selectedClass);
+                };
+                
+                var selectValue = function()
+                {
+                        var item = searchValue(PlatformCore.config.medialibrary.value);
+                        
+                        item.click();
+                };
+                
+                var searchValue = function(val)
+                {
+                        return items().filter('[data-path="' + val + '"]').first();
+                };
 
                 /**
                  * Return of the public API

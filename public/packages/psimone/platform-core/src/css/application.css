@@ -60,3 +60,20 @@ textarea.form-control {
       height: auto;
       max-width: 122px;
       max-height: 122px; }
+
+html {
+  position: relative;
+  min-height: 100%; }
+
+body {
+  margin-bottom: 40px; }
+
+#bottom-bar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 40px;
+  background-color: #f5f5f5; }
+  #bottom-bar button {
+    margin-top: 5px; }

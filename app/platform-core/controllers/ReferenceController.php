@@ -4,7 +4,6 @@ use Psimone\PlatformCore\Interfaces\Module;
 use Psimone\PlatformCore\Controllers\BaseController;
 use Psimone\PlatformCore\Facades\Form;
 use Psimone\PlatformCore\Facades\Table;
-use Psimone\PlatformCore\Models\Test;
 
 class ReferenceController extends BaseController implements Module
 {
