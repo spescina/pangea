@@ -86,11 +86,26 @@ body {
         position: absolute;
         bottom: 0;
         width: 100%;
-        /* Set the fixed height of the footer here */
         height: 40px;
         background-color: #f5f5f5;
+        
+        p {
+                margin: 0;
+                width: 70%;
+                
+                & + p {
+                        text-align: right;
+                        width: 30%;
+                }
+        }
 
         button {
-                margin-top: 5px
+                margin: 5px 0;
+        }
+        
+        #input-folder {
+                display: inline-block;
+                margin: 0;
+                width: 150px;
         }
 }
