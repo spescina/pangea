@@ -131,16 +131,24 @@ $(function() {
                 {
                         var $item = $(obj);
 
-                        highlight(obj);
-                        
-                        if ($item.data('folder'))
+                        if (!$item.hasClass('back'))
                         {
-                                $('#btn-delete-folder').toggleClass('hidden');
-                                $('#btn-select').addClass('hidden');
+                                highlight(obj);
+
+                                if ($item.data('folder'))
+                                {
+                                        $('#btn-delete-folder').removeClass('hidden');
+                                        $('#btn-select').addClass('hidden');
+                                }
+                                else
+                                {
+                                        $('#btn-select').removeClass('hidden');
+                                        $('#btn-delete-folder').addClass('hidden');
+                                }
                         }
                         else
                         {
-                                $('#btn-select').toggleClass('hidden');
+                                $('#btn-select').addClass('hidden');
                                 $('#btn-delete-folder').addClass('hidden');
                         }
                 };
@@ -209,11 +217,9 @@ $(function() {
                  */
                 var highlight = function(obj)
                 {
-                        var $obj = $(obj);
+                        items().removeClass(config.selectors.selectedClass);
                         
-                        $obj.siblings().removeClass(config.selectors.selectedClass);
-                        
-                        $obj.toggleClass(config.selectors.selectedClass);
+                        $(obj).toggleClass(config.selectors.selectedClass);
                 };
 
                 /**
