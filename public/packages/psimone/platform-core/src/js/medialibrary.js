@@ -1,17 +1,17 @@
 $(function() {
-
-        PlatformCore.medialibrary = (function() {
+        
+        ZZ.medialibrary = (function() {
 
                 var currentPath;
 
                 var config = {
-                        field: PlatformCore.config.medialibrary.field,
+                        field: ZZ.config.medialibrary.field,
                         services: {
                                 browse: '/medialibrary/browse',
                                 folderCreate: '/medialibrary/folder_create',
                                 folderDelete: '/medialibrary/folder_delete'
                         },
-                        basepath: PlatformCore.config.medialibrary.config.basepath,
+                        basepath: ZZ.config.medialibrary.config.basepath,
                         templatePath: 'packages/psimone/platform-core/tpl',
                         selectors: {
                                 container: '#medialibrary',
@@ -37,6 +37,8 @@ $(function() {
                  */
                 var setup = function()
                 {
+                        uploadButton();
+                        
                         bindDoubleClick();
 
                         bindClick();
@@ -195,19 +197,12 @@ $(function() {
                  * @returns {jQueryObject}
                  */
                 var loadTemplate = function(tpl)
-                {
-                        var dfd = new jQuery.Deferred();
-
-                        $.ajax({
-                                url: '/' + config.templatePath + '/' + tpl,
-                                cache: true,
-                                success: function(data)
-                                {
-                                        dfd.resolve(data);
-                                }
-                        });
-
-                        return dfd.promise();
+                {                        
+                        var ajax = new ZZ.ajax({ cache: true, dataType: 'html' });
+                        
+                        var url = '/' + config.templatePath + '/' + tpl;
+                        
+                        return ajax.run(url);
                 };
 
                 /**
@@ -241,8 +236,16 @@ $(function() {
                                 e.preventDefault();
                                 
                                 var folder = selected().data('path');
-
-                                console.log(folder);
+                                
+                                if (folder)
+                                {                                
+                                        deleteFolder(folder).done(function()
+                                        {
+                                                browse(currentPath).done(function(){
+                                                        deleteFolderToggleUI();
+                                                });
+                                        });
+                                }
                         });
                         
                         $('#btn-confirm').on('click', function(e)
@@ -286,6 +289,11 @@ $(function() {
 
                         $(this).toggleClass('hidden');
                 };
+                
+                var deleteFolderToggleUI = function()
+                {
+                        $('#btn-delete-folder').toggleClass('hidden');
+                };
 
                 /**
                  * Close medialibrary panel
@@ -302,35 +310,36 @@ $(function() {
                  */
                 var upload = function(e)
                 {
+                        
                 };
 
                 /**
                  * Create a new folder
                  *
-                 * @param {event} e
+                 * @param {string} e
                  */
                 var createFolder = function(folder)
                 {
-                        var dfd = new jQuery.Deferred();
+                        var ajax = new ZZ.ajax({ type: 'POST' });
                         
-                        $.post(config.services.folderCreate, {
+                        return ajax.run(config.services.folderCreate, {
                                 path: currentPath,
                                 folder: folder
-                        }).done(function(data)
-                        {
-                                dfd.resolve();
                         });
-                        
-                        return dfd.promise();
                 };
 
                 /**
                  * Delete a folder
                  *
-                 * @param {event} e
+                 * @param {string} e
                  */
-                var deleteFolder = function(e)
+                var deleteFolder = function(folder)
                 {
+                        var ajax = new ZZ.ajax({ type: 'POST' });
+                        
+                        return ajax.run(config.services.folderDelete, {
+                                folder: folder
+                        });
                 };
 
                 /**
@@ -362,7 +371,7 @@ $(function() {
                 
                 var selectValue = function()
                 {
-                        var item = searchValue(PlatformCore.config.medialibrary.value);
+                        var item = searchValue(ZZ.config.medialibrary.value);
                         
                         item.click();
                 };
@@ -370,6 +379,18 @@ $(function() {
                 var searchValue = function(val)
                 {
                         return items().filter('[data-path="' + val + '"]').first();
+                };
+                
+                var uploadButton = function()
+                {
+                        $('#fileupload').fileupload({
+                                dataType: 'json',
+                                done: function(e, data) {
+                                        $.each(data.result.files, function(index, file) {
+                                                console.log(file.name);
+                                        });
+                                }
+                        });
                 };
 
                 /**
@@ -382,6 +403,6 @@ $(function() {
         })();
 
 
-        PlatformCore.medialibrary.init();
+        ZZ.medialibrary.init();
 
 });
