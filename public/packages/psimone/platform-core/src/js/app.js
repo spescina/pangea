@@ -24,7 +24,7 @@ $(function(){
     });
     
     
-    $.fn.datetimepicker.defaults.language = PlatformCore.config.locale;
+    $.fn.datetimepicker.defaults.language = ZZ.config.locale;
     $('.date.date-only').datetimepicker({
         pickTime: false
     });
