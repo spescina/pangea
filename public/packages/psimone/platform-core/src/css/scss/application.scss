@@ -47,6 +47,7 @@ textarea.form-control { height: 150px; }
         .resource {
                 background: #f1f1f1;
                 cursor: pointer;
+                position: relative;
 
                 &.selected {
                         border-color: #999;
@@ -54,6 +55,27 @@ textarea.form-control { height: 150px; }
 
                 .caption {
                         padding: 5px;
+                }
+                
+                .actions {
+                        display: none;
+                        position: absolute;
+                        top: 8px;
+                        right: 8px;
+                        width: 30px;
+                        
+                        i {
+                                background: #428bca;
+                                border-radius: 4px;
+                                color: #FFF;
+                                font-size: 14px;
+                                margin: 0 0 4px;
+                                padding: 5px 0;
+                                line-height: 20px;
+                                height: 30px;
+                                width: 100%;
+                                text-align: center;
+                        }
                 }
 
                 p {
@@ -70,6 +92,12 @@ textarea.form-control { height: 150px; }
                         height: auto;
                         max-width: 122px;
                         max-height: 122px;
+                }
+                
+                &:not(.back):hover {
+                        .actions {
+                                display: block;
+                        }
                 }
         }
         
@@ -118,5 +146,12 @@ body {
                 height: 2px;
                 margin: 0px;
                 padding: 0px;
+        }
+}
+
+.blockUI {
+        h1 {
+                font-size: 14px;
+                margin: 5px;
         }
 }

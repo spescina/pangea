@@ -1,0 +1,22 @@
+{
+  "name": "pangea",
+  "version": "0.0.0",
+  "description": "[![Build Status](https://magnum-ci.com/status/55493448bacc54d87f3646b0f13c6cec.png)]",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:psimone/pangea.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-jshint": "^0.10.0"
+  }
+}

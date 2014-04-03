@@ -8,6 +8,7 @@ $(function() {
                         field: ZZ.config.medialibrary.field,
                         services: {
                                 browse: '/medialibrary/browse',
+                                fileDelete: '/medialibrary/file_delete',
                                 filesUpload: '/medialibrary/upload',
                                 folderCreate: '/medialibrary/folder_create',
                                 folderDelete: '/medialibrary/folder_delete'
@@ -15,9 +16,34 @@ $(function() {
                         basepath: ZZ.config.medialibrary.config.basepath,
                         templatePath: 'packages/psimone/platform-core/tpl',
                         selectors: {
+                                selectedClass: 'selected',
+                                hiddenClass: 'hidden',
+                                folderAttribute: 'folder',
+                                pathAttribute: 'path',
+                                
                                 container: '#medialibrary',
+                                fileUpload: '#fileupload',
                                 item: '.resource',
-                                selectedClass: 'selected'
+                                newFolder: '#input-folder',
+                                delete: '.act-delete',
+                                cancel: '#btn-cancel',
+                                confirm: '#btn-confirm',
+                                createFolder: '#btn-create-folder',
+                                progressBar: '#progress .progress-bar',
+                                select: '#btn-select',
+                                upload: '#btn-upload'
+                        },
+                        blockUI: {
+                                css: { 
+                                        border: 'none',
+                                        'font-size': '14px',
+                                        padding: '15px',
+                                        backgroundColor: '#333',
+                                        '-webkit-border-radius': '10px',
+                                        '-moz-border-radius': '10px',
+                                        opacity: .5,
+                                        color: '#fff'
+                                }
                         }
                 };
 
@@ -43,6 +69,8 @@ $(function() {
                         bindClick();
 
                         bindButtons();
+                        
+                        bindActions();
 
                         browse().done(function(){
                                 selectValue();
@@ -70,6 +98,8 @@ $(function() {
                         {
                                 target = path;
                         }
+                        
+                        UI.block();
 
                         $.post(config.services.browse, {
                                 path: target
@@ -77,11 +107,11 @@ $(function() {
                         {
                                 currentPath = target;
                                 
-                                console.log(currentPath);
-                                
                                 render({ "resources": data }, target).done(function()
                                 {
                                         truncate();
+                                        
+                                        UI.unblock();
                                         
                                         dfd.resolve(data);
                                 });
@@ -125,7 +155,7 @@ $(function() {
                 {
                         var $item = $(obj);
 
-                        if ($item.data('folder'))
+                        if ($item.data(config.selectors.folderAttribute))
                         {
                                 openFolder(obj);
                         }
@@ -144,21 +174,18 @@ $(function() {
                         {
                                 highlight(obj);
 
-                                if ($item.data('folder'))
+                                if ($item.data(config.selectors.folderAttribute))
                                 {
-                                        $('#btn-delete-folder').removeClass('hidden');
-                                        $('#btn-select').addClass('hidden');
+                                        $(config.selectors.select).addClass(config.selectors.hiddenClass);
                                 }
                                 else
                                 {
-                                        $('#btn-select').removeClass('hidden');
-                                        $('#btn-delete-folder').addClass('hidden');
+                                        $(config.selectors.select).removeClass(config.selectors.hiddenClass);
                                 }
                         }
                         else
                         {
-                                $('#btn-select').addClass('hidden');
-                                $('#btn-delete-folder').addClass('hidden');
+                                $(config.selectors.select).addClass(config.selectors.hiddenClass);
                         }
                 };
 
@@ -170,7 +197,7 @@ $(function() {
                  */
                 var openFolder = function(obj)
                 {
-                        var path = $(obj).data('path');
+                        var path = $(obj).data(config.selectors.pathAttribute);
 
                         browse(path);
                 };
@@ -180,7 +207,7 @@ $(function() {
                  */
                 var bindDoubleClick = function()
                 {
-                        container().on('dblclick', '.resource', function()
+                        container().on('dblclick', config.selectors.item, function()
                         {
                                 handleDoubleClick(this);
                         });
@@ -191,7 +218,7 @@ $(function() {
                  */
                 var bindClick = function()
                 {
-                        container().on('click', '.resource', function()
+                        container().on('click', config.selectors.item, function()
                         {
                                 handleClick(this);
                         });
@@ -229,37 +256,22 @@ $(function() {
                  */
                 var bindButtons = function()
                 {
-                        $('#btn-upload').on('click', upload);
+                        $(config.selectors.upload).on('click', upload);
 
-                        $('#btn-create-folder').on('click', function(e)
+                        $(config.selectors.createFolder).on('click', function(e)
                         {
                                 e.preventDefault();
                                 
                                 createFolderToggleUI();
                         });
-
-                        $('#btn-delete-folder').on('click', function(e)
-                        {
-                                e.preventDefault();
-                                
-                                var folder = selected().data('path');
-                                
-                                if (folder)
-                                {                                
-                                        deleteFolder(folder).done(function()
-                                        {
-                                                browse(currentPath).done(function(){
-                                                        deleteFolderToggleUI();
-                                                });
-                                        });
-                                }
-                        });
                         
-                        $('#btn-confirm').on('click', function(e)
+                        $(config.selectors.confirm).on('click', function(e)
                         {
                                 e.preventDefault();
                                 
-                                var folder = $('#input-folder').val();
+                                UI.block();
+                                
+                                var folder = $(config.selectors.newFolder).val();
                                 
                                 if (folder)
                                 {                                
@@ -273,14 +285,14 @@ $(function() {
                                 }
                         });
 
-                        $('#btn-select').on('click', function(e)
+                        $(config.selectors.select).on('click', function(e)
                         {
                                 e.preventDefault();
 
                                 pick();
                         });
 
-                        $('#btn-cancel').on('click', function(e)
+                        $(config.selectors.cancel).on('click', function(e)
                         {
                                 e.preventDefault();
 
@@ -288,18 +300,46 @@ $(function() {
                         });
                 };
                 
-                var createFolderToggleUI = function()
+                /**
+                 * Action bindings
+                 */
+                var bindActions = function()
                 {
-                        $('#input-folder').toggleClass('hidden');
+                        $(config.selectors.container).on('click', config.selectors.delete, function(e)
+                        {
+                                var $el = $(this).closest(config.selectors.item);
                                 
-                        $('#btn-confirm').toggleClass('hidden');
-
-                        $(this).toggleClass('hidden');
+                                var target = $el.data(config.selectors.pathAttribute);
+                                
+                                var callback = function()
+                                {
+                                        browse(currentPath);
+                                };
+                                
+                                UI.block();
+                                
+                                if (target && $el.data(config.selectors.folderAttribute))
+                                {                                
+                                        deleteFolder(target).done(callback);
+                                }
+                                
+                                if (target && !$el.data(config.selectors.folderAttribute))
+                                {                                
+                                        deleteFile(target).done(callback);
+                                }
+                        });
                 };
                 
-                var deleteFolderToggleUI = function()
+                /**
+                 * Show/hide the new folder UI
+                 */
+                var createFolderToggleUI = function()
                 {
-                        $('#btn-delete-folder').toggleClass('hidden');
+                        $(config.selectors.newFolder).toggleClass(config.selectors.hiddenClass);
+                                
+                        $(config.selectors.confirm).toggleClass(config.selectors.hiddenClass);
+
+                        $(this).toggleClass(config.selectors.hiddenClass);
                 };
 
                 /**
@@ -319,7 +359,7 @@ $(function() {
                 {
                         var dfd = new jQuery.Deferred();
                         
-                        $('#fileupload').fileupload({
+                        $(config.selectors.fileUpload).fileupload({
                                 url: config.services.filesUpload,
                                 dataType: 'json',
                                 sequentialUploads: true,
@@ -327,7 +367,7 @@ $(function() {
                                 progress: function (e, data) {
                                         var progress = parseInt(data.loaded / data.total * 100, 10);
                                         
-                                        $('#progress .progress-bar').css('width', progress + '%');
+                                        $(config.selectors.progressBar).css('width', progress + '%');
                                 },
                                 submit: function (e, data) {
                                         data.formData = {
@@ -335,7 +375,7 @@ $(function() {
                                         };
                                 },
                                 done: function(e, data) {
-                                        $('#progress .progress-bar').css('width', '0%');
+                                        $(config.selectors.progressBar).css('width', '0%');
                                         
                                         dfd.resolve();
                                 }
@@ -372,13 +412,27 @@ $(function() {
                                 folder: folder
                         });
                 };
+                
+                /**
+                 * Delete a file
+                 *
+                 * @param {string} e
+                 */
+                var deleteFile = function(file)
+                {
+                        var ajax = new ZZ.ajax({ type: 'POST' });
+                        
+                        return ajax.run(config.services.fileDelete, {
+                                file: file
+                        });
+                };
 
                 /**
                  * Pick a file
                  */
                 var pick = function()
                 {
-                        var selectedPath = selected().data('path');
+                        var selectedPath = selected().data(config.selectors.pathAttribute);
 
                         parent.$('input[name="' + config.field + '"]').val(selectedPath);
 
@@ -409,7 +463,7 @@ $(function() {
                 
                 var searchValue = function(val)
                 {
-                        return items().filter('[data-path="' + val + '"]').first();
+                        return items().filter('[data-' + config.selectors.pathAttribute + '="' + val + '"]').first();
                 };
                 
                 var uploadButton = function()
@@ -420,7 +474,9 @@ $(function() {
                 };
                 
                 var truncate = function() {
-                        $('#medialibrary .resource p').truncate({
+                        var labels = $(config.selectors.item).find('p');
+                        
+                        $(labels).truncate({
                                 width: 'auto',
                                 after: '&hellip;',
                                 center: true,
@@ -428,12 +484,31 @@ $(function() {
                                 addtitle: false
                         });
                 };
+                
+                var UI = (function()
+                {
+                        var block = function()
+                        {
+                                $.blockUI(config.blockUI);
+                        };
+                        
+                        var unblock = function()
+                        {
+                                $.unblockUI();
+                        };
+                        
+                        return {
+                                block: block,
+                                unblock: unblock
+                        };
+                })();
 
                 /**
                  * Return of the public API
                  */
                 return {
-                        init: init
+                        init: init,
+                        UI: UI
                 };
 
         })();

@@ -8,3 +8,4 @@ composer.lock
 Thumbs.db
 /nbproject/private/
 public/timthumb/cache/
+node_modules/
