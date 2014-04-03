@@ -13263,6 +13263,16 @@ namespace {
 			 \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::folderCreate($path, $folder);
 		 }
 
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function folderDelete($folder){
+			//Method inherited from \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary
+			 \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::folderDelete($folder);
+		 }
+
 	}
 	class PNavigation extends \Psimone\PlatformCore\Facades\Navigation{
 		/**
