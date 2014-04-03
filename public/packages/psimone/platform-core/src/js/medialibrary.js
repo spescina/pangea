@@ -38,15 +38,17 @@ $(function() {
                  */
                 var setup = function()
                 {
-                        uploadButton();
-                        
                         bindDoubleClick();
 
                         bindClick();
 
                         bindButtons();
 
-                        browse().done(selectValue);
+                        browse().done(function(){
+                                selectValue();
+                                
+                                uploadButton();
+                        });
                 };
 
                 /**
@@ -75,8 +77,12 @@ $(function() {
                         {
                                 currentPath = target;
                                 
+                                console.log(currentPath);
+                                
                                 render({ "resources": data }, target).done(function()
                                 {
+                                        truncate();
+                                        
                                         dfd.resolve(data);
                                 });
                         });
@@ -311,7 +317,31 @@ $(function() {
                  */
                 var upload = function(e)
                 {
+                        var dfd = new jQuery.Deferred();
                         
+                        $('#fileupload').fileupload({
+                                url: config.services.filesUpload,
+                                dataType: 'json',
+                                sequentialUploads: true,
+                                singleFileUploads: false,
+                                progress: function (e, data) {
+                                        var progress = parseInt(data.loaded / data.total * 100, 10);
+                                        
+                                        $('#progress .progress-bar').css('width', progress + '%');
+                                },
+                                submit: function (e, data) {
+                                        data.formData = {
+                                                path: currentPath
+                                        };
+                                },
+                                done: function(e, data) {
+                                        $('#progress .progress-bar').css('width', '0%');
+                                        
+                                        dfd.resolve();
+                                }
+                        });
+                        
+                        return dfd.promise();
                 };
 
                 /**
@@ -384,14 +414,18 @@ $(function() {
                 
                 var uploadButton = function()
                 {
-                        $('#fileupload').fileupload({
-                                url: config.services.filesUpload,
-                                dataType: 'json',
-                                done: function(e, data) {
-                                        $.each(data.result.files, function(index, file) {
-                                                console.log(file.name);
-                                        });
-                                }
+                        upload().done(function(){
+                                browse(currentPath);
+                        });
+                };
+                
+                var truncate = function() {
+                        $('#medialibrary .resource p').truncate({
+                                width: 'auto',
+                                after: '&hellip;',
+                                center: true,
+                                addclass: false,
+                                addtitle: false
                         });
                 };
 
