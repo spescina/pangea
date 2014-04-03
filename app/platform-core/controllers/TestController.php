@@ -1,14 +1,14 @@
 <?php namespace Psimone\PlatformCore\Controllers;
 
-use Psimone\PlatformCore\Interfaces\Module;
 use Psimone\PlatformCore\Controllers\BaseController;
 use Psimone\PlatformCore\Facades\Form;
 use Psimone\PlatformCore\Facades\Table;
+use Psimone\PlatformCore\Interfaces\Module;
 use Psimone\PlatformCore\Models\Reference;
 
 class TestController extends BaseController implements Module
 {
-	public function delete($id)
+        public function delete($id)
 	{
 		return $this->doDelete($id);
 	}
