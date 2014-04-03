@@ -8,6 +8,7 @@ $(function() {
                         field: ZZ.config.medialibrary.field,
                         services: {
                                 browse: '/medialibrary/browse',
+                                filesUpload: '/medialibrary/upload',
                                 folderCreate: '/medialibrary/folder_create',
                                 folderDelete: '/medialibrary/folder_delete'
                         },
@@ -384,6 +385,7 @@ $(function() {
                 var uploadButton = function()
                 {
                         $('#fileupload').fileupload({
+                                url: config.services.filesUpload,
                                 dataType: 'json',
                                 done: function(e, data) {
                                         $.each(data.result.files, function(index, file) {
