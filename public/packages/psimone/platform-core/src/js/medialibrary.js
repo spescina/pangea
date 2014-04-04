@@ -262,16 +262,14 @@ $(function() {
                  */
                 var bindButtons = function()
                 {
-                        $(config.selectors.container).on('click', config.selectors.upload, upload);
-
-                        $(config.selectors.container).on('click', config.selectors.createFolder, function(e)
+                        $(config.selectors.bottomBar).on('click', config.selectors.createFolder, function(e)
                         {
                                 e.preventDefault();
                                 
                                 createFolderToggleUI();
                         });
                         
-                        $(config.selectors.container).on('click', config.selectors.confirm, function(e)
+                        $(config.selectors.bottomBar).on('click', config.selectors.confirm, function(e)
                         {
                                 e.preventDefault();
                                 
@@ -291,14 +289,14 @@ $(function() {
                                 }
                         });
 
-                        $(config.selectors.container).on('click', config.selectors.select, function(e)
+                        $(config.selectors.bottomBar).on('click', config.selectors.select, function(e)
                         {
                                 e.preventDefault();
 
                                 pick();
                         });
 
-                        $(config.selectors.container).on('click', config.selectors.cancel, function(e)
+                        $(config.selectors.bottomBar).on('click', config.selectors.cancel, function(e)
                         {
                                 e.preventDefault();
 
