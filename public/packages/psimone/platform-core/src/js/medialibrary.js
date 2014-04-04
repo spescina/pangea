@@ -102,6 +102,7 @@ $(function() {
                         UI.block();
 
                         $.post(config.services.browse, {
+                                field: ZZ.config.medialibrary.field,
                                 path: target
                         }).done(function(data)
                         {
@@ -371,6 +372,7 @@ $(function() {
                                 },
                                 submit: function (e, data) {
                                         data.formData = {
+                                                field: ZZ.config.medialibrary.field,
                                                 path: currentPath
                                         };
                                 },

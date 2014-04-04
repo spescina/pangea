@@ -64,7 +64,10 @@ class TestController extends BaseController implements Module
 		Form::activePanel('media');
 
 		Form::fields(array(
-		    'media' => array('type' => 'media')
+		    'media' => array(
+                        'type' => 'media',
+                        'allowed' => 'image'
+                    )
 		));
 
 		return $this->showForm($id);
