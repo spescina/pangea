@@ -108,7 +108,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Psimone\PlatformCore\PlatformCoreServiceProvider',
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-                'Clockwork\Support\Laravel\ClockworkServiceProvider',
+                'Barryvdh\Debugbar\ServiceProvider',
 	    
 	),
     /*
@@ -174,7 +174,7 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-                'Clockwork'       => 'Clockwork\Support\Laravel\Facade',
+                'Debugbar'        => 'Barryvdh\Debugbar\Facade',
 	),
 
 );

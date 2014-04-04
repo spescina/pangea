@@ -12634,248 +12634,6 @@ namespace {
 		 }
 
 	}
-	class Clockwork extends \Clockwork\Support\Laravel\Facade{
-		/**
-		 * Create a new Clockwork instance with default request object
-		 *
-		 * @static 
-		 */
-		 public static function __construct(){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::__construct();
-		 }
-
-		/**
-		 * Add a new data source
-		 *
-		 * @static 
-		 */
-		 public static function addDataSource($dataSource){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::addDataSource($dataSource);
-		 }
-
-		/**
-		 * Return array of all added data sources
-		 *
-		 * @static 
-		 */
-		 public static function getDataSources(){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::getDataSources();
-		 }
-
-		/**
-		 * Return the request object
-		 *
-		 * @static 
-		 */
-		 public static function getRequest(){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::getRequest();
-		 }
-
-		/**
-		 * Set a custom request object
-		 *
-		 * @static 
-		 */
-		 public static function setRequest($request){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::setRequest($request);
-		 }
-
-		/**
-		 * Add data from all data sources to request
-		 *
-		 * @static 
-		 */
-		 public static function resolveRequest(){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::resolveRequest();
-		 }
-
-		/**
-		 * Store request via storage object
-		 *
-		 * @static 
-		 */
-		 public static function storeRequest(){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::storeRequest();
-		 }
-
-		/**
-		 * Return the storage object
-		 *
-		 * @static 
-		 */
-		 public static function getStorage(){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::getStorage();
-		 }
-
-		/**
-		 * Set a custom storage object
-		 *
-		 * @static 
-		 */
-		 public static function setStorage($storage){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::setStorage($storage);
-		 }
-
-		/**
-		 * Return the log instance
-		 *
-		 * @static 
-		 */
-		 public static function getLog(){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::getLog();
-		 }
-
-		/**
-		 * Set a custom log instance
-		 *
-		 * @static 
-		 */
-		 public static function setLog($log){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::setLog($log);
-		 }
-
-		/**
-		 * Return the timeline instance
-		 *
-		 * @static 
-		 */
-		 public static function getTimeline(){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::getTimeline();
-		 }
-
-		/**
-		 * Set a custom timeline instance
-		 *
-		 * @static 
-		 */
-		 public static function setTimeline($timeline){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::setTimeline($timeline);
-		 }
-
-		/**
-		 * Shortcut methods for the current log instance
-		 *
-		 * @static 
-		 */
-		 public static function log($level, $message, $context = array()){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::log($level, $message, $context);
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function emergency($message, $context = array()){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::emergency($message, $context);
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function alert($message, $context = array()){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::alert($message, $context);
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function critical($message, $context = array()){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::critical($message, $context);
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function error($message, $context = array()){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::error($message, $context);
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function warning($message, $context = array()){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::warning($message, $context);
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function notice($message, $context = array()){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::notice($message, $context);
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function info($message, $context = array()){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::info($message, $context);
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function debug($message, $context = array()){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::debug($message, $context);
-		 }
-
-		/**
-		 * Shortcut methods for the current timeline instance
-		 *
-		 * @static 
-		 */
-		 public static function startEvent($name, $description, $time = null){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::startEvent($name, $description, $time);
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function endEvent($name){
-			//Method inherited from \Clockwork\Clockwork
-			 \Clockwork\Clockwork::endEvent($name);
-		 }
-
-	}
 	class Platform extends \Psimone\PlatformCore\Facades\Platform{
 		/**
 		 * Returns the module package folder
@@ -13188,12 +12946,13 @@ namespace {
 		 * Return objects in the given path
 		 *
 		 * @param string $path
+		 * @param string $field
 		 * @return boolean
 		 * @static 
 		 */
-		 public static function browsePath($path){
+		 public static function browsePath($path, $field){
 			//Method inherited from \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary
-			return \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::browsePath($path);
+			return \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::browsePath($path, $field);
 		 }
 
 		/**
@@ -13254,23 +13013,64 @@ namespace {
 		 }
 
 		/**
-		 * 
+		 * Create a folder at the given path
 		 *
+		 * @param string $path
+		 * @param string $folder
+		 * @return boolean
 		 * @static 
 		 */
 		 public static function folderCreate($path, $folder){
 			//Method inherited from \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary
-			 \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::folderCreate($path, $folder);
+			return \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::folderCreate($path, $folder);
 		 }
 
 		/**
-		 * 
+		 * Delete the folder with the given path
 		 *
+		 * @param string $folder
+		 * @return boolean
 		 * @static 
 		 */
 		 public static function folderDelete($folder){
 			//Method inherited from \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary
-			 \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::folderDelete($folder);
+			return \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::folderDelete($folder);
+		 }
+
+		/**
+		 * Delete the file with the given path
+		 *
+		 * @param string $file
+		 * @return boolean
+		 * @static 
+		 */
+		 public static function fileDelete($file){
+			//Method inherited from \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary
+			return \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::fileDelete($file);
+		 }
+
+		/**
+		 * Return allowed file extensions configured for the current field
+		 *
+		 * @param string $field
+		 * @return array
+		 * @static 
+		 */
+		 public static function allowedExtensions($field){
+			//Method inherited from \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary
+			return \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::allowedExtensions($field);
+		 }
+
+		/**
+		 * Return the json formatted allowed file extensions
+		 *
+		 * @param string $field
+		 * @return string
+		 * @static 
+		 */
+		 public static function jsonAllowedExtensions($field){
+			//Method inherited from \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary
+			return \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::jsonAllowedExtensions($field);
 		 }
 
 	}

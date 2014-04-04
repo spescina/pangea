@@ -113,6 +113,17 @@ body {
     height: 2px;
     margin: 0px;
     padding: 0px; }
+  #bottom-bar #message {
+    background: rgba(0, 0, 0, 0.5);
+    color: #FFF;
+    position: absolute;
+    display: block;
+    padding: 5px 10px;
+    top: -27px;
+    right: 0;
+    text-align: right;
+    z-index: 101;
+    font-size: 12px; }
 
 .blockUI h1 {
   font-size: 14px;

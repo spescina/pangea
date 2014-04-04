@@ -15,13 +15,18 @@ $(function() {
                         },
                         basepath: ZZ.config.medialibrary.config.basepath,
                         templatePath: 'packages/psimone/platform-core/tpl',
+                        messageDuration: 5000,
+                        maxFileSize: 5 * 1024 * 1024,
                         selectors: {
                                 selectedClass: 'selected',
+                                backClass: 'back',
                                 hiddenClass: 'hidden',
                                 folderAttribute: 'folder',
+                                messageId: 'message',
                                 pathAttribute: 'path',
                                 
                                 container: '#medialibrary',
+                                bottomBar: '#bottom-bar',
                                 fileUpload: '#fileupload',
                                 item: '.resource',
                                 newFolder: '#input-folder',
@@ -41,7 +46,7 @@ $(function() {
                                         backgroundColor: '#333',
                                         '-webkit-border-radius': '10px',
                                         '-moz-border-radius': '10px',
-                                        opacity: .5,
+                                        opacity: 0.5,
                                         color: '#fff'
                                 }
                         }
@@ -74,8 +79,6 @@ $(function() {
 
                         browse().done(function(){
                                 selectValue();
-                                
-                                uploadButton();
                         });
                 };
 
@@ -111,6 +114,8 @@ $(function() {
                                 render({ "resources": data }, target).done(function()
                                 {
                                         truncate();
+                                        
+                                        uploadButton();
                                         
                                         UI.unblock();
                                         
@@ -171,7 +176,7 @@ $(function() {
                 {
                         var $item = $(obj);
 
-                        if (!$item.hasClass('back'))
+                        if (!$item.hasClass(config.selectors.backClass))
                         {
                                 highlight(obj);
 
@@ -257,16 +262,16 @@ $(function() {
                  */
                 var bindButtons = function()
                 {
-                        $(config.selectors.upload).on('click', upload);
+                        $(config.selectors.container).on('click', config.selectors.upload, upload);
 
-                        $(config.selectors.createFolder).on('click', function(e)
+                        $(config.selectors.container).on('click', config.selectors.createFolder, function(e)
                         {
                                 e.preventDefault();
                                 
                                 createFolderToggleUI();
                         });
                         
-                        $(config.selectors.confirm).on('click', function(e)
+                        $(config.selectors.container).on('click', config.selectors.confirm, function(e)
                         {
                                 e.preventDefault();
                                 
@@ -286,14 +291,14 @@ $(function() {
                                 }
                         });
 
-                        $(config.selectors.select).on('click', function(e)
+                        $(config.selectors.container).on('click', config.selectors.select, function(e)
                         {
                                 e.preventDefault();
 
                                 pick();
                         });
 
-                        $(config.selectors.cancel).on('click', function(e)
+                        $(config.selectors.container).on('click', config.selectors.cancel, function(e)
                         {
                                 e.preventDefault();
 
@@ -360,11 +365,15 @@ $(function() {
                 {
                         var dfd = new jQuery.Deferred();
                         
+                        var acceptPattern = new RegExp('(\\.|\\/)(' + ZZ.config.medialibrary.allowed.join('|') + ')$', "i");
+                        
                         $(config.selectors.fileUpload).fileupload({
                                 url: config.services.filesUpload,
                                 dataType: 'json',
                                 sequentialUploads: true,
                                 singleFileUploads: false,
+                                maxFileSize: config.maxFileSize,
+                                acceptFileTypes: acceptPattern,
                                 progress: function (e, data) {
                                         var progress = parseInt(data.loaded / data.total * 100, 10);
                                         
@@ -381,7 +390,9 @@ $(function() {
                                         
                                         dfd.resolve();
                                 }
-                        });
+                        }).on('fileuploadprocessfail', function (e, data){
+                                message('Upload Error');
+                        });;
                         
                         return dfd.promise();
                 };
@@ -389,7 +400,7 @@ $(function() {
                 /**
                  * Create a new folder
                  *
-                 * @param {string} e
+                 * @param {string} folder
                  */
                 var createFolder = function(folder)
                 {
@@ -404,7 +415,7 @@ $(function() {
                 /**
                  * Delete a folder
                  *
-                 * @param {string} e
+                 * @param {string} folder
                  */
                 var deleteFolder = function(folder)
                 {
@@ -418,7 +429,7 @@ $(function() {
                 /**
                  * Delete a file
                  *
-                 * @param {string} e
+                 * @param {string} file
                  */
                 var deleteFile = function(file)
                 {
@@ -485,6 +496,17 @@ $(function() {
                                 addclass: false,
                                 addtitle: false
                         });
+                };
+                
+                var message = function(message)
+                {
+                        var msg = $('<span />').attr('id', config.selectors.messageId).text(message);
+                        
+                        $(config.selectors.bottomBar).append(msg);
+                        
+                        setTimeout(function(){
+                                $('#' + config.selectors.messageId).remove();
+                        }, config.messageDuration);
                 };
                 
                 var UI = (function()

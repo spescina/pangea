@@ -13,13 +13,13 @@
 
 App::before(function($request)
 {
-	Event::fire('clockwork.controller.start');
+	// 
 });
 
 
 App::after(function($request, $response)
 {
-	Event::fire('clockwork.controller.end');
+	// 
 });
 
 /*
