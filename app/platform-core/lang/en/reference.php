@@ -7,10 +7,11 @@ return array(
 	'subtitle' => 'Sed nec est non nisi accumsan auctor. Aenean quam metus, aliquet id fringilla vitae, sodales id orci.'
     ),
     'table' => array(
-	'field' => 'Field',
+	'field' => 'Field'
     ),
     'form' => array(
 	'field' => 'Field',
+        'vals' => 'Vals',
 	'_labels_' => array()
     ),
     'help' => array(),

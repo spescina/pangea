@@ -1,9 +1,10 @@
 <?php namespace Psimone\PlatformCore\Controllers;
 
-use Psimone\PlatformCore\Interfaces\Module;
 use Psimone\PlatformCore\Controllers\BaseController;
 use Psimone\PlatformCore\Facades\Form;
 use Psimone\PlatformCore\Facades\Table;
+use Psimone\PlatformCore\Interfaces\Module;
+use Psimone\PlatformCore\Models\Val;
 
 class ReferenceController extends BaseController implements Module
 {
@@ -14,8 +15,15 @@ class ReferenceController extends BaseController implements Module
 
 	public function form($id = null)
 	{
+                $val = new Val;
+                
 		Form::fields(array(
-		    'field' => array('type' => 'text')
+		    'field' => array('type' => 'text'),
+                    'vals' => array(
+                        'type' => 'multi',
+                        'fieldWidth' => 6,
+                        'entries' => Form::modelToList($val->entries(), 'label')
+                    )
 		));
 
 		return $this->showForm($id);
