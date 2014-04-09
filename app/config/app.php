@@ -107,6 +107,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Psimone\PlatformCore\PlatformCoreServiceProvider',
+                'Psimone\Mediabrowser\MediabrowserServiceProvider',
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
                 'Barryvdh\Debugbar\ServiceProvider',
 	    

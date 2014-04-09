@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "a39e1868a5802693d06d0997efe9ab9c",
+    "hash": "8a7d8a052159a6d2c14224622e781762",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -2385,6 +2385,52 @@
             "description": "Symfony Translation Component",
             "homepage": "http://symfony.com",
             "time": "2014-03-26 11:35:33"
+        },
+        {
+            "name": "teepluss/asset",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/antoniofrignani/laravel4-asset.git",
+                "reference": "5f4e454562501fa30f0bd922aad0ee59adb98d0a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/antoniofrignani/laravel4-asset/zipball/5f4e454562501fa30f0bd922aad0ee59adb98d0a",
+                "reference": "5f4e454562501fa30f0bd922aad0ee59adb98d0a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.x",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Teepluss\\Asset": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Teepluss",
+                    "email": "admin@laravel.in.th"
+                }
+            ],
+            "description": "Laravel 4 Assets Manage",
+            "homepage": "https://github.com/teepluss/laravel4-asset",
+            "keywords": [
+                "asset",
+                "assets",
+                "laravel",
+                "laravel4"
+            ],
+            "support": {
+                "source": "https://github.com/antoniofrignani/laravel4-asset/tree/master"
+            },
+            "time": "2013-11-21 09:42:47"
         }
     ],
     "packages-dev": [
@@ -2809,9 +2855,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "teepluss/asset": 20
+    },
     "platform": [
 
     ],
