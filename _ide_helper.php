@@ -12634,6 +12634,549 @@ namespace {
 		 }
 
 	}
+	class Debugbar extends \Barryvdh\Debugbar\Facade{
+		/**
+		 * 
+		 *
+		 * @param \Illuminate\Foundation\Application $app
+		 * @static 
+		 */
+		 public static function __construct($app = null){
+			//Method inherited from \Barryvdh\Debugbar\LaravelDebugbar
+			 \Barryvdh\Debugbar\LaravelDebugbar::__construct($app);
+		 }
+
+		/**
+		 * Check if the Debugbar is enabled
+		 *
+		 * @return boolean
+		 * @static 
+		 */
+		 public static function isEnabled(){
+			//Method inherited from \Barryvdh\Debugbar\LaravelDebugbar
+			return \Barryvdh\Debugbar\LaravelDebugbar::isEnabled();
+		 }
+
+		/**
+		 * Enable the Debugbar and boot, if not already booted.
+		 *
+		 * @static 
+		 */
+		 public static function enable(){
+			//Method inherited from \Barryvdh\Debugbar\LaravelDebugbar
+			 \Barryvdh\Debugbar\LaravelDebugbar::enable();
+		 }
+
+		/**
+		 * Disable the Debugbar
+		 *
+		 * @static 
+		 */
+		 public static function disable(){
+			//Method inherited from \Barryvdh\Debugbar\LaravelDebugbar
+			 \Barryvdh\Debugbar\LaravelDebugbar::disable();
+		 }
+
+		/**
+		 * Boot the debugbar (add collectors, renderer and listener)
+		 *
+		 * @static 
+		 */
+		 public static function boot(){
+			//Method inherited from \Barryvdh\Debugbar\LaravelDebugbar
+			 \Barryvdh\Debugbar\LaravelDebugbar::boot();
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function modifyResponse($request, $response){
+			//Method inherited from \Barryvdh\Debugbar\LaravelDebugbar
+			 \Barryvdh\Debugbar\LaravelDebugbar::modifyResponse($request, $response);
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function shouldCollect($name, $default = false){
+			//Method inherited from \Barryvdh\Debugbar\LaravelDebugbar
+			 \Barryvdh\Debugbar\LaravelDebugbar::shouldCollect($name, $default);
+		 }
+
+		/**
+		 * Starts a measure
+		 *
+		 * @param string $name Internal name, used to stop the measure
+		 * @param string $label Public name
+		 * @static 
+		 */
+		 public static function startMeasure($name, $label = null){
+			//Method inherited from \Barryvdh\Debugbar\LaravelDebugbar
+			 \Barryvdh\Debugbar\LaravelDebugbar::startMeasure($name, $label);
+		 }
+
+		/**
+		 * Stops a measure
+		 *
+		 * @param string $name
+		 * @static 
+		 */
+		 public static function stopMeasure($name){
+			//Method inherited from \Barryvdh\Debugbar\LaravelDebugbar
+			 \Barryvdh\Debugbar\LaravelDebugbar::stopMeasure($name);
+		 }
+
+		/**
+		 * Adds a measure
+		 *
+		 * @param string $label
+		 * @param float $start
+		 * @param float $end
+		 * @static 
+		 */
+		 public static function addMeasure($label, $start, $end){
+			//Method inherited from \Barryvdh\Debugbar\LaravelDebugbar
+			 \Barryvdh\Debugbar\LaravelDebugbar::addMeasure($label, $start, $end);
+		 }
+
+		/**
+		 * Utility function to measure the execution of a Closure
+		 *
+		 * @param string $label
+		 * @param \Closure|callable $closure
+		 * @static 
+		 */
+		 public static function measure($label, $closure){
+			//Method inherited from \Barryvdh\Debugbar\LaravelDebugbar
+			 \Barryvdh\Debugbar\LaravelDebugbar::measure($label, $closure);
+		 }
+
+		/**
+		 * Adds an exception to be profiled in the debug bar
+		 *
+		 * @param Exception $e
+		 * @static 
+		 */
+		 public static function addException($e){
+			//Method inherited from \Barryvdh\Debugbar\LaravelDebugbar
+			 \Barryvdh\Debugbar\LaravelDebugbar::addException($e);
+		 }
+
+		/**
+		 * Adds a message to the MessagesCollector
+		 * 
+		 * A message can be anything from an object to a string
+		 *
+		 * @param mixed $message
+		 * @param string $label
+		 * @static 
+		 */
+		 public static function addMessage($message, $label = 'info'){
+			//Method inherited from \Barryvdh\Debugbar\LaravelDebugbar
+			 \Barryvdh\Debugbar\LaravelDebugbar::addMessage($message, $label);
+		 }
+
+		/**
+		 * Injects the web debug toolbar into the given Response.
+		 *
+		 * @param \Symfony\Component\HttpFoundation\Response $response A Response instance
+		 * Based on https://github.com/symfony/WebProfilerBundle/blob/master/EventListener/WebDebugToolbarListener.php
+		 * @static 
+		 */
+		 public static function injectDebugbar($response){
+			//Method inherited from \Barryvdh\Debugbar\LaravelDebugbar
+			 \Barryvdh\Debugbar\LaravelDebugbar::injectDebugbar($response);
+		 }
+
+		/**
+		 * Collect data in a CLI request
+		 *
+		 * @return array
+		 * @static 
+		 */
+		 public static function collectConsole(){
+			//Method inherited from \Barryvdh\Debugbar\LaravelDebugbar
+			return \Barryvdh\Debugbar\LaravelDebugbar::collectConsole();
+		 }
+
+		/**
+		 * Magic calls for adding messages
+		 *
+		 * @param string $method
+		 * @param array $args
+		 * @return mixed|void
+		 * @static 
+		 */
+		 public static function __call($method, $args){
+			//Method inherited from \Barryvdh\Debugbar\LaravelDebugbar
+			return \Barryvdh\Debugbar\LaravelDebugbar::__call($method, $args);
+		 }
+
+		/**
+		 * Adds a data collector
+		 *
+		 * @param DataCollectorInterface $collector
+		 * @throws DebugBarException
+		 * @return $this
+		 * @static 
+		 */
+		 public static function addCollector($collector){
+			//Method inherited from \DebugBar\DebugBar
+			return \Barryvdh\Debugbar\LaravelDebugbar::addCollector($collector);
+		 }
+
+		/**
+		 * Checks if a data collector has been added
+		 *
+		 * @param string $name
+		 * @return boolean
+		 * @static 
+		 */
+		 public static function hasCollector($name){
+			//Method inherited from \DebugBar\DebugBar
+			return \Barryvdh\Debugbar\LaravelDebugbar::hasCollector($name);
+		 }
+
+		/**
+		 * Returns a data collector
+		 *
+		 * @param string $name
+		 * @return DataCollectorInterface
+		 * @static 
+		 */
+		 public static function getCollector($name){
+			//Method inherited from \DebugBar\DebugBar
+			return \Barryvdh\Debugbar\LaravelDebugbar::getCollector($name);
+		 }
+
+		/**
+		 * Returns an array of all data collectors
+		 *
+		 * @return array[DataCollectorInterface]
+		 * @static 
+		 */
+		 public static function getCollectors(){
+			//Method inherited from \DebugBar\DebugBar
+			return \Barryvdh\Debugbar\LaravelDebugbar::getCollectors();
+		 }
+
+		/**
+		 * Sets the request id generator
+		 *
+		 * @param RequestIdGeneratorInterface $generator
+		 * @static 
+		 */
+		 public static function setRequestIdGenerator($generator){
+			//Method inherited from \DebugBar\DebugBar
+			 \Barryvdh\Debugbar\LaravelDebugbar::setRequestIdGenerator($generator);
+		 }
+
+		/**
+		 * 
+		 *
+		 * @return RequestIdGeneratorInterface
+		 * @static 
+		 */
+		 public static function getRequestIdGenerator(){
+			//Method inherited from \DebugBar\DebugBar
+			return \Barryvdh\Debugbar\LaravelDebugbar::getRequestIdGenerator();
+		 }
+
+		/**
+		 * Returns the id of the current request
+		 *
+		 * @return string
+		 * @static 
+		 */
+		 public static function getCurrentRequestId(){
+			//Method inherited from \DebugBar\DebugBar
+			return \Barryvdh\Debugbar\LaravelDebugbar::getCurrentRequestId();
+		 }
+
+		/**
+		 * Sets the storage backend to use to store the collected data
+		 *
+		 * @param StorageInterface $storage
+		 * @static 
+		 */
+		 public static function setStorage($storage = null){
+			//Method inherited from \DebugBar\DebugBar
+			 \Barryvdh\Debugbar\LaravelDebugbar::setStorage($storage);
+		 }
+
+		/**
+		 * 
+		 *
+		 * @return StorageInterface
+		 * @static 
+		 */
+		 public static function getStorage(){
+			//Method inherited from \DebugBar\DebugBar
+			return \Barryvdh\Debugbar\LaravelDebugbar::getStorage();
+		 }
+
+		/**
+		 * Checks if the data will be persisted
+		 *
+		 * @return boolean
+		 * @static 
+		 */
+		 public static function isDataPersisted(){
+			//Method inherited from \DebugBar\DebugBar
+			return \Barryvdh\Debugbar\LaravelDebugbar::isDataPersisted();
+		 }
+
+		/**
+		 * Sets the HTTP driver
+		 *
+		 * @param HttpDriverInterface $driver
+		 * @static 
+		 */
+		 public static function setHttpDriver($driver){
+			//Method inherited from \DebugBar\DebugBar
+			 \Barryvdh\Debugbar\LaravelDebugbar::setHttpDriver($driver);
+		 }
+
+		/**
+		 * Returns the HTTP driver
+		 * 
+		 * If no http driver where defined, a PhpHttpDriver is automatically created
+		 *
+		 * @return HttpDriverInterface
+		 * @static 
+		 */
+		 public static function getHttpDriver(){
+			//Method inherited from \DebugBar\DebugBar
+			return \Barryvdh\Debugbar\LaravelDebugbar::getHttpDriver();
+		 }
+
+		/**
+		 * Collects the data from the collectors
+		 *
+		 * @return array
+		 * @static 
+		 */
+		 public static function collect(){
+			//Method inherited from \DebugBar\DebugBar
+			return \Barryvdh\Debugbar\LaravelDebugbar::collect();
+		 }
+
+		/**
+		 * Returns collected data
+		 * 
+		 * Will collect the data if none have been collected yet
+		 *
+		 * @return array
+		 * @static 
+		 */
+		 public static function getData(){
+			//Method inherited from \DebugBar\DebugBar
+			return \Barryvdh\Debugbar\LaravelDebugbar::getData();
+		 }
+
+		/**
+		 * Returns an array of HTTP headers containing the data
+		 *
+		 * @param string $headerName
+		 * @param integer $maxHeaderLength
+		 * @return array
+		 * @static 
+		 */
+		 public static function getDataAsHeaders($headerName = 'phpdebugbar', $maxHeaderLength = 4096, $maxTotalHeaderLength = 250000){
+			//Method inherited from \DebugBar\DebugBar
+			return \Barryvdh\Debugbar\LaravelDebugbar::getDataAsHeaders($headerName, $maxHeaderLength, $maxTotalHeaderLength);
+		 }
+
+		/**
+		 * Sends the data through the HTTP headers
+		 *
+		 * @param bool $useOpenHandler
+		 * @param string $headerName
+		 * @param integer $maxHeaderLength
+		 * @static 
+		 */
+		 public static function sendDataInHeaders($useOpenHandler = null, $headerName = 'phpdebugbar', $maxHeaderLength = 4096){
+			//Method inherited from \DebugBar\DebugBar
+			 \Barryvdh\Debugbar\LaravelDebugbar::sendDataInHeaders($useOpenHandler, $headerName, $maxHeaderLength);
+		 }
+
+		/**
+		 * Stacks the data in the session for later rendering
+		 *
+		 * @static 
+		 */
+		 public static function stackData(){
+			//Method inherited from \DebugBar\DebugBar
+			 \Barryvdh\Debugbar\LaravelDebugbar::stackData();
+		 }
+
+		/**
+		 * Checks if there is stacked data in the session
+		 *
+		 * @return boolean
+		 * @static 
+		 */
+		 public static function hasStackedData(){
+			//Method inherited from \DebugBar\DebugBar
+			return \Barryvdh\Debugbar\LaravelDebugbar::hasStackedData();
+		 }
+
+		/**
+		 * Returns the data stacked in the session
+		 *
+		 * @param boolean $delete Whether to delete the data in the session
+		 * @return array
+		 * @static 
+		 */
+		 public static function getStackedData($delete = true){
+			//Method inherited from \DebugBar\DebugBar
+			return \Barryvdh\Debugbar\LaravelDebugbar::getStackedData($delete);
+		 }
+
+		/**
+		 * Sets the key to use in the $_SESSION array
+		 *
+		 * @param string $ns
+		 * @static 
+		 */
+		 public static function setStackDataSessionNamespace($ns){
+			//Method inherited from \DebugBar\DebugBar
+			 \Barryvdh\Debugbar\LaravelDebugbar::setStackDataSessionNamespace($ns);
+		 }
+
+		/**
+		 * Returns the key used in the $_SESSION array
+		 *
+		 * @return string
+		 * @static 
+		 */
+		 public static function getStackDataSessionNamespace(){
+			//Method inherited from \DebugBar\DebugBar
+			return \Barryvdh\Debugbar\LaravelDebugbar::getStackDataSessionNamespace();
+		 }
+
+		/**
+		 * Sets whether to only use the session to store stacked data even
+		 * if a storage is enabled
+		 *
+		 * @param boolean $enabled
+		 * @static 
+		 */
+		 public static function setStackAlwaysUseSessionStorage($enabled = true){
+			//Method inherited from \DebugBar\DebugBar
+			 \Barryvdh\Debugbar\LaravelDebugbar::setStackAlwaysUseSessionStorage($enabled);
+		 }
+
+		/**
+		 * Checks if the session is always used to store stacked data
+		 * even if a storage is enabled
+		 *
+		 * @return boolean
+		 * @static 
+		 */
+		 public static function isStackAlwaysUseSessionStorage(){
+			//Method inherited from \DebugBar\DebugBar
+			return \Barryvdh\Debugbar\LaravelDebugbar::isStackAlwaysUseSessionStorage();
+		 }
+
+		/**
+		 * Returns a JavascriptRenderer for this instance
+		 *
+		 * @param stri $baseUrl
+		 * @param string $basePathng
+		 * @return JavascriptRenderer
+		 * @static 
+		 */
+		 public static function getJavascriptRenderer($baseUrl = null, $basePath = null){
+			//Method inherited from \DebugBar\DebugBar
+			return \Barryvdh\Debugbar\LaravelDebugbar::getJavascriptRenderer($baseUrl, $basePath);
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function offsetSet($key, $value){
+			//Method inherited from \DebugBar\DebugBar
+			 \Barryvdh\Debugbar\LaravelDebugbar::offsetSet($key, $value);
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function offsetGet($key){
+			//Method inherited from \DebugBar\DebugBar
+			 \Barryvdh\Debugbar\LaravelDebugbar::offsetGet($key);
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function offsetExists($key){
+			//Method inherited from \DebugBar\DebugBar
+			 \Barryvdh\Debugbar\LaravelDebugbar::offsetExists($key);
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function offsetUnset($key){
+			//Method inherited from \DebugBar\DebugBar
+			 \Barryvdh\Debugbar\LaravelDebugbar::offsetUnset($key);
+		 }
+
+	}
+	class Asset extends \Teepluss\Asset\Facades\Asset{
+		/**
+		 * Get an asset container instance.
+		 * 
+		 * <code>
+		 * 	// Get the default asset container
+		 * 	$container = Asset::container();
+		 * 
+		 * 	// Get a named asset container
+		 * 	$container = Asset::container('footer');
+		 * </code>
+		 *
+		 * @param string            $container
+		 * @return Asset_Container
+		 * @static 
+		 */
+		 public static function container($container = 'default'){
+			//Method inherited from \Teepluss\Asset\Asset
+			return \Teepluss\Asset\Asset::container($container);
+		 }
+
+		/**
+		 * Magic Method for calling methods on the default container.
+		 * 
+		 * <code>
+		 * 	// Call the "styles" method on the default container
+		 * 	echo Asset::styles();
+		 * 
+		 * 	// Call the "add" method on the default container
+		 * 	Asset::add('jquery', 'js/jquery.js');
+		 * </code>
+		 *
+		 * @static 
+		 */
+		 public static function __call($method, $parameters){
+			//Method inherited from \Teepluss\Asset\Asset
+			 \Teepluss\Asset\Asset::__call($method, $parameters);
+		 }
+
+	}
 	class Platform extends \Psimone\PlatformCore\Facades\Platform{
 		/**
 		 * Returns the module package folder
@@ -12899,6 +13442,20 @@ namespace {
 		 }
 
 		/**
+		 * Convert a collection in a multi list oriented collection
+		 *
+		 * @param Model $model
+		 * @param string $labelField
+		 * @param string $valueField
+		 * @return Collection type
+		 * @static 
+		 */
+		 public static function modelToList($model, $labelField, $valueField = 'id'){
+			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
+			return \Psimone\PlatformCore\Components\Form\Form::modelToList($model, $labelField, $valueField);
+		 }
+
+		/**
 		 * Return the fixed data taken from post
 		 *
 		 * @return array
@@ -12921,6 +13478,91 @@ namespace {
 		 }
 
 		/**
+		 * Filter data
+		 *
+		 * @return array
+		 * @static 
+		 */
+		 public static function filterData($data){
+			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
+			return \Psimone\PlatformCore\Components\Form\Form::filterData($data);
+		 }
+
+		/**
+		 * Filter out multi field related input data
+		 *
+		 * @param array $data
+		 * @return array
+		 * @static 
+		 */
+		 public static function filterOutMulti($data){
+			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
+			return \Psimone\PlatformCore\Components\Form\Form::filterOutMulti($data);
+		 }
+
+		/**
+		 * Keep only multi field related input data
+		 *
+		 * @param array $data
+		 * @return array
+		 * @static 
+		 */
+		 public static function filterOnlyMulti(){
+			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
+			return \Psimone\PlatformCore\Components\Form\Form::filterOnlyMulti();
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function cleanMultiFieldName($field){
+			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
+			 \Psimone\PlatformCore\Components\Form\Form::cleanMultiFieldName($field);
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function multiFields(){
+			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
+			 \Psimone\PlatformCore\Components\Form\Form::multiFields();
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function getFieldsFromSession(){
+			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
+			 \Psimone\PlatformCore\Components\Form\Form::getFieldsFromSession();
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function putFieldsInSession(){
+			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
+			 \Psimone\PlatformCore\Components\Form\Form::putFieldsInSession();
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function multiFieldData($field){
+			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
+			 \Psimone\PlatformCore\Components\Form\Form::multiFieldData($field);
+		 }
+
+		/**
 		 * 
 		 *
 		 * @static 
@@ -12928,149 +13570,6 @@ namespace {
 		 public static function show(){
 			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
 			 \Psimone\PlatformCore\Components\Form\Form::show();
-		 }
-
-	}
-	class PMedialibrary extends \Psimone\PlatformCore\Facades\Medialibrary{
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function __construct(){
-			//Method inherited from \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary
-			 \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::__construct();
-		 }
-
-		/**
-		 * Return objects in the given path
-		 *
-		 * @param string $path
-		 * @param string $field
-		 * @return boolean
-		 * @static 
-		 */
-		 public static function browsePath($path, $field){
-			//Method inherited from \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary
-			return \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::browsePath($path, $field);
-		 }
-
-		/**
-		 * Return the local config var in json notation
-		 * embeddable as a javascript config object
-		 *
-		 * @return json
-		 * @static 
-		 */
-		 public static function configToJSON(){
-			//Method inherited from \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary
-			return \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::configToJSON();
-		 }
-
-		/**
-		 * Set the config array of the component in the local var
-		 *
-		 * @return array
-		 * @static 
-		 */
-		 public static function config(){
-			//Method inherited from \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary
-			return \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::config();
-		 }
-
-		/**
-		 * Return the local item list
-		 *
-		 * @return array
-		 * @static 
-		 */
-		 public static function getItems(){
-			//Method inherited from \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary
-			return \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::getItems();
-		 }
-
-		/**
-		 * Return the type of the resource
-		 *
-		 * @param string $path
-		 * @static 
-		 */
-		 public static function extension($path){
-			//Method inherited from \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary
-			 \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::extension($path);
-		 }
-
-		/**
-		 * Return the localized requested string
-		 *
-		 * @param string $section
-		 * @return string
-		 * @static 
-		 */
-		 public static function localize($section){
-			//Method inherited from \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary
-			return \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::localize($section);
-		 }
-
-		/**
-		 * Create a folder at the given path
-		 *
-		 * @param string $path
-		 * @param string $folder
-		 * @return boolean
-		 * @static 
-		 */
-		 public static function folderCreate($path, $folder){
-			//Method inherited from \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary
-			return \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::folderCreate($path, $folder);
-		 }
-
-		/**
-		 * Delete the folder with the given path
-		 *
-		 * @param string $folder
-		 * @return boolean
-		 * @static 
-		 */
-		 public static function folderDelete($folder){
-			//Method inherited from \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary
-			return \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::folderDelete($folder);
-		 }
-
-		/**
-		 * Delete the file with the given path
-		 *
-		 * @param string $file
-		 * @return boolean
-		 * @static 
-		 */
-		 public static function fileDelete($file){
-			//Method inherited from \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary
-			return \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::fileDelete($file);
-		 }
-
-		/**
-		 * Return allowed file extensions configured for the current field
-		 *
-		 * @param string $field
-		 * @return array
-		 * @static 
-		 */
-		 public static function allowedExtensions($field){
-			//Method inherited from \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary
-			return \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::allowedExtensions($field);
-		 }
-
-		/**
-		 * Return the json formatted allowed file extensions
-		 *
-		 * @param string $field
-		 * @return string
-		 * @static 
-		 */
-		 public static function jsonAllowedExtensions($field){
-			//Method inherited from \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary
-			return \Psimone\PlatformCore\Components\MediaLibrary\MediaLibrary::jsonAllowedExtensions($field);
 		 }
 
 	}
@@ -13198,55 +13697,158 @@ namespace {
 		 }
 
 	}
-	class Timthumb extends \Psimone\PlatformCore\Facades\Timthumb{
+	class MediaLibrary extends \Psimone\Mediabrowser\Facades\MediaLibrary{
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function __construct(){
+			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
+			 \Psimone\Mediabrowser\Classes\Medialibrary::__construct();
+		 }
+
+		/**
+		 * Return objects in the given path
+		 *
+		 * @param string $path
+		 * @param string $field
+		 * @return boolean
+		 * @static 
+		 */
+		 public static function browsePath($path, $field){
+			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
+			return \Psimone\Mediabrowser\Classes\Medialibrary::browsePath($path, $field);
+		 }
+
+		/**
+		 * Return the local config var in json notation
+		 * embeddable as a javascript config object
+		 *
+		 * @return json
+		 * @static 
+		 */
+		 public static function configToJSON(){
+			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
+			return \Psimone\Mediabrowser\Classes\Medialibrary::configToJSON();
+		 }
+
+		/**
+		 * Set the config array of the component in the local var
+		 *
+		 * @return array
+		 * @static 
+		 */
+		 public static function config(){
+			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
+			return \Psimone\Mediabrowser\Classes\Medialibrary::config();
+		 }
+
+		/**
+		 * Return the local item list
+		 *
+		 * @return array
+		 * @static 
+		 */
+		 public static function getItems(){
+			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
+			return \Psimone\Mediabrowser\Classes\Medialibrary::getItems();
+		 }
+
+		/**
+		 * Return the type of the resource
+		 *
+		 * @param string $path
+		 * @static 
+		 */
+		 public static function extension($path){
+			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
+			 \Psimone\Mediabrowser\Classes\Medialibrary::extension($path);
+		 }
+
+		/**
+		 * Return the localized requested string
+		 *
+		 * @param string $section
+		 * @return string
+		 * @static 
+		 */
+		 public static function localize($section){
+			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
+			return \Psimone\Mediabrowser\Classes\Medialibrary::localize($section);
+		 }
+
+		/**
+		 * Create a folder at the given path
+		 *
+		 * @param string $path
+		 * @param string $folder
+		 * @return boolean
+		 * @static 
+		 */
+		 public static function folderCreate($path, $folder){
+			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
+			return \Psimone\Mediabrowser\Classes\Medialibrary::folderCreate($path, $folder);
+		 }
+
+		/**
+		 * Delete the folder with the given path
+		 *
+		 * @param string $folder
+		 * @return boolean
+		 * @static 
+		 */
+		 public static function folderDelete($folder){
+			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
+			return \Psimone\Mediabrowser\Classes\Medialibrary::folderDelete($folder);
+		 }
+
+		/**
+		 * Delete the file with the given path
+		 *
+		 * @param string $file
+		 * @return boolean
+		 * @static 
+		 */
+		 public static function fileDelete($file){
+			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
+			return \Psimone\Mediabrowser\Classes\Medialibrary::fileDelete($file);
+		 }
+
+		/**
+		 * Return allowed file extensions configured for the current field
+		 *
+		 * @param string $field
+		 * @return array
+		 * @static 
+		 */
+		 public static function allowedExtensions($field){
+			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
+			return \Psimone\Mediabrowser\Classes\Medialibrary::allowedExtensions($field);
+		 }
+
+		/**
+		 * Return the json formatted allowed file extensions
+		 *
+		 * @param string $field
+		 * @return string
+		 * @static 
+		 */
+		 public static function jsonAllowedExtensions($field){
+			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
+			return \Psimone\Mediabrowser\Classes\Medialibrary::jsonAllowedExtensions($field);
+		 }
+
+	}
+	class ImgProxy extends \Psimone\Imgproxy\Facades\ImgProxy{
 		/**
 		 * 
 		 *
 		 * @static 
 		 */
 		 public static function link($path, $width, $height){
-			//Method inherited from \Psimone\PlatformCore\Helpers\Timthumb
-			 \Psimone\PlatformCore\Helpers\Timthumb::link($path, $width, $height);
-		 }
-
-	}
-	class Asset extends \Teepluss\Asset\Facades\Asset{
-		/**
-		 * Get an asset container instance.
-		 * 
-		 * <code>
-		 * 	// Get the default asset container
-		 * 	$container = Asset::container();
-		 * 
-		 * 	// Get a named asset container
-		 * 	$container = Asset::container('footer');
-		 * </code>
-		 *
-		 * @param string            $container
-		 * @return Asset_Container
-		 * @static 
-		 */
-		 public static function container($container = 'default'){
-			//Method inherited from \Teepluss\Asset\Asset
-			return \Teepluss\Asset\Asset::container($container);
-		 }
-
-		/**
-		 * Magic Method for calling methods on the default container.
-		 * 
-		 * <code>
-		 * 	// Call the "styles" method on the default container
-		 * 	echo Asset::styles();
-		 * 
-		 * 	// Call the "add" method on the default container
-		 * 	Asset::add('jquery', 'js/jquery.js');
-		 * </code>
-		 *
-		 * @static 
-		 */
-		 public static function __call($method, $parameters){
-			//Method inherited from \Teepluss\Asset\Asset
-			 \Teepluss\Asset\Asset::__call($method, $parameters);
+			//Method inherited from \Psimone\Imgproxy\Classes\Imgproxy
+			 \Psimone\Imgproxy\Classes\Imgproxy::link($path, $width, $height);
 		 }
 
 	}

@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "8a7d8a052159a6d2c14224622e781762",
+    "hash": "bae0c54ff4c19ddf798fdb0a2a535eb9",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1415,6 +1415,32 @@
                 "redis"
             ],
             "time": "2014-01-16 14:10:29"
+        },
+        {
+            "name": "psimone/imgproxy",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@bitbucket.org:psimone/imgproxy.git",
+                "reference": "84ede32c211af8b69a942d23c56eabb9c4512ef1"
+            },
+            "require": {
+                "illuminate/support": "4.1.*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Psimone\\Imgproxy": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Simone Pescina",
+                    "email": "s.pescina@gmail.com"
+                }
+            ],
+            "time": "2014-04-10 01:36:52"
         },
         {
             "name": "psr/log",

@@ -6,18 +6,22 @@
 	"require": {
 		"laravel/framework": "4.1.*",
                 "teepluss/asset": "dev-master",
+                "psimone/imgproxy": "1.*",
 		"barryvdh/laravel-debugbar": "1.*",
 		"barryvdh/laravel-ide-helper": "1.*"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "3.7.*"
 	},
-        
 	"repositories": [
 		{
 			"type": "vcs",
 			"url": "https://github.com/antoniofrignani/laravel4-asset.git"
-		}
+		},
+                {
+                        "type": "vcs",
+                        "url": "git@bitbucket.org:psimone/imgproxy.git"
+                }
 	],
 	"autoload": {
 		"classmap": [
