@@ -106,8 +106,13 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		'Psimone\PlatformCore\PlatformCoreServiceProvider',
+		
+                'Psimone\PlatformCore\PlatformCoreServiceProvider',
                 'Psimone\Mediabrowser\MediabrowserServiceProvider',
+                'Psimone\Imgproxy\ImgproxyServiceProvider',
+            
+                'Teepluss\Asset\AssetServiceProvider',
+                
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
                 'Barryvdh\Debugbar\ServiceProvider',
 	    
@@ -175,7 +180,10 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
+                
                 'Debugbar'        => 'Barryvdh\Debugbar\Facade',
+            
+                'Asset'           => 'Teepluss\Asset\Facades\Asset',
 	),
 
 );

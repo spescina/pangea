@@ -239,7 +239,7 @@
                          */
                         var loadTemplate = function(tpl)
                         {
-                                var ajax = new ZZ.ajax({cache: true, dataType: 'html'});
+                                var ajax = new ZZ.ajax({cache: false, dataType: 'html'});
 
                                 var url = '/' + config.templatePath + '/' + tpl;
 
