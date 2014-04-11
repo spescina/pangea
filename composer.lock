@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "bae0c54ff4c19ddf798fdb0a2a535eb9",
+    "hash": "07be5d959dd7265537e5c00fab8b8251",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -854,16 +854,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v4.1.24",
+            "version": "v4.1.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "4f69e545e0ca19b54010ca4c68a66ba6de6e853c"
+                "reference": "d6721488f1a166fd2a7e112540fef81975c393a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/4f69e545e0ca19b54010ca4c68a66ba6de6e853c",
-                "reference": "4f69e545e0ca19b54010ca4c68a66ba6de6e853c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/d6721488f1a166fd2a7e112540fef81975c393a7",
+                "reference": "d6721488f1a166fd2a7e112540fef81975c393a7",
                 "shasum": ""
             },
             "require": {
@@ -922,7 +922,7 @@
                 "illuminate/workbench": "self.version"
             },
             "require-dev": {
-                "aws/aws-sdk-php": "2.5.*",
+                "aws/aws-sdk-php": "2.6.*",
                 "iron-io/iron_mq": "1.5.*",
                 "mockery/mockery": "0.9.*",
                 "pda/pheanstalk": "2.1.*",
@@ -967,7 +967,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-03-17 15:49:21"
+            "time": "2014-04-10 13:22:14"
         },
         {
             "name": "maximebf/debugbar",
@@ -1418,15 +1418,25 @@
         },
         {
             "name": "psimone/imgproxy",
-            "version": "1.0.0",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
-                "url": "git@bitbucket.org:psimone/imgproxy.git",
-                "reference": "84ede32c211af8b69a942d23c56eabb9c4512ef1"
+                "url": "https://bitbucket.org/psimone/imgproxy.git",
+                "reference": "fd6c1bef44aa96563d6bd00fa9de9d09807a1cff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/psimone/imgproxy/get/fd6c1bef44aa96563d6bd00fa9de9d09807a1cff.zip",
+                "reference": "fd6c1bef44aa96563d6bd00fa9de9d09807a1cff",
+                "shasum": ""
             },
             "require": {
                 "illuminate/support": "4.1.*",
                 "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "4.0.14"
             },
             "type": "library",
             "autoload": {
@@ -1434,13 +1444,25 @@
                     "Psimone\\Imgproxy": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
             "authors": [
                 {
                     "name": "Simone Pescina",
                     "email": "s.pescina@gmail.com"
                 }
             ],
-            "time": "2014-04-10 01:36:52"
+            "description": "An image proxy for Laravel",
+            "keywords": [
+                "Resizer",
+                "crop",
+                "image",
+                "laravel",
+                "proxy"
+            ],
+            "time": "2014-04-11 01:32:47"
         },
         {
             "name": "psr/log",

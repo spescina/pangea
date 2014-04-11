@@ -4221,13 +4221,12 @@ namespace {
 		 *
 		 * @param string  $column
 		 * @param array   $values
-		 * @param bool  $not
 		 * @return \Illuminate\Database\Query\Builder|static
 		 * @static 
 		 */
-		 public static function orWhereBetween($column, $values, $not = false){
+		 public static function orWhereBetween($column, $values){
 			//Method inherited from \Illuminate\Database\Query\Builder
-			return \Illuminate\Database\Query\Builder::orWhereBetween($column, $values, $not);
+			return \Illuminate\Database\Query\Builder::orWhereBetween($column, $values);
 		 }
 
 		/**
@@ -4439,6 +4438,51 @@ namespace {
 		 public static function orWhereNotNull($column){
 			//Method inherited from \Illuminate\Database\Query\Builder
 			return \Illuminate\Database\Query\Builder::orWhereNotNull($column);
+		 }
+
+		/**
+		 * Add a "where day" statement to the query.
+		 *
+		 * @param string  $column
+		 * @param string   $operator
+		 * @param int   $value
+		 * @param string   $boolean
+		 * @return \Illuminate\Database\Query\Builder|static
+		 * @static 
+		 */
+		 public static function whereDay($column, $operator, $value, $boolean = 'and'){
+			//Method inherited from \Illuminate\Database\Query\Builder
+			return \Illuminate\Database\Query\Builder::whereDay($column, $operator, $value, $boolean);
+		 }
+
+		/**
+		 * Add a "where month" statement to the query.
+		 *
+		 * @param string  $column
+		 * @param string   $operator
+		 * @param int   $value
+		 * @param string   $boolean
+		 * @return \Illuminate\Database\Query\Builder|static
+		 * @static 
+		 */
+		 public static function whereMonth($column, $operator, $value, $boolean = 'and'){
+			//Method inherited from \Illuminate\Database\Query\Builder
+			return \Illuminate\Database\Query\Builder::whereMonth($column, $operator, $value, $boolean);
+		 }
+
+		/**
+		 * Add a "where year" statement to the query.
+		 *
+		 * @param string  $column
+		 * @param string   $operator
+		 * @param int   $value
+		 * @param string   $boolean
+		 * @return \Illuminate\Database\Query\Builder|static
+		 * @static 
+		 */
+		 public static function whereYear($column, $operator, $value, $boolean = 'and'){
+			//Method inherited from \Illuminate\Database\Query\Builder
+			return \Illuminate\Database\Query\Builder::whereYear($column, $operator, $value, $boolean);
 		 }
 
 		/**
@@ -6721,6 +6765,7 @@ namespace {
 		 * Get the session associated with the request.
 		 *
 		 * @return \Illuminate\Session\Store
+		 * @throws \RuntimeException
 		 * @static 
 		 */
 		 public static function session(){
@@ -9522,6 +9567,7 @@ namespace {
 		 * Get the session associated with the request.
 		 *
 		 * @return \Illuminate\Session\Store
+		 * @throws \RuntimeException
 		 * @static 
 		 */
 		 public static function session(){
