@@ -109,7 +109,7 @@ return array(
 		
                 'Psimone\PlatformCore\PlatformCoreServiceProvider',
                 'Psimone\Mediabrowser\MediabrowserServiceProvider',
-                'Psimone\Imgproxy\ImgproxyServiceProvider',
+                'Spescina\Imgproxy\ImgproxyServiceProvider',
             
                 'Teepluss\Asset\AssetServiceProvider',
                 

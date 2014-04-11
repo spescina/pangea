@@ -6,7 +6,6 @@
 	"require": {
 		"laravel/framework": "4.1.*",
                 "teepluss/asset": "dev-master",
-                "psimone/imgproxy": "1.0.*",
 		"barryvdh/laravel-debugbar": "1.*",
 		"barryvdh/laravel-ide-helper": "1.*"
 	},

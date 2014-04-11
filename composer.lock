@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "07be5d959dd7265537e5c00fab8b8251",
+    "hash": "90a6cfd34145f03fb0f52f93fb3effda",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -281,7 +281,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
+                    "name": "Jonathan H. Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -1281,12 +1281,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "76c9692908a6c25601df2db373043fcbb335332e"
+                "reference": "0ea31d9b65d49a8661e93bec19f44e989bd34c69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/76c9692908a6c25601df2db373043fcbb335332e",
-                "reference": "76c9692908a6c25601df2db373043fcbb335332e",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/0ea31d9b65d49a8661e93bec19f44e989bd34c69",
+                "reference": "0ea31d9b65d49a8661e93bec19f44e989bd34c69",
                 "shasum": ""
             },
             "require": {
@@ -1311,7 +1311,8 @@
                     "Crypt": "phpseclib/",
                     "File": "phpseclib/",
                     "Math": "phpseclib/",
-                    "Net": "phpseclib/"
+                    "Net": "phpseclib/",
+                    "System": "phpseclib/"
                 },
                 "files": [
                     "phpseclib/Crypt/Random.php"
@@ -1367,7 +1368,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-02-23 01:03:22"
+            "time": "2014-02-28 16:05:05"
         },
         {
             "name": "predis/predis",
@@ -1415,54 +1416,6 @@
                 "redis"
             ],
             "time": "2014-01-16 14:10:29"
-        },
-        {
-            "name": "psimone/imgproxy",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://bitbucket.org/psimone/imgproxy.git",
-                "reference": "fd6c1bef44aa96563d6bd00fa9de9d09807a1cff"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://bitbucket.org/psimone/imgproxy/get/fd6c1bef44aa96563d6bd00fa9de9d09807a1cff.zip",
-                "reference": "fd6c1bef44aa96563d6bd00fa9de9d09807a1cff",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "4.1.*",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "0.9.*",
-                "phpunit/phpunit": "4.0.14"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Psimone\\Imgproxy": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Simone Pescina",
-                    "email": "s.pescina@gmail.com"
-                }
-            ],
-            "description": "An image proxy for Laravel",
-            "keywords": [
-                "Resizer",
-                "crop",
-                "image",
-                "laravel",
-                "proxy"
-            ],
-            "time": "2014-04-11 01:32:47"
         },
         {
             "name": "psr/log",
