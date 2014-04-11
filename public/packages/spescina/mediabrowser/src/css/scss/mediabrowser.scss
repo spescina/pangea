@@ -1,10 +1,25 @@
-#medialibrary {
+#mediabrowser {
         margin-top: 20px;
        
         .resource {
                 background: #f1f1f1;
                 cursor: pointer;
                 position: relative;
+                
+                div.wrap {
+                        display: table;
+                        max-width: 120px;
+                        
+                        div {
+                                display: table-cell;
+                                vertical-align: middle;
+                                text-align: center;
+                        }
+                        
+                        img {
+                                display: block;
+                        }
+                }
 
                 &.selected {
                         border-color: #999;

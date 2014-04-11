@@ -33,20 +33,6 @@ $(function(){
     });
     $('.date.datetime').datetimepicker({});
     
-    
-    $('.lightbox').fancybox({
-        maxHeight: 800,
-        maxWidth: 600,
-        minHeight: 480,
-        minWidth: 640,
-        fitToView: false,
-        width: '70%',
-        height: '70%',
-        autoSize: false,
-        closeClick: false,
-        closeBtn: false
-    });
-    
     $('textarea.rich').summernote({
         toolbar: [
             ['style', ['bold', 'italic', 'underline', 'clear']],

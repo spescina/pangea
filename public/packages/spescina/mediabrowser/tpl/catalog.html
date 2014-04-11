@@ -1,7 +1,11 @@
 {{#each resources}}
 <div class="col-xs-3" >
         <div class="thumbnail resource{{#if back}} back{{/if}}" data-folder="{{folder}}" data-path="{{path}}">
-                <img src="/packages/psimone/imgproxy/120/120/{{icon}}" alt="{{name}}">
+                <div class="wrap">
+                        <div>
+                                <img src="{{thumb}}" alt="{{name}}">  
+                        </div>  
+                </div>
                 <div class="caption">
                         <p>{{name}}</p>
                 </div>

@@ -1,20 +1,29 @@
-#medialibrary {
+#mediabrowser {
   margin-top: 20px; }
-  #medialibrary .resource {
+  #mediabrowser .resource {
     background: #f1f1f1;
     cursor: pointer;
     position: relative; }
-    #medialibrary .resource.selected {
+    #mediabrowser .resource div.wrap {
+      display: table;
+      max-width: 120px; }
+      #mediabrowser .resource div.wrap div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center; }
+      #mediabrowser .resource div.wrap img {
+        display: block; }
+    #mediabrowser .resource.selected {
       border-color: #999; }
-    #medialibrary .resource .caption {
+    #mediabrowser .resource .caption {
       padding: 5px; }
-    #medialibrary .resource .actions {
+    #mediabrowser .resource .actions {
       display: none;
       position: absolute;
       top: 8px;
       right: 8px;
       width: 30px; }
-      #medialibrary .resource .actions i {
+      #mediabrowser .resource .actions i {
         background: #428bca;
         border-radius: 4px;
         color: #FFF;
@@ -25,19 +34,19 @@
         height: 30px;
         width: 100%;
         text-align: center; }
-    #medialibrary .resource p {
+    #mediabrowser .resource p {
       font-size: 11px;
       margin: 0;
       text-align: right;
       overflow: hidden; }
-    #medialibrary .resource img {
+    #mediabrowser .resource img {
       background: #fff;
       border: 1px solid #eee;
       width: 100%;
       height: auto;
       max-width: 122px;
       max-height: 122px; }
-    #medialibrary .resource:not(.back):hover .actions {
+    #mediabrowser .resource:not(.back):hover .actions {
       display: block; }
 
 #bottom-bar {
@@ -80,4 +89,4 @@
   font-size: 14px;
   margin: 5px; }
 
-/*# sourceMappingURL=medialibrary.css.map */
+/*# sourceMappingURL=mediabrowser.css.map */

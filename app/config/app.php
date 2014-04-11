@@ -108,7 +108,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		
                 'Psimone\PlatformCore\PlatformCoreServiceProvider',
-                'Psimone\Mediabrowser\MediabrowserServiceProvider',
+                'Spescina\Mediabrowser\MediabrowserServiceProvider',
                 'Spescina\Imgproxy\ImgproxyServiceProvider',
             
                 'Teepluss\Asset\AssetServiceProvider',
