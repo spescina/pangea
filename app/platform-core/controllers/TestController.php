@@ -1,6 +1,6 @@
 <?php namespace Psimone\PlatformCore\Controllers;
 
-use Spescina\Mediabrowser\Mediabrowser;
+use Spescina\Mediabrowser\Browser;
 use Psimone\PlatformCore\Controllers\BaseController;
 use Psimone\PlatformCore\Facades\Form;
 use Psimone\PlatformCore\Facades\Table;
@@ -67,7 +67,7 @@ class TestController extends BaseController implements Module
 		Form::fields(array(
 		    'media' => array(
                         'type' => 'media',
-                        'allowed' => Mediabrowser::ALL_TYPE
+                        'allowed' => Browser::TYPE_ALL
                     )
 		));
 
