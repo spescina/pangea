@@ -6,6 +6,8 @@
 	"require": {
 		"laravel/framework": "4.1.*",
                 "teepluss/asset": "dev-master",
+                "spescina/imgproxy": "2.1.x",
+                "spescina/mediabrowser": "2.1.x",
 		"barryvdh/laravel-debugbar": "1.*",
 		"barryvdh/laravel-ide-helper": "1.*"
 	},
