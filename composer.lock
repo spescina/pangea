@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "dc55fd4865bc62cd2904e247067b7389",
+    "hash": "643b74d7e252b40b5d12bcb278e30d3e",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -730,51 +730,6 @@
             "time": "2013-12-20 21:39:00"
         },
         {
-            "name": "dragonfire1119/asset",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dragonfire1119/laravel-4-asset.git",
-                "reference": "8860a60ac78acb679924bd003649248310f8a911"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dragonfire1119/laravel-4-asset/zipball/8860a60ac78acb679924bd003649248310f8a911",
-                "reference": "8860a60ac78acb679924bd003649248310f8a911",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "4.x",
-                "php": ">=5.3.0",
-                "tedivm/jshrink": "0.5.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Dragonfire1119\\Asset": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Dragonfire1119",
-                    "email": "packages@idragonmail.com"
-                }
-            ],
-            "description": "Laravel 4 Assets Manager",
-            "homepage": "https://github.com/dragonfire1119/laravel-4-asset",
-            "keywords": [
-                "asset",
-                "assets",
-                "laravel",
-                "laravel4"
-            ],
-            "time": "2014-01-27 18:48:02"
-        },
-        {
             "name": "filp/whoops",
             "version": "1.0.10",
             "source": {
@@ -918,12 +873,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "6e8fb7c3cf5ee20383aa08b986c4d236b717d1bc"
+                "reference": "06f6e863fa65bb03976c6dbb79161fffb1e9a24a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/6e8fb7c3cf5ee20383aa08b986c4d236b717d1bc",
-                "reference": "6e8fb7c3cf5ee20383aa08b986c4d236b717d1bc",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/06f6e863fa65bb03976c6dbb79161fffb1e9a24a",
+                "reference": "06f6e863fa65bb03976c6dbb79161fffb1e9a24a",
                 "shasum": ""
             },
             "require": {
@@ -999,9 +954,7 @@
             },
             "autoload": {
                 "classmap": [
-                    [
-                        "src/Illuminate/Queue/IlluminateQueueClosure.php"
-                    ]
+                    "src/Illuminate/Queue/IlluminateQueueClosure.php"
                 ],
                 "files": [
                     "src/Illuminate/Support/helpers.php"
@@ -1027,7 +980,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-04-14 02:55:49"
+            "time": "2014-04-15 22:12:18"
         },
         {
             "name": "maximebf/debugbar",
@@ -1570,204 +1523,6 @@
             "time": "2013-08-12 22:46:16"
         },
         {
-            "name": "spescina/imgproxy",
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spescina/imgproxy.git",
-                "reference": "9097d58317e23590bdfdc487f766cad871973977"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spescina/imgproxy/zipball/9097d58317e23590bdfdc487f766cad871973977",
-                "reference": "9097d58317e23590bdfdc487f766cad871973977",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "4.x",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "0.9.*",
-                "satooshi/php-coveralls": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Spescina\\Imgproxy": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Simone Pescina",
-                    "email": "s.pescina@gmail.com"
-                }
-            ],
-            "description": "An image proxy for Laravel",
-            "keywords": [
-                "Resizer",
-                "crop",
-                "image",
-                "laravel",
-                "proxy"
-            ],
-            "time": "2014-04-14 21:53:36"
-        },
-        {
-            "name": "spescina/mediabrowser",
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spescina/mediabrowser.git",
-                "reference": "c7a5c399dbac227d9c5c6815430837079050ce49"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spescina/mediabrowser/zipball/c7a5c399dbac227d9c5c6815430837079050ce49",
-                "reference": "c7a5c399dbac227d9c5c6815430837079050ce49",
-                "shasum": ""
-            },
-            "require": {
-                "dragonfire1119/asset": "dev-master",
-                "illuminate/support": "4.x",
-                "php": ">=5.4.0",
-                "spescina/pkg-support": "1.x"
-            },
-            "require-dev": {
-                "mikey179/vfsstream": "dev-master",
-                "mockery/mockery": "0.9.*",
-                "satooshi/php-coveralls": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Spescina": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Simone Pescina",
-                    "email": "s.pescina@gmail.com"
-                }
-            ],
-            "description": "Laravel packages that provide a basic user interface for browsing a server folder, for uploading files and for picking a file",
-            "keywords": [
-                "file browser",
-                "file manager",
-                "images",
-                "laravel",
-                "media",
-                "upload"
-            ],
-            "time": "2014-04-15 09:27:13"
-        },
-        {
-            "name": "spescina/pkg-support",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spescina/pkg-support.git",
-                "reference": "e0b975272d547a04e02b34a86c8fd38370179d93"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spescina/pkg-support/zipball/e0b975272d547a04e02b34a86c8fd38370179d93",
-                "reference": "e0b975272d547a04e02b34a86c8fd38370179d93",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "4.1.*",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "0.9.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Spescina\\PkgSupport": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Simone Pescina",
-                    "email": "s.pescina@gmail.com"
-                }
-            ],
-            "description": "Support config and language classes for creating laravel packages",
-            "keywords": [
-                "config",
-                "lang",
-                "laravel",
-                "package"
-            ],
-            "time": "2014-04-14 20:48:45"
-        },
-        {
-            "name": "spescina/platform-core",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spescina/platform-core.git",
-                "reference": "a58636a4f2aa32af0f30e5f3c01aa3043cbc1099"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spescina/platform-core/zipball/a58636a4f2aa32af0f30e5f3c01aa3043cbc1099",
-                "reference": "a58636a4f2aa32af0f30e5f3c01aa3043cbc1099",
-                "shasum": ""
-            },
-            "require": {
-                "dragonfire1119/asset": "dev-master",
-                "illuminate/support": "4.1.*",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "anlutro/l4-testing": "0.2.x",
-                "mockery/mockery": "0.9.*",
-                "satooshi/php-coveralls": "dev-master"
-            },
-            "suggest": {
-                "spescina/imgproxy": "Allows use of the image proxy for resizing on the fly",
-                "spescina/mediabrowser": "Allows use of media input fields"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Spescina\\PlatformCore": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Simone Pescina",
-                    "email": "s.pescina@gmail.com"
-                }
-            ],
-            "description": "CMS Framework",
-            "keywords": [
-                "cms",
-                "framework",
-                "laravel"
-            ],
-            "time": "2014-04-15 09:26:51"
-        },
-        {
             "name": "stack/builder",
             "version": "dev-master",
             "source": {
@@ -2092,12 +1847,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Debug.git",
-                "reference": "cf012d37f7e0d059fd6b35607e99761b33ccf4ed"
+                "reference": "bfa79006783489e800fa04eea787d557d603f29d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Debug/zipball/cf012d37f7e0d059fd6b35607e99761b33ccf4ed",
-                "reference": "cf012d37f7e0d059fd6b35607e99761b33ccf4ed",
+                "url": "https://api.github.com/repos/symfony/Debug/zipball/bfa79006783489e800fa04eea787d557d603f29d",
+                "reference": "bfa79006783489e800fa04eea787d557d603f29d",
                 "shasum": ""
             },
             "require": {
@@ -2140,7 +1895,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-26 18:07:42"
+            "time": "2014-04-15 16:41:05"
         },
         {
             "name": "symfony/dom-crawler",
@@ -2654,47 +2409,6 @@
             "description": "Symfony Translation Component",
             "homepage": "http://symfony.com",
             "time": "2014-03-26 11:35:33"
-        },
-        {
-            "name": "tedivm/jshrink",
-            "version": "v0.5.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tedivm/JShrink.git",
-                "reference": "4b48e3d051cf0ab145db9df20d3292d91485bb60"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tedivm/JShrink/zipball/4b48e3d051cf0ab145db9df20d3292d91485bb60",
-                "reference": "4b48e3d051cf0ab145db9df20d3292d91485bb60",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "JShrink": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Robert Hafner",
-                    "email": "tedivm@tedivm.com"
-                }
-            ],
-            "description": "Javascript Minifier built in PHP",
-            "homepage": "http://github.com/tedivm/JShrink",
-            "keywords": [
-                "javascript",
-                "minifier"
-            ],
-            "time": "2014-01-14 22:23:53"
         }
     ],
     "packages-dev": [
@@ -2704,11 +2418,9 @@
 
     ],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "spescina/imgproxy": 20,
-        "spescina/mediabrowser": 20,
-        "spescina/platform-core": 20
-    },
+    "stability-flags": [
+
+    ],
     "platform": [
 
     ],

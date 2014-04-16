@@ -1,13 +1,10 @@
 {
-	"name": "psimone/pangea",
-	"description": "Pangea Installation",
+	"name": "spescina/pangea",
+	"description": "Pangea",
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-                "spescina/imgproxy": "dev-develop",
-                "spescina/mediabrowser": "dev-develop",
-                "spescina/platform-core": "dev-master",
 		"barryvdh/laravel-debugbar": "1.*",
 		"barryvdh/laravel-ide-helper": "1.*"
 	},
@@ -21,7 +18,7 @@
 			"app/tests/TestCase.php"
 		],
 		"psr-4": {
-			"Spescina\\PlatformCore\\": "app/platform-core"
+			"Pangea\\": "app/Pangea"
 		}
 	},
 	"scripts": {
@@ -32,9 +29,6 @@
 		"post-update-cmd": [
 			"php artisan ide-helper:generate",
                         "php artisan debugbar:publish",
-                        "php artisan asset:publish spescina/mediabrowser",
-                        "php artisan asset:publish spescina/imgproxy",
-                        "php artisan asset:publish spescina/platform-core",
 			"php artisan clear-compiled",
 			"php artisan optimize"
 		],

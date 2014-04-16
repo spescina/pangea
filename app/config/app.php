@@ -106,10 +106,6 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		
-                'Spescina\PlatformCore\PlatformCoreServiceProvider',
-                'Spescina\Mediabrowser\MediabrowserServiceProvider',
-                'Spescina\Imgproxy\ImgproxyServiceProvider',
                 
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
                 'Barryvdh\Debugbar\ServiceProvider',
