@@ -1,4 +1,0 @@
-pangea
-======
-
-CMS Framework
