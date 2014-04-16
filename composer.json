@@ -8,6 +8,9 @@
 		"barryvdh/laravel-debugbar": "1.*",
 		"barryvdh/laravel-ide-helper": "1.*"
 	},
+        "require-dev": {
+                "fzaninotto/faker": 
+        },
 	"autoload": {
 		"classmap": [
 			"app/commands",
