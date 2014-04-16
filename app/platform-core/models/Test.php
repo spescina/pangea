@@ -1,6 +1,6 @@
-<?php namespace Psimone\PlatformCore\Models;
+<?php namespace Spescina\PlatformCore\Models;
 
-use Psimone\PlatformCore\Models\BaseModel;
+use Spescina\PlatformCore\Models\BaseModel;
 
 class Test extends BaseModel {
 

@@ -1,11 +1,11 @@
-<?php namespace Psimone\PlatformCore\Controllers;
+<?php namespace Spescina\PlatformCore\Controllers;
 
 use Spescina\Mediabrowser\Browser;
-use Psimone\PlatformCore\Controllers\BaseController;
-use Psimone\PlatformCore\Facades\Form;
-use Psimone\PlatformCore\Facades\Table;
-use Psimone\PlatformCore\Interfaces\Module;
-use Psimone\PlatformCore\Models\Reference;
+use Spescina\PlatformCore\Controllers\BaseController;
+use Spescina\PlatformCore\Facades\Form;
+use Spescina\PlatformCore\Facades\Table;
+use Spescina\PlatformCore\Interfaces\Module;
+use Spescina\PlatformCore\Models\Reference;
 
 class TestController extends BaseController implements Module
 {

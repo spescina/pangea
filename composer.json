@@ -1,25 +1,16 @@
 {
-	"name": "laravel/laravel",
-	"description": "The Laravel Framework.",
+	"name": "psimone/pangea",
+	"description": "Pangea Installation",
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-                "teepluss/asset": "dev-master",
-                "spescina/imgproxy": "2.x",
-                "spescina/mediabrowser": "2.x",
+                "spescina/imgproxy": "dev-develop",
+                "spescina/mediabrowser": "dev-develop",
+                "spescina/platform-core": "dev-master",
 		"barryvdh/laravel-debugbar": "1.*",
 		"barryvdh/laravel-ide-helper": "1.*"
 	},
-	"require-dev": {
-		"phpunit/phpunit": "3.7.*"
-	},
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "https://github.com/antoniofrignani/laravel4-asset.git"
-		}
-	],
 	"autoload": {
 		"classmap": [
 			"app/commands",
@@ -30,7 +21,7 @@
 			"app/tests/TestCase.php"
 		],
 		"psr-4": {
-			"Psimone\\PlatformCore\\": "app/platform-core"
+			"Spescina\\PlatformCore\\": "app/platform-core"
 		}
 	},
 	"scripts": {
@@ -41,6 +32,9 @@
 		"post-update-cmd": [
 			"php artisan ide-helper:generate",
                         "php artisan debugbar:publish",
+                        "php artisan asset:publish spescina/mediabrowser",
+                        "php artisan asset:publish spescina/imgproxy",
+                        "php artisan asset:publish spescina/platform-core",
 			"php artisan clear-compiled",
 			"php artisan optimize"
 		],
@@ -51,5 +45,5 @@
 	"config": {
 		"preferred-install": "dist"
 	},
-	"minimum-stability": "stable"
+	"minimum-stability": "dev"
 }

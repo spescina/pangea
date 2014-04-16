@@ -1640,6 +1640,17 @@ namespace {
 		 }
 
 		/**
+		 * Get the ID for the currently authenticated user.
+		 *
+		 * @return int|null
+		 * @static 
+		 */
+		 public static function id(){
+			//Method inherited from \Illuminate\Auth\Guard
+			return \Illuminate\Auth\Guard::id();
+		 }
+
+		/**
 		 * Log a user into the application without sessions or cookies.
 		 *
 		 * @param array  $credentials
@@ -3299,6 +3310,17 @@ namespace {
 		 public static function rollBack(){
 			//Method inherited from \Illuminate\Database\Connection
 			 \Illuminate\Database\MySqlConnection::rollBack();
+		 }
+
+		/**
+		 * Get the number of active transactions.
+		 *
+		 * @return int
+		 * @static 
+		 */
+		 public static function transactionLevel(){
+			//Method inherited from \Illuminate\Database\Connection
+			return \Illuminate\Database\MySqlConnection::transactionLevel();
 		 }
 
 		/**
@@ -6470,7 +6492,19 @@ namespace {
 		 }
 
 		/**
-		 * Determine if the request contains a given input item.
+		 * Determine if the request contains a given input item key.
+		 *
+		 * @param string|array  $key
+		 * @return bool
+		 * @static 
+		 */
+		 public static function exists($key){
+			//Method inherited from \Illuminate\Http\Request
+			return \Illuminate\Http\Request::exists($key);
+		 }
+
+		/**
+		 * Determine if the request contains a non-emtpy value for an  input item.
 		 *
 		 * @param string|array  $key
 		 * @return bool
@@ -9272,7 +9306,19 @@ namespace {
 		 }
 
 		/**
-		 * Determine if the request contains a given input item.
+		 * Determine if the request contains a given input item key.
+		 *
+		 * @param string|array  $key
+		 * @return bool
+		 * @static 
+		 */
+		 public static function exists($key){
+			//Method inherited from \Illuminate\Http\Request
+			return \Illuminate\Http\Request::exists($key);
+		 }
+
+		/**
+		 * Determine if the request contains a non-emtpy value for an  input item.
 		 *
 		 * @param string|array  $key
 		 * @return bool
@@ -12110,6 +12156,7 @@ namespace {
 		 * @param array  $data
 		 * @param array  $rules
 		 * @param array  $messages
+		 * @param array  $customAttributes
 		 * @return \Illuminate\Validation\Validator
 		 * @static 
 		 */
@@ -13132,7 +13179,7 @@ namespace {
 		/**
 		 * Returns a JavascriptRenderer for this instance
 		 *
-		 * @param stri $baseUrl
+		 * @param string $baseUrl
 		 * @param string $basePathng
 		 * @return JavascriptRenderer
 		 * @static 
@@ -13183,7 +13230,527 @@ namespace {
 		 }
 
 	}
-	class Asset extends \Teepluss\Asset\Facades\Asset{
+	class Platform extends \Spescina\PlatformCore\Facades\Platform{
+		/**
+		 * Returns the module package folder
+		 *
+		 * @return string
+		 * @static 
+		 */
+		 public static function getPackageName(){
+			//Method inherited from \Spescina\PlatformCore\Components\Platform
+			return \Spescina\PlatformCore\Components\Platform::getPackageName();
+		 }
+
+		/**
+		 * Returns the module vendor folder
+		 *
+		 * @return string
+		 * @static 
+		 */
+		 public static function getPackageVendor(){
+			//Method inherited from \Spescina\PlatformCore\Components\Platform
+			return \Spescina\PlatformCore\Components\Platform::getPackageVendor();
+		 }
+
+		/**
+		 * Returns the current loaded module
+		 *
+		 * @return string
+		 * @static 
+		 */
+		 public static function getModule(){
+			//Method inherited from \Spescina\PlatformCore\Components\Platform
+			return \Spescina\PlatformCore\Components\Platform::getModule();
+		 }
+
+		/**
+		 * Sets the current loaded module
+		 *
+		 * @param string $module
+		 * @static 
+		 */
+		 public static function setModule($module){
+			//Method inherited from \Spescina\PlatformCore\Components\Platform
+			 \Spescina\PlatformCore\Components\Platform::setModule($module);
+		 }
+
+		/**
+		 * Registers the current Model and the current Controllers to the IoC.
+		 * 
+		 * Required for theirs facades
+		 *
+		 * @static 
+		 */
+		 public static function registerModuleFacades(){
+			//Method inherited from \Spescina\PlatformCore\Components\Platform
+			 \Spescina\PlatformCore\Components\Platform::registerModuleFacades();
+		 }
+
+		/**
+		 * Boot the application
+		 *
+		 * @param string $module
+		 * @param string $action
+		 * @param int $id
+		 * @return Illuminate\Http\Response
+		 * @static 
+		 */
+		 public static function runModule($module, $action, $id){
+			//Method inherited from \Spescina\PlatformCore\Components\Platform
+			return \Spescina\PlatformCore\Components\Platform::runModule($module, $action, $id);
+		 }
+
+	}
+	class PBreadcrumbs extends \Spescina\PlatformCore\Facades\Breadcrumbs{
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function load(){
+			//Method inherited from \Spescina\PlatformCore\Components\Breadcrumbs\Breadcrumbs
+			 \Spescina\PlatformCore\Components\Breadcrumbs\Breadcrumbs::load();
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function item($slug){
+			//Method inherited from \Spescina\PlatformCore\Components\Breadcrumbs\Breadcrumbs
+			 \Spescina\PlatformCore\Components\Breadcrumbs\Breadcrumbs::item($slug);
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function items(){
+			//Method inherited from \Spescina\PlatformCore\Components\Breadcrumbs\Breadcrumbs
+			 \Spescina\PlatformCore\Components\Breadcrumbs\Breadcrumbs::items();
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function show(){
+			//Method inherited from \Spescina\PlatformCore\Components\Breadcrumbs\Breadcrumbs
+			 \Spescina\PlatformCore\Components\Breadcrumbs\Breadcrumbs::show();
+		 }
+
+	}
+	class PForm extends \Spescina\PlatformCore\Facades\Form{
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function __construct(){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			 \Spescina\PlatformCore\Components\Form\Form::__construct();
+		 }
+
+		/**
+		 * Add an array of fields to the form
+		 *
+		 * @param array $fields
+		 * @static 
+		 */
+		 public static function fields($fields){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			 \Spescina\PlatformCore\Components\Form\Form::fields($fields);
+		 }
+
+		/**
+		 * Return the record binded to the form
+		 *
+		 * @return Model
+		 * @static 
+		 */
+		 public static function record(){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			return \Spescina\PlatformCore\Components\Form\Form::record();
+		 }
+
+		/**
+		 * Check if the form is an empty form (create) or a filled one (edit)
+		 *
+		 * @return bool
+		 * @static 
+		 */
+		 public static function isEmpty(){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			return \Spescina\PlatformCore\Components\Form\Form::isEmpty();
+		 }
+
+		/**
+		 * If exists load the record in the model
+		 *
+		 * @param int $id
+		 * @static 
+		 */
+		 public static function load($id){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			 \Spescina\PlatformCore\Components\Form\Form::load($id);
+		 }
+
+		/**
+		 * Add a tab panel to the form
+		 *
+		 * @param string $slug
+		 * @param bool $active
+		 * @static 
+		 */
+		 public static function panel($slug, $active = false){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			 \Spescina\PlatformCore\Components\Form\Form::panel($slug, $active);
+		 }
+
+		/**
+		 * Set the active panel on the form
+		 *
+		 * @param string $slug
+		 * @static 
+		 */
+		 public static function activePanel($slug){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			 \Spescina\PlatformCore\Components\Form\Form::activePanel($slug);
+		 }
+
+		/**
+		 * Return all tab panels in the form
+		 *
+		 * @return array
+		 * @static 
+		 */
+		 public static function panels(){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			return \Spescina\PlatformCore\Components\Form\Form::panels();
+		 }
+
+		/**
+		 * Set the action in the form
+		 *
+		 * @return string
+		 * @static 
+		 */
+		 public static function action(){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			return \Spescina\PlatformCore\Components\Form\Form::action();
+		 }
+
+		/**
+		 * Create the back button action
+		 *
+		 * @return \Spescina\PlatformCore\Components\Action\Action
+		 * @static 
+		 */
+		 public static function back(){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			return \Spescina\PlatformCore\Components\Form\Form::back();
+		 }
+
+		/**
+		 * Return the localized string
+		 *
+		 * @param string $section
+		 * @return string
+		 * @static 
+		 */
+		 public static function localize($section){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			return \Spescina\PlatformCore\Components\Form\Form::localize($section);
+		 }
+
+		/**
+		 * Validation rules setup
+		 *
+		 * @param array $rules
+		 * @return type
+		 * @static 
+		 */
+		 public static function rules($rules = null){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			return \Spescina\PlatformCore\Components\Form\Form::rules($rules);
+		 }
+
+		/**
+		 * Convert a collection in a dropdown oriented collection
+		 *
+		 * @param Model $model
+		 * @param string $labelField
+		 * @param string $valueField
+		 * @param bool $nullable
+		 * @return Collection type
+		 * @static 
+		 */
+		 public static function modelToDropdown($model, $labelField, $valueField = 'id', $nullable = true){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			return \Spescina\PlatformCore\Components\Form\Form::modelToDropdown($model, $labelField, $valueField, $nullable);
+		 }
+
+		/**
+		 * Convert a collection in a multi list oriented collection
+		 *
+		 * @param Model $model
+		 * @param string $labelField
+		 * @param string $valueField
+		 * @return Collection type
+		 * @static 
+		 */
+		 public static function modelToList($model, $labelField, $valueField = 'id'){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			return \Spescina\PlatformCore\Components\Form\Form::modelToList($model, $labelField, $valueField);
+		 }
+
+		/**
+		 * Return the fixed data taken from post
+		 *
+		 * @return array
+		 * @static 
+		 */
+		 public static function data(){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			return \Spescina\PlatformCore\Components\Form\Form::data();
+		 }
+
+		/**
+		 * Return all fields from the form
+		 *
+		 * @return array
+		 * @static 
+		 */
+		 public static function allFields(){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			return \Spescina\PlatformCore\Components\Form\Form::allFields();
+		 }
+
+		/**
+		 * Filter data
+		 *
+		 * @return array
+		 * @static 
+		 */
+		 public static function filterData($data){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			return \Spescina\PlatformCore\Components\Form\Form::filterData($data);
+		 }
+
+		/**
+		 * Filter out multi field related input data
+		 *
+		 * @param array $data
+		 * @return array
+		 * @static 
+		 */
+		 public static function filterOutMulti($data){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			return \Spescina\PlatformCore\Components\Form\Form::filterOutMulti($data);
+		 }
+
+		/**
+		 * Keep only multi field related input data
+		 *
+		 * @param array $data
+		 * @return array
+		 * @static 
+		 */
+		 public static function filterOnlyMulti(){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			return \Spescina\PlatformCore\Components\Form\Form::filterOnlyMulti();
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function cleanMultiFieldName($field){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			 \Spescina\PlatformCore\Components\Form\Form::cleanMultiFieldName($field);
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function multiFields(){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			 \Spescina\PlatformCore\Components\Form\Form::multiFields();
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function getFieldsFromSession(){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			 \Spescina\PlatformCore\Components\Form\Form::getFieldsFromSession();
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function putFieldsInSession(){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			 \Spescina\PlatformCore\Components\Form\Form::putFieldsInSession();
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function multiFieldData($field){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			 \Spescina\PlatformCore\Components\Form\Form::multiFieldData($field);
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function show(){
+			//Method inherited from \Spescina\PlatformCore\Components\Form\Form
+			 \Spescina\PlatformCore\Components\Form\Form::show();
+		 }
+
+	}
+	class PNavigation extends \Spescina\PlatformCore\Facades\Navigation{
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function load(){
+			//Method inherited from \Spescina\PlatformCore\Components\Navigation\Navigation
+			 \Spescina\PlatformCore\Components\Navigation\Navigation::load();
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function item($slug, $url){
+			//Method inherited from \Spescina\PlatformCore\Components\Navigation\Navigation
+			 \Spescina\PlatformCore\Components\Navigation\Navigation::item($slug, $url);
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function items(){
+			//Method inherited from \Spescina\PlatformCore\Components\Navigation\Navigation
+			 \Spescina\PlatformCore\Components\Navigation\Navigation::items();
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function show(){
+			//Method inherited from \Spescina\PlatformCore\Components\Navigation\Navigation
+			 \Spescina\PlatformCore\Components\Navigation\Navigation::show();
+		 }
+
+	}
+	class PPage extends \Spescina\PlatformCore\Facades\Page{
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function __construct(){
+			//Method inherited from \Spescina\PlatformCore\Components\Page\Page
+			 \Spescina\PlatformCore\Components\Page\Page::__construct();
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function hasErrors(){
+			//Method inherited from \Spescina\PlatformCore\Components\Page\Page
+			 \Spescina\PlatformCore\Components\Page\Page::hasErrors();
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function hasMessages(){
+			//Method inherited from \Spescina\PlatformCore\Components\Page\Page
+			 \Spescina\PlatformCore\Components\Page\Page::hasMessages();
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function errors(){
+			//Method inherited from \Spescina\PlatformCore\Components\Page\Page
+			 \Spescina\PlatformCore\Components\Page\Page::errors();
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function messages(){
+			//Method inherited from \Spescina\PlatformCore\Components\Page\Page
+			 \Spescina\PlatformCore\Components\Page\Page::messages();
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function toolbar(){
+			//Method inherited from \Spescina\PlatformCore\Components\Page\Page
+			 \Spescina\PlatformCore\Components\Page\Page::toolbar();
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function localize($section){
+			//Method inherited from \Spescina\PlatformCore\Components\Page\Page
+			 \Spescina\PlatformCore\Components\Page\Page::localize($section);
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function localize_ui($element, $section = 'ui'){
+			//Method inherited from \Spescina\PlatformCore\Components\Page\Page
+			 \Spescina\PlatformCore\Components\Page\Page::localize_ui($element, $section);
+		 }
+
+	}
+	class Asset extends \Dragonfire1119\Asset\Facades\Asset{
 		/**
 		 * Get an asset container instance.
 		 * 
@@ -13200,8 +13767,8 @@ namespace {
 		 * @static 
 		 */
 		 public static function container($container = 'default'){
-			//Method inherited from \Teepluss\Asset\Asset
-			return \Teepluss\Asset\Asset::container($container);
+			//Method inherited from \Dragonfire1119\Asset\Asset
+			return \Dragonfire1119\Asset\Asset::container($container);
 		 }
 
 		/**
@@ -13218,540 +13785,20 @@ namespace {
 		 * @static 
 		 */
 		 public static function __call($method, $parameters){
-			//Method inherited from \Teepluss\Asset\Asset
-			 \Teepluss\Asset\Asset::__call($method, $parameters);
+			//Method inherited from \Dragonfire1119\Asset\Asset
+			 \Dragonfire1119\Asset\Asset::__call($method, $parameters);
 		 }
 
 	}
-	class Platform extends \Psimone\PlatformCore\Facades\Platform{
-		/**
-		 * Returns the module package folder
-		 *
-		 * @return string
-		 * @static 
-		 */
-		 public static function getPackageName(){
-			//Method inherited from \Psimone\PlatformCore\Components\Platform
-			return \Psimone\PlatformCore\Components\Platform::getPackageName();
-		 }
-
-		/**
-		 * Returns the module vendor folder
-		 *
-		 * @return string
-		 * @static 
-		 */
-		 public static function getPackageVendor(){
-			//Method inherited from \Psimone\PlatformCore\Components\Platform
-			return \Psimone\PlatformCore\Components\Platform::getPackageVendor();
-		 }
-
-		/**
-		 * Returns the current loaded module
-		 *
-		 * @return string
-		 * @static 
-		 */
-		 public static function getModule(){
-			//Method inherited from \Psimone\PlatformCore\Components\Platform
-			return \Psimone\PlatformCore\Components\Platform::getModule();
-		 }
-
-		/**
-		 * Sets the current loaded module
-		 *
-		 * @param string $module
-		 * @static 
-		 */
-		 public static function setModule($module){
-			//Method inherited from \Psimone\PlatformCore\Components\Platform
-			 \Psimone\PlatformCore\Components\Platform::setModule($module);
-		 }
-
-		/**
-		 * Registers the current Model and the current Controllers to the IoC.
-		 * 
-		 * Required for theirs facades
-		 *
-		 * @static 
-		 */
-		 public static function registerModuleFacades(){
-			//Method inherited from \Psimone\PlatformCore\Components\Platform
-			 \Psimone\PlatformCore\Components\Platform::registerModuleFacades();
-		 }
-
-		/**
-		 * Boot the application
-		 *
-		 * @param string $module
-		 * @param string $action
-		 * @param int $id
-		 * @return Illuminate\Http\Response
-		 * @static 
-		 */
-		 public static function runModule($module, $action, $id){
-			//Method inherited from \Psimone\PlatformCore\Components\Platform
-			return \Psimone\PlatformCore\Components\Platform::runModule($module, $action, $id);
-		 }
-
-	}
-	class PBreadcrumbs extends \Psimone\PlatformCore\Facades\Breadcrumbs{
+	class Mediabrowser extends \Spescina\Mediabrowser\Facades\Mediabrowser{
 		/**
 		 * 
 		 *
 		 * @static 
 		 */
-		 public static function load(){
-			//Method inherited from \Psimone\PlatformCore\Components\Breadcrumbs\Breadcrumbs
-			 \Psimone\PlatformCore\Components\Breadcrumbs\Breadcrumbs::load();
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function item($slug){
-			//Method inherited from \Psimone\PlatformCore\Components\Breadcrumbs\Breadcrumbs
-			 \Psimone\PlatformCore\Components\Breadcrumbs\Breadcrumbs::item($slug);
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function items(){
-			//Method inherited from \Psimone\PlatformCore\Components\Breadcrumbs\Breadcrumbs
-			 \Psimone\PlatformCore\Components\Breadcrumbs\Breadcrumbs::items();
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function show(){
-			//Method inherited from \Psimone\PlatformCore\Components\Breadcrumbs\Breadcrumbs
-			 \Psimone\PlatformCore\Components\Breadcrumbs\Breadcrumbs::show();
-		 }
-
-	}
-	class PForm extends \Psimone\PlatformCore\Facades\Form{
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function __construct(){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			 \Psimone\PlatformCore\Components\Form\Form::__construct();
-		 }
-
-		/**
-		 * Add an array of fields to the form
-		 *
-		 * @param array $fields
-		 * @static 
-		 */
-		 public static function fields($fields){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			 \Psimone\PlatformCore\Components\Form\Form::fields($fields);
-		 }
-
-		/**
-		 * Return the record binded to the form
-		 *
-		 * @return Model
-		 * @static 
-		 */
-		 public static function record(){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			return \Psimone\PlatformCore\Components\Form\Form::record();
-		 }
-
-		/**
-		 * Check if the form is an empty form (create) or a filled one (edit)
-		 *
-		 * @return bool
-		 * @static 
-		 */
-		 public static function isEmpty(){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			return \Psimone\PlatformCore\Components\Form\Form::isEmpty();
-		 }
-
-		/**
-		 * If exists load the record in the model
-		 *
-		 * @param int $id
-		 * @static 
-		 */
-		 public static function load($id){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			 \Psimone\PlatformCore\Components\Form\Form::load($id);
-		 }
-
-		/**
-		 * Add a tab panel to the form
-		 *
-		 * @param string $slug
-		 * @param bool $active
-		 * @static 
-		 */
-		 public static function panel($slug, $active = false){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			 \Psimone\PlatformCore\Components\Form\Form::panel($slug, $active);
-		 }
-
-		/**
-		 * Set the active panel on the form
-		 *
-		 * @param string $slug
-		 * @static 
-		 */
-		 public static function activePanel($slug){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			 \Psimone\PlatformCore\Components\Form\Form::activePanel($slug);
-		 }
-
-		/**
-		 * Return all tab panels in the form
-		 *
-		 * @return array
-		 * @static 
-		 */
-		 public static function panels(){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			return \Psimone\PlatformCore\Components\Form\Form::panels();
-		 }
-
-		/**
-		 * Set the action in the form
-		 *
-		 * @return string
-		 * @static 
-		 */
-		 public static function action(){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			return \Psimone\PlatformCore\Components\Form\Form::action();
-		 }
-
-		/**
-		 * Create the back button action
-		 *
-		 * @return \Psimone\PlatformCore\Components\Action\Action
-		 * @static 
-		 */
-		 public static function back(){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			return \Psimone\PlatformCore\Components\Form\Form::back();
-		 }
-
-		/**
-		 * Return the localized string
-		 *
-		 * @param string $section
-		 * @return string
-		 * @static 
-		 */
-		 public static function localize($section){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			return \Psimone\PlatformCore\Components\Form\Form::localize($section);
-		 }
-
-		/**
-		 * Validation rules setup
-		 *
-		 * @param array $rules
-		 * @return type
-		 * @static 
-		 */
-		 public static function rules($rules = null){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			return \Psimone\PlatformCore\Components\Form\Form::rules($rules);
-		 }
-
-		/**
-		 * Convert a collection in a dropdown oriented collection
-		 *
-		 * @param Model $model
-		 * @param string $labelField
-		 * @param string $valueField
-		 * @param bool $nullable
-		 * @return Collection type
-		 * @static 
-		 */
-		 public static function modelToDropdown($model, $labelField, $valueField = 'id', $nullable = true){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			return \Psimone\PlatformCore\Components\Form\Form::modelToDropdown($model, $labelField, $valueField, $nullable);
-		 }
-
-		/**
-		 * Convert a collection in a multi list oriented collection
-		 *
-		 * @param Model $model
-		 * @param string $labelField
-		 * @param string $valueField
-		 * @return Collection type
-		 * @static 
-		 */
-		 public static function modelToList($model, $labelField, $valueField = 'id'){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			return \Psimone\PlatformCore\Components\Form\Form::modelToList($model, $labelField, $valueField);
-		 }
-
-		/**
-		 * Return the fixed data taken from post
-		 *
-		 * @return array
-		 * @static 
-		 */
-		 public static function data(){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			return \Psimone\PlatformCore\Components\Form\Form::data();
-		 }
-
-		/**
-		 * Return all fields from the form
-		 *
-		 * @return array
-		 * @static 
-		 */
-		 public static function allFields(){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			return \Psimone\PlatformCore\Components\Form\Form::allFields();
-		 }
-
-		/**
-		 * Filter data
-		 *
-		 * @return array
-		 * @static 
-		 */
-		 public static function filterData($data){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			return \Psimone\PlatformCore\Components\Form\Form::filterData($data);
-		 }
-
-		/**
-		 * Filter out multi field related input data
-		 *
-		 * @param array $data
-		 * @return array
-		 * @static 
-		 */
-		 public static function filterOutMulti($data){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			return \Psimone\PlatformCore\Components\Form\Form::filterOutMulti($data);
-		 }
-
-		/**
-		 * Keep only multi field related input data
-		 *
-		 * @param array $data
-		 * @return array
-		 * @static 
-		 */
-		 public static function filterOnlyMulti(){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			return \Psimone\PlatformCore\Components\Form\Form::filterOnlyMulti();
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function cleanMultiFieldName($field){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			 \Psimone\PlatformCore\Components\Form\Form::cleanMultiFieldName($field);
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function multiFields(){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			 \Psimone\PlatformCore\Components\Form\Form::multiFields();
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function getFieldsFromSession(){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			 \Psimone\PlatformCore\Components\Form\Form::getFieldsFromSession();
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function putFieldsInSession(){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			 \Psimone\PlatformCore\Components\Form\Form::putFieldsInSession();
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function multiFieldData($field){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			 \Psimone\PlatformCore\Components\Form\Form::multiFieldData($field);
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function show(){
-			//Method inherited from \Psimone\PlatformCore\Components\Form\Form
-			 \Psimone\PlatformCore\Components\Form\Form::show();
-		 }
-
-	}
-	class PNavigation extends \Psimone\PlatformCore\Facades\Navigation{
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function load(){
-			//Method inherited from \Psimone\PlatformCore\Components\Navigation\Navigation
-			 \Psimone\PlatformCore\Components\Navigation\Navigation::load();
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function item($slug, $url){
-			//Method inherited from \Psimone\PlatformCore\Components\Navigation\Navigation
-			 \Psimone\PlatformCore\Components\Navigation\Navigation::item($slug, $url);
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function items(){
-			//Method inherited from \Psimone\PlatformCore\Components\Navigation\Navigation
-			 \Psimone\PlatformCore\Components\Navigation\Navigation::items();
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function show(){
-			//Method inherited from \Psimone\PlatformCore\Components\Navigation\Navigation
-			 \Psimone\PlatformCore\Components\Navigation\Navigation::show();
-		 }
-
-	}
-	class PPage extends \Psimone\PlatformCore\Facades\Page{
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function __construct(){
-			//Method inherited from \Psimone\PlatformCore\Components\Page\Page
-			 \Psimone\PlatformCore\Components\Page\Page::__construct();
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function hasErrors(){
-			//Method inherited from \Psimone\PlatformCore\Components\Page\Page
-			 \Psimone\PlatformCore\Components\Page\Page::hasErrors();
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function hasMessages(){
-			//Method inherited from \Psimone\PlatformCore\Components\Page\Page
-			 \Psimone\PlatformCore\Components\Page\Page::hasMessages();
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function errors(){
-			//Method inherited from \Psimone\PlatformCore\Components\Page\Page
-			 \Psimone\PlatformCore\Components\Page\Page::errors();
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function messages(){
-			//Method inherited from \Psimone\PlatformCore\Components\Page\Page
-			 \Psimone\PlatformCore\Components\Page\Page::messages();
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function toolbar(){
-			//Method inherited from \Psimone\PlatformCore\Components\Page\Page
-			 \Psimone\PlatformCore\Components\Page\Page::toolbar();
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function localize($section){
-			//Method inherited from \Psimone\PlatformCore\Components\Page\Page
-			 \Psimone\PlatformCore\Components\Page\Page::localize($section);
-		 }
-
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function localize_ui($element, $section = 'ui'){
-			//Method inherited from \Psimone\PlatformCore\Components\Page\Page
-			 \Psimone\PlatformCore\Components\Page\Page::localize_ui($element, $section);
-		 }
-
-	}
-	class MediaLibrary extends \Psimone\Mediabrowser\Facades\MediaLibrary{
-		/**
-		 * 
-		 *
-		 * @static 
-		 */
-		 public static function __construct(){
-			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
-			 \Psimone\Mediabrowser\Classes\Medialibrary::__construct();
+		 public static function __construct($config, $lang){
+			//Method inherited from \Spescina\Mediabrowser\Browser
+			 \Spescina\Mediabrowser\Browser::__construct($config, $lang);
 		 }
 
 		/**
@@ -13763,31 +13810,20 @@ namespace {
 		 * @static 
 		 */
 		 public static function browsePath($path, $field){
-			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
-			return \Psimone\Mediabrowser\Classes\Medialibrary::browsePath($path, $field);
+			//Method inherited from \Spescina\Mediabrowser\Browser
+			return \Spescina\Mediabrowser\Browser::browsePath($path, $field);
 		 }
 
 		/**
 		 * Return the local config var in json notation
 		 * embeddable as a javascript config object
 		 *
-		 * @return json
+		 * @return string
 		 * @static 
 		 */
 		 public static function configToJSON(){
-			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
-			return \Psimone\Mediabrowser\Classes\Medialibrary::configToJSON();
-		 }
-
-		/**
-		 * Set the config array of the component in the local var
-		 *
-		 * @return array
-		 * @static 
-		 */
-		 public static function config(){
-			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
-			return \Psimone\Mediabrowser\Classes\Medialibrary::config();
+			//Method inherited from \Spescina\Mediabrowser\Browser
+			return \Spescina\Mediabrowser\Browser::configToJSON();
 		 }
 
 		/**
@@ -13797,31 +13833,113 @@ namespace {
 		 * @static 
 		 */
 		 public static function getItems(){
-			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
-			return \Psimone\Mediabrowser\Classes\Medialibrary::getItems();
+			//Method inherited from \Spescina\Mediabrowser\Browser
+			return \Spescina\Mediabrowser\Browser::getItems();
 		 }
 
 		/**
-		 * Return the type of the resource
+		 * Return allowed file extensions configured for the current field
 		 *
-		 * @param string $path
+		 * @param string $field
+		 * @return array
+		 * @throws \Exception
 		 * @static 
 		 */
-		 public static function extension($path){
-			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
-			 \Psimone\Mediabrowser\Classes\Medialibrary::extension($path);
+		 public static function allowedExtensions($field){
+			//Method inherited from \Spescina\Mediabrowser\Browser
+			return \Spescina\Mediabrowser\Browser::allowedExtensions($field);
 		 }
 
 		/**
-		 * Return the localized requested string
+		 * Return the json formatted allowed file extensions
 		 *
-		 * @param string $section
+		 * @param string $field
 		 * @return string
 		 * @static 
 		 */
-		 public static function localize($section){
-			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
-			return \Psimone\Mediabrowser\Classes\Medialibrary::localize($section);
+		 public static function allowedExtensionsToJSON($field){
+			//Method inherited from \Spescina\Mediabrowser\Browser
+			return \Spescina\Mediabrowser\Browser::allowedExtensionsToJSON($field);
+		 }
+
+		/**
+		 * Return the current path
+		 *
+		 * @return string
+		 * @static 
+		 */
+		 public static function getPath(){
+			//Method inherited from \Spescina\Mediabrowser\Browser
+			return \Spescina\Mediabrowser\Browser::getPath();
+		 }
+
+		/**
+		 * Add one item to the item list
+		 *
+		 * @param \Spescina\Mediabrowser\Item $item
+		 * @static 
+		 */
+		 public static function addItem($item){
+			//Method inherited from \Spescina\Mediabrowser\Browser
+			 \Spescina\Mediabrowser\Browser::addItem($item);
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function conf($key = null, $section = null){
+			//Method inherited from \Spescina\Mediabrowser\Browser
+			 \Spescina\Mediabrowser\Browser::conf($key, $section);
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function lang($key, $section = null){
+			//Method inherited from \Spescina\Mediabrowser\Browser
+			 \Spescina\Mediabrowser\Browser::lang($key, $section);
+		 }
+
+	}
+	class Filesystem extends \Spescina\Mediabrowser\Facades\Filesystem{
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function __construct($root = null){
+			//Method inherited from \Spescina\Mediabrowser\Filesystem
+			 \Spescina\Mediabrowser\Filesystem::__construct($root);
+		 }
+
+		/**
+		 * Delete the file with the given path
+		 *
+		 * @param string $file
+		 * @return boolean
+		 * @throws FileDoesNotExists
+		 * @static 
+		 */
+		 public static function fileDelete($file){
+			//Method inherited from \Spescina\Mediabrowser\Filesystem
+			return \Spescina\Mediabrowser\Filesystem::fileDelete($file);
+		 }
+
+		/**
+		 * Delete the folder with the given path
+		 *
+		 * @param string $folder
+		 * @return boolean
+		 * @throws DirectoryDoesNotExists
+		 * @static 
+		 */
+		 public static function folderDelete($folder){
+			//Method inherited from \Spescina\Mediabrowser\Filesystem
+			return \Spescina\Mediabrowser\Filesystem::folderDelete($folder);
 		 }
 
 		/**
@@ -13833,68 +13951,115 @@ namespace {
 		 * @static 
 		 */
 		 public static function folderCreate($path, $folder){
-			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
-			return \Psimone\Mediabrowser\Classes\Medialibrary::folderCreate($path, $folder);
+			//Method inherited from \Spescina\Mediabrowser\Filesystem
+			return \Spescina\Mediabrowser\Filesystem::folderCreate($path, $folder);
 		 }
 
 		/**
-		 * Delete the folder with the given path
+		 * Return folders in path
 		 *
-		 * @param string $folder
+		 * @param string $path
+		 * @return mixed
+		 * @static 
+		 */
+		 public static function getFolders($path){
+			//Method inherited from \Spescina\Mediabrowser\Filesystem
+			return \Spescina\Mediabrowser\Filesystem::getFolders($path);
+		 }
+
+		/**
+		 * Return files in path
+		 *
+		 * @param string $path
+		 * @return mixed
+		 * @static 
+		 */
+		 public static function getFiles($path){
+			//Method inherited from \Spescina\Mediabrowser\Filesystem
+			return \Spescina\Mediabrowser\Filesystem::getFiles($path);
+		 }
+
+		/**
+		 * Check if the given path passes the filesystem validation
+		 *
+		 * @param string $path
 		 * @return boolean
 		 * @static 
 		 */
-		 public static function folderDelete($folder){
-			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
-			return \Psimone\Mediabrowser\Classes\Medialibrary::folderDelete($folder);
+		 public static function validatePath($path){
+			//Method inherited from \Spescina\Mediabrowser\Filesystem
+			return \Spescina\Mediabrowser\Filesystem::validatePath($path);
 		 }
 
 		/**
-		 * Delete the file with the given path
+		 * Return the type of the resource
 		 *
-		 * @param string $file
-		 * @return boolean
+		 * @param string $path
 		 * @static 
 		 */
-		 public static function fileDelete($file){
-			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
-			return \Psimone\Mediabrowser\Classes\Medialibrary::fileDelete($file);
+		 public static function extension($path){
+			//Method inherited from \Spescina\Mediabrowser\Filesystem
+			 \Spescina\Mediabrowser\Filesystem::extension($path);
 		 }
 
 		/**
-		 * Return allowed file extensions configured for the current field
+		 * Convert given path in an array of segments
 		 *
-		 * @param string $field
-		 * @return array
+		 * @param string path
+		 * @returns array
 		 * @static 
 		 */
-		 public static function allowedExtensions($field){
-			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
-			return \Psimone\Mediabrowser\Classes\Medialibrary::allowedExtensions($field);
+		 public static function pathToArray($path){
+			//Method inherited from \Spescina\Mediabrowser\Filesystem
+			 \Spescina\Mediabrowser\Filesystem::pathToArray($path);
 		 }
 
 		/**
-		 * Return the json formatted allowed file extensions
+		 * Convert given array of segments in a path
 		 *
-		 * @param string $field
+		 * @param array segments
+		 * @returns string
+		 * @static 
+		 */
+		 public static function arrayToPath($segments){
+			//Method inherited from \Spescina\Mediabrowser\Filesystem
+			 \Spescina\Mediabrowser\Filesystem::arrayToPath($segments);
+		 }
+
+		/**
+		 * Return only the file|folder name
+		 *
+		 * @param string $path
 		 * @return string
 		 * @static 
 		 */
-		 public static function jsonAllowedExtensions($field){
-			//Method inherited from \Psimone\Mediabrowser\Classes\Medialibrary
-			return \Psimone\Mediabrowser\Classes\Medialibrary::jsonAllowedExtensions($field);
+		 public static function extractName($path){
+			//Method inherited from \Spescina\Mediabrowser\Filesystem
+			return \Spescina\Mediabrowser\Filesystem::extractName($path);
+		 }
+
+		/**
+		 * Get the full path including the root
+		 *
+		 * @param string $piece
+		 * @return string
+		 * @static 
+		 */
+		 public static function getPath($piece){
+			//Method inherited from \Spescina\Mediabrowser\Filesystem
+			return \Spescina\Mediabrowser\Filesystem::getPath($piece);
 		 }
 
 	}
-	class ImgProxy extends \Psimone\Imgproxy\Facades\ImgProxy{
+	class ImgProxy extends \Spescina\Imgproxy\Facades\ImgProxy{
 		/**
 		 * 
 		 *
 		 * @static 
 		 */
-		 public static function link($path, $width, $height){
-			//Method inherited from \Psimone\Imgproxy\Classes\Imgproxy
-			 \Psimone\Imgproxy\Classes\Imgproxy::link($path, $width, $height);
+		 public static function link($path, $width, $height, $quality = null, $zoomCrop = null){
+			//Method inherited from \Spescina\Imgproxy\Imgproxy
+			 \Spescina\Imgproxy\Imgproxy::link($path, $width, $height, $quality, $zoomCrop);
 		 }
 
 	}

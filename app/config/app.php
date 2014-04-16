@@ -107,11 +107,9 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		
-                'Psimone\PlatformCore\PlatformCoreServiceProvider',
+                'Spescina\PlatformCore\PlatformCoreServiceProvider',
                 'Spescina\Mediabrowser\MediabrowserServiceProvider',
                 'Spescina\Imgproxy\ImgproxyServiceProvider',
-            
-                'Teepluss\Asset\AssetServiceProvider',
                 
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
                 'Barryvdh\Debugbar\ServiceProvider',
@@ -182,8 +180,6 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
                 
                 'Debugbar'        => 'Barryvdh\Debugbar\Facade',
-            
-                'Asset'           => 'Teepluss\Asset\Facades\Asset',
 	),
 
 );

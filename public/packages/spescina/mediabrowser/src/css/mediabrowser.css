@@ -4,15 +4,6 @@
     background: #f1f1f1;
     cursor: pointer;
     position: relative; }
-    #mediabrowser .resource div.wrap {
-      display: table;
-      max-width: 120px; }
-      #mediabrowser .resource div.wrap div {
-        display: table-cell;
-        vertical-align: middle;
-        text-align: center; }
-      #mediabrowser .resource div.wrap img {
-        display: block; }
     #mediabrowser .resource.selected {
       border-color: #999; }
     #mediabrowser .resource .caption {
