@@ -10,3 +10,14 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+
+
+$modules = ['test'];
+
+foreach($modules as $module) {
+        
+        $controller = 'Pangea\\Controllers\\' . ucfirst($module) . 'Controller';
+        
+        Route::resource($module, $controller);
+        
+}

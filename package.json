@@ -13,10 +13,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "grunt": "^0.4.4",
-    "grunt-contrib-copy": "^0.5.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-contrib-clean": "^0.5.0",
-    "grunt-contrib-jshint": "^0.10.0"
+    "gulp": "^3.6.0"
   }
 }
